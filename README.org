@@ -14,7 +14,7 @@
 # \bibliography{./prog_data_plane.bib}
 # \bibliographystyle{plain}
 
-/See the [[./README.html][HTML version]] for a nicely formatted version./
+/See the [[https://rg0now.github.io/prog_dataplane_reading_list/README.html][HTML version]] for a nicely formatted version./
 
 This is a reading list for students, practitioners, and researchers
 interested in the general area of programmable data plane devices,
