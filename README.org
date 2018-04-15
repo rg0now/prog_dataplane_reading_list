@@ -13,7 +13,11 @@
 *** Graph-based pipeline abstractions
 
 **** Morris et al.: [[https://pdos.csail.mit.edu/papers/click:tocs00/paper.pdf][*The Click modular router*]], /ACM Trans. on Computer Systems/, 2000.
-Note: in
+Note: Introduces Click, a software architecture for building flexible and
+configurable routers from packet processing modules implementing simple
+router functions like packet classification, queuing, scheduling, organized
+into a directed graph with packet processing modules at the vertices;
+packets flow along the edges of the graph.
 
 **** Aurojit Panda et al.: [[https://www.usenix.org/conference/osdi16/technical-sessions/presentation/panda][*NetBricks: Taking the V out of NFV*]], /USENIX OSDI'16/, 2016.
 Note: 
