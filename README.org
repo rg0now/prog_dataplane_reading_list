@@ -56,7 +56,7 @@ cores one can achieve very high forwarding rates. The authors also identify
 principles for the construction of high-performance software router systems
 on commodity hardware.
 
-**** Greenhalgh et al.: [[http://www.sigcomm.org/sites/default/files/ccr/papers/2009/April/1517480-1517484.pdf][*Flow Processing and the Rise of Commodity Network Hardware*]], //, 2009.
+**** Greenhalgh et al.: [[http://www.sigcomm.org/sites/default/files/ccr/papers/2009/April/1517480-1517484.pdf][*Flow Processing and the Rise of Commodity Network Hardware*]], /SIGCOMM Comput. Commun. Rev./, 2009.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -801,7 +801,7 @@ switching systems, highlighting programmability and reconfiguration
 aspects, and describes the trends in reconfigurable network
 elements.
 
-**** Nick McKeown et al.: [[https://conferences.sigcomm.org/sigcomm/2017/files/program-netpl/01-mckeown.pptx][*Programmable Forwarding Planes are Here to Stay*]], /ACM SIGCOMM 2017 The Third Workshop on Networking and Programming Languages (NetPL)/, 2017.
+**** Nick McKeown et al.: [[https://conferences.sigcomm.org/sigcomm/2017/files/program-netpl/01-mckeown.pptx][*Programmable Forwarding Planes are Here to Stay*]], /ACM SIGCOMM NetPL/, 2017.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
