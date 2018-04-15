@@ -1,10 +1,35 @@
-#+STATUS: "Mustread" "Interesting" "Maybe" ""
+#+STATUS: "mustread" "important" "interesting" ""
 #+COLUMNS: %120ITEM %STATUS
-#+OPTIONS: num:nil author:t 
+#+OPTIONS: num:nil author:t prop:t
 #+AUTHOR: Roberto Bifulco, Gábor Rétvári
 #+TITLE: The Programmable Data Plane: Reading List
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
+#+HTML_HEAD: <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+#+HTML_HEAD: <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
+#+HTML_HEAD: <style>div#content{ max-width:1200px; }</style>
+#+HTML_HEAD: <style>.example{border:0px solid; background:#ffffff; padding:0px; margin-bottom:0px;font-family:"Bitstream Vera Sans", Verdana, sans-serif;font-style: italic;}</style>
 # \bibliography{./prog_data_plane.bib}
 # \bibliographystyle{plain}
+
+This is a reading list for students, practitioners, and researchers
+interested in the general area of programmable data plane devices,
+including SmartNICs, programmable software and hardware switches, and
+middleboxes, everything that may underlie a software-defined network. The
+reading list completes the survey paper "TODO".
+
+The reading list is organized into a rough hierarchy of the major topics;
+note that this hierarchy is more or less arbitrary and the purpose is to
+just let the reading list have /some/ organization at all. The individual
+papers are tagged as "mustread", "important", and "interesting", with the
+approximate notation "read at least these papers to get a good
+understanding of the area", "papers for getting more familiar with some
+sub-areas", and "interesting contributions to the field",
+respectively. Just like the hierarchy, the tags are also pretty much
+arbitrary and follow the subjective views of the authors; your mileage may
+vary.
 
 * Architecture
 
@@ -13,6 +38,9 @@
 *** Graph-based pipeline abstractions
 
 **** Morris et al.: [[https://pdos.csail.mit.edu/papers/click:tocs00/paper.pdf][*The Click modular router*]], /ACM Trans. on Computer Systems/, 2000.
+     :PROPERTIES:
+     :STATUS:   mustread
+     :END:
 Note: Introduces Click, a software architecture for building flexible and
 configurable routers from packet processing modules implementing simple
 router functions like packet classification, queuing, scheduling, organized

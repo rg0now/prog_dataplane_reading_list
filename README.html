@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-04-15 Sun 18:12 -->
+<!-- 2018-04-15 Sun 19:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Programmable Data Plane: Reading List</title>
@@ -180,6 +180,15 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
+<style>div#content{ max-width:1200px; }</style>
+<style>.example{border:0px solid; background:#ffffff; padding:0px; margin-bottom:0px;font-family:"Bitstream Vera Sans", Verdana, sans-serif;font-style: italic;}</style>
+<link rel="stylesheet" href="org.css" type="text/css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -230,22 +239,45 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">The Programmable Data Plane: Reading List</h1>
+<p>
+This is a reading list for students, practitioners, and researchers
+interested in the general area of programmable data plane devices,
+including SmartNICs, programmable software and hardware switches, and
+middleboxes, everything that may underlie a software-defined network. The
+reading list completes the survey paper "TODO".
+</p>
 
-<div id="outline-container-orgd942a7d" class="outline-2">
-<h2 id="orgd942a7d">Architecture</h2>
-<div class="outline-text-2" id="text-orgd942a7d">
+<p>
+The reading list is organized into a rough hierarchy of the major topics;
+note that this hierarchy is more or less arbitrary and the purpose is to
+just let the reading list have <i>some</i> organization at all. The individual
+papers are tagged as "mustread", "important", and "interesting", with the
+approximate notation "read at least these papers to get a good
+understanding of the area", "papers for getting more familiar with some
+sub-areas", and "interesting contributions to the field",
+respectively. Just like the hierarchy, the tags are also pretty much
+arbitrary and follow the subjective views of the authors; your mileage may
+vary.
+</p>
+
+<div id="outline-container-org90c5baa" class="outline-2">
+<h2 id="org90c5baa">Architecture</h2>
+<div class="outline-text-2" id="text-org90c5baa">
 </div>
-<div id="outline-container-org5cd60a3" class="outline-3">
-<h3 id="org5cd60a3">Software switch architectures</h3>
-<div class="outline-text-3" id="text-org5cd60a3">
+<div id="outline-container-orgc8ed2f9" class="outline-3">
+<h3 id="orgc8ed2f9">Software switch architectures</h3>
+<div class="outline-text-3" id="text-orgc8ed2f9">
 </div>
-<div id="outline-container-org1d4e600" class="outline-4">
-<h4 id="org1d4e600">Graph-based pipeline abstractions</h4>
-<div class="outline-text-4" id="text-org1d4e600">
+<div id="outline-container-orgb52243c" class="outline-4">
+<h4 id="orgb52243c">Graph-based pipeline abstractions</h4>
+<div class="outline-text-4" id="text-orgb52243c">
 </div>
 <ul class="org-ul">
-<li><a id="org3b45e73"></a>Morris et al.: <a href="https://pdos.csail.mit.edu/papers/click:tocs00/paper.pdf"><b>The Click modular router</b></a>, <i>ACM Trans. on Computer Systems</i>, 2000.<br />
-<div class="outline-text-5" id="text-org3b45e73">
+<li><a id="orgf48a91e"></a>Morris et al.: <a href="https://pdos.csail.mit.edu/papers/click:tocs00/paper.pdf"><b>The Click modular router</b></a>, <i>ACM Trans. on Computer Systems</i>, 2000.<br />
+<div class="outline-text-5" id="text-orgf48a91e">
+<pre class="example">
+STATUS: mustread
+</pre>
 <p>
 Note: Introduces Click, a software architecture for building flexible and
 configurable routers from packet processing modules implementing simple
@@ -256,8 +288,8 @@ packets flow along the edges of the graph.
 </div>
 </li>
 
-<li><a id="org2e26700"></a>Aurojit Panda et al.: <a href="https://www.usenix.org/conference/osdi16/technical-sessions/presentation/panda"><b>NetBricks: Taking the V out of NFV</b></a>, <i>USENIX OSDI'16</i>, 2016.<br />
-<div class="outline-text-5" id="text-org2e26700">
+<li><a id="org724960e"></a>Aurojit Panda et al.: <a href="https://www.usenix.org/conference/osdi16/technical-sessions/presentation/panda"><b>NetBricks: Taking the V out of NFV</b></a>, <i>USENIX OSDI'16</i>, 2016.<br />
+<div class="outline-text-5" id="text-org724960e">
 <p>
 Note: 
 </p>
@@ -270,7 +302,7 @@ Note:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Roberto Bifulco, Gábor Rétvári</p>
-<p class="date">Created: 2018-04-15 Sun 18:12</p>
+<p class="date">Created: 2018-04-15 Sun 19:03</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
