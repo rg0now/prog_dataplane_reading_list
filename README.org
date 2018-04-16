@@ -995,7 +995,8 @@ in-network computing and that efficient datacenter network request
 processing is possible if we carefully split the computation across
 programmable switches, network accelerators, and end hosts.
 
-**** Giuseppe Siracusano et al.: *[[http://arxiv.org/abs/1801.05731][In-network Neural Networks]]*, //, 2018.
+**** Giuseppe Siracusano et al.: *[[http://arxiv.org/abs/1801.05731][In-network Neural Networks]]*, /unpublished manuscript/, 2018.
+
      :PROPERTIES:
      :RELEVANCE: important
      :END:
