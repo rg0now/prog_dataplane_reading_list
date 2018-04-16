@@ -22,9 +22,9 @@ switches, everything that may underlie a software-defined network. The
 reading list completes the survey paper "TODO".
 
 The reading list is organized into a rough hierarchy based on the major
-topics of /Architecture/, /Abstractions/, and /Miscellanea/; note that this
-hierarchy is more or less arbitrary and the purpose is just to let to have
-/some/ organization at all. The individual papers are tagged as "mustread",
+topics of /Abstractions/, /Architecture/, and /Miscellanea/; note that this
+hierarchy is more or less arbitrary and the purpose is just to have /some/
+organization at all. The individual papers are tagged as "mustread",
 "important", and "interesting" (available only in the HTML version), with
 the approximate meaning "read at least these papers to get a good
 understanding of the area", "papers for getting more familiar with some
@@ -33,10 +33,357 @@ respectively. Just like the hierarchy, the tags are also pretty much
 arbitrary and follow the subjective views of the authors; your mileage may
 vary.
 
-/Note:/ some of the linked papers are behind paywalls, but we checked that
-all listed papers can be accessed freely by a moderate amount of
-googling. We still provide the paywall links as user-provided PDFs often do
+/Note:/ Some of the linked papers are behind paywalls. We double-checked
+that all listed papers can be accessed freely by a moderate amount of
+googling; we still provide the paywall links as user-provided PDFs often do
 not prove overly stable over time.
+
+* Abstractions
+
+** Languages and Compilers
+
+*** Low-level APIs
+
+**** McKeown et al.: [[http://doi.acm.org/10.1145/1355734.1355746][*OpenFlow: Enabling Innovation in Campus Networks*]], /ACM SIGCOMM Comput. Commun. Rev./, 2008.
+     :PROPERTIES:
+     :RELEVANCE:   mustread
+     :END:
+THe OpenFlow whitepaper. The original idea in OpenFlow was to provide a way
+for researchers to run experimental protocols in the networks they use
+every day. OpenFlow is based on an Ethernet switch, with an internal
+flow-table, and a standardized interface to add and remove flow entries.
+This allowed, in addition to allowing researchers to evaluate their ideas
+in real-world traffic settings, for OpenFlow to serve as a useful campus
+component in large-scale testbeds.
+
+**** Duncan et al.: [[https://ieeexplore.ieee.org/iel5/5166953/5166954/05167027.pdf][*packetC: Language for High Performance Packet Processing*]], /IEEE HPCC/, 2009.
+     :PROPERTIES:
+     :RELEVANCE:   interesting
+     :END:
+This paper describes a model which combines a parallel model and
+heterogeneous multiprocessor implementations.  The parallel packet
+processing model uses coarse-grain, SPMD parallelism to free users from
+thread management and it requires the host system to locate protocol
+headers in the packet before a parallel copy of the program executes.  The
+packetC language abstracts and encapsulates familiar packet processing data
+sets and operations into new aggregate data types and operators, e.g., for
+packets, databases and searchsets. 
+
+**** Song et al.: [[http://doi.acm.org/10.1145/2491185.2491190][*Protocol-oblivious Forwarding: Unleash the Power of SDN Through a Future-proof Forwarding Plane*]], /ACM HotSDN/, 2013.
+     :PROPERTIES:
+     :RELEVANCE:   important
+     :END:
+As an alternative to P4, Protocol-Oblivious Forwarding (POF) is presented
+as a key enabler for highly flexible and programmable SDN. The goal is to
+remove any dependency on protocol-specific configurations on the forwarding
+elements and, in addition to P4's stateless design, enhance the data-path
+with new stateful instructions to support genuine software defined
+networking behavior. A generic flow instruction set (FIS) is defined to
+fulfill this purpose and both hardware-based and open source software-based
+prototypes are shown to demonstrate the feasibility and advantages of POF.
+
+**** Bosshart et al.: [[http://www.sigcomm.org/sites/default/files/ccr/papers/2014/July/0000000-0000004.pdf][*P4: Programming protocol-independent packet processors*]], /ACM SIGCOMM Comput. Commun. Rev./, 2014.
+     :PROPERTIES:
+     :RELEVANCE:   mustread
+     :END:
+This seminal paper introduces P4, a high-level language for programming
+protocol-independent packet processors. P4 has three goals: (1)
+reconfigurability, in that programmers can change the way switches process
+packets once they are deployed, (2) protocol independence, in that switches
+are not tied to any specific network protocols, and (3) target
+independence, in that programmers can describe packet-processing
+functionality independently of the specifics of the underlying
+hardware. The paper demonstrates P4 by showing configure a switch to add a
+new hierarchical label.
+
+**** Shahbaz et al.: [[http://doi.acm.org/10.1145/2774993.2775000][*The Case for an Intermediate Representation for Programmable Data Planes*]], /ACM SOSR/, 2015.
+     :PROPERTIES:
+     :RELEVANCE:   important
+     :END:
+The paper introduces NetASM, an intermediate representation for
+programmable data planes. NetASM is a device-independent language that is
+expressive enough to act as the target language for compilers for
+high-level languages, yet low-level enough to be efficiently assembled on
+various device architectures. It enables conventional compiler optimization
+techniques to significantly improve the performance and resource
+utilization of custom packet-processing pipelines on a variety of targets.
+
+**** Bifulco et al.: [[http://doi.acm.org/10.1145/2890955.2890962][*Improving SDN with InSPired Switches*]], /ACM SOSR/, 2016.
+     :PROPERTIES:
+     :RELEVANCE:   mustread
+     :END:
+The paper proposes an API for programming the generation of packets in
+programmable switches, instead of forging network packets on the controller
+side.  The InSP API allows a programmer to define in-switch packet
+generation operations, which include the specification of triggering
+conditions, packet's content and forwarding actions.
+
+**** Choi et al.: [[https://www.cs.princeton.edu/~mshahbaz/papers/sosr17demos-pvpp.pdf][*PVPP: A Programmable Vector Packet Processor*]], /ACM SOSR/, 2017.
+     :PROPERTIES:
+     :RELEVANCE:   interesting
+     :END:
+PVPP is a data-plane program compiler from P4, a data plane DSL based on
+match-action tables, to the fd.io Vector Packet Processor (VPP) software
+switch, based on the packet processing node graph model. PVPP compiles a
+data plane program written in P4 to VPP's internal graph
+representation. 
+
+*** High-level Languages and Compilers
+
+**** Christopher Monsanto et al.: [[https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final232.pdf][*Composing Software Defined Networks*]], /USENIX NSDI/, 2013.
+     :PROPERTIES:
+     :RELEVANCE:   mustread
+     :END:
+The paper introduces Pyretic, a novel programming language for writing
+composable SDN applications using a set of high level topology and
+packet-processing abstractions. Pyretic improves on Frenetic (an earlier
+incarnation of a similar language) by adding support for sequential
+composition, the use of topology abstractions to define what each module
+can see and do with the network, and an abstract packet model that
+introduces virtual fields into packets. Modular applications are written
+using the static policy language NetCore, which provides primitive actions,
+matching predicates, query policies, and policies.
+
+**** Voellmy et al.: [[https://conferences.sigcomm.org/sigcomm/2013/papers/sigcomm/p87.pdf][*Maple: simplifying SDN programming using algorithmic policies*]], /ACM SIGCOMM Comput. Commun. Rev./, 2013.
+     :PROPERTIES:
+     :RELEVANCE:   important
+     :END:
+The paper presents Maple, a system that simplifies SDN programming by (1)
+allowing a programmer to use a standard programming language to design an
+arbitrary, centralized algorithm, to decide the behavior of an entire
+network, and (2) providing an abstraction that the programmer-defined,
+centralized policy runs on every packet entering a network, and hence is
+oblivious to the challenge of translating a high-level policy into sets of
+rules on distributed individual switches. To implement algorithmic policies
+efficiently, Maple includes not only a highly-efficient multicore
+scheduler, but more importantly a novel tracing runtime optimizer that can
+automatically record reusable policy decisions, offload work to switches
+when possible, and keep switch flow tables up-to-date by dynamically
+tracing the dependency of policy decisions on packet contents as well as
+the environment. 
+
+**** Foster et al.: [[http://frenetic-lang.org/publications/overview-ieeecoms13.pdf][*Languages for software-defined networks*]], /IEEE Communications Magazine/, 2013.
+     :PROPERTIES:
+     :RELEVANCE:   mustread
+     :END:
+An easily approachable survey on higher-level abstractions for creating and
+composing packet processing applications using the Frenetic framework.
+
+**** Bonelli et al.: [[http://doi.acm.org/10.1145/2658260.2658269][*A Purely Functional Approach to Packet Processing*]], /IEEE/ACM ANCS/, 2014.
+     :PROPERTIES:
+     :RELEVANCE:   interesting
+     :END:
+The paper introduces PFQ-Lang, an extensible functional language to
+process, analyze and forward packets, which allows easy development by
+leveraging functional composition and allows to exploit multi-queue NICs
+and multi-core architectures.
+
+**** Lavanya Jose et al.: [[https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/jose][*Compiling Packet Programs to Reconfigurable Switches*]], /USENIX NSDI/, 2015.
+     :PROPERTIES:
+     :RELEVANCE:   mustread
+     :END:
+Seminal paper exploring the design of a compiler for programmable switching
+chips, in particular how to map logical lookup tables to physical tables
+while meeting data and control dependencies in the program. A Integer
+Linear Programming (ILP) and greedy approach is presented to generate
+solutions optimized for latency, pipeline occupancy, or power
+consumption. The authors show benchmarks from real production networks to
+two different programmable switch architectures: RMT and Intel’s FlexPipe.
+
+**** Firestone et al.: [[https://www.usenix.org/system/files/conference/nsdi17/nsdi17-firestone.pdf][*VFP: A Virtual Switch Platform for Host Sdn in the Public Cloud*]], /USENIX NSDI/, 2017.
+     :PROPERTIES:
+     :RELEVANCE:   important
+     :END:
+The paper presents the Virtual Filtering Platform (VFP), a programmable
+virtual switch that powers Microsoft Azure, a large public cloud. VFP
+includes support for multiple independent network controllers, policy based
+on connections rather than only on packets, efficient caching and
+classification algorithms for performance, and efficient offload of flow
+policy to programmable NICs. The paper presents the design of VFP and its
+API, its flow language and compiler used for flow processing, performance
+results, and experiences deploying and using VFP in Azure over several
+years.
+
+**** Wang et al.: [[https://www.cs.cornell.edu/~jnfoster/papers/p4fpga.pdf][*P4FPGA: A Rapid Prototyping Framework for P4*]], /ACM SOSR/, 2017.
+     :PROPERTIES:
+     :RELEVANCE:   interesting
+     :END:
+P4FPGA is a tool for developing and evaluating data plane applications. It
+is both an open-source compiler and runtime; the compiler in turn extends
+the P4.org reference compiler with a custom backend that generates FPGA
+code. By combining high-level programming abstractions offered by P4 with a
+flexible and powerful hardware target, P4FPGA may allow developers to
+rapidly prototype and deploy new data plane applications.
+
+** Abstractions for Embedded State
+
+**** Verdú et al.: [[http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=ED2CCB19D8967081D9DE927A7AB43614?doi=10.1.1.482.5955&rep=rep1&type=pdf][*Workload Characterization of Stateful Networking Applications*]], /IEEE HPC/, 2008.
+     :PROPERTIES:
+     :RELEVANCE:   important
+     :END:
+This paper presents the first workload characterization of stateful
+networking applications. The analysis emphasizes the study of data cache
+behaviour, but discusses branch prediction, instruction distribution,
+etc. Another important contribution is the study of the state categories of
+different networking applications. 
+
+**** Bianchi et al.: [[http://doi.acm.org/10.1145/2602204.2602211][*OpenState: Programming Platform-independent Stateful Openflow Applications Inside the Switch*]], /ACM SIGCOMM Comput. Commun. Rev./, 2014.
+     :PROPERTIES:
+     :RELEVANCE:   mustread
+     :END:
+The paper tackles the challenge to devise a stateful data plane programming
+abstraction (versus the stateless OpenFlow match/action table abstraction)
+which still entails high performance and remains consistent with vendors'
+preference for closed platforms. The authors posit that a promising answer
+revolves around the usage of extended finite state machines, as an
+extension (super-set) of the OpenFlow match/action abstraction, turn the
+proposed abstraction into an actual table-based API, and we show how it can
+be supported by (mostly) reusing core primitives already implemented in
+OpenFlow devices.
+
+**** Moshref et al.: [[http://doi.acm.org/10.1145/2620728.2620729][*Flow-level State Transition As a New Switch Primitive for SDN*]], /ACM HotSDN/, 2014.
+     :PROPERTIES:
+     :RELEVANCE:   interesting
+     :END:
+The paper proposes FAST (Flow-level State Transitions) as a new switch
+primitive for software-defined networks. With FAST, the controller simply
+preinstalls a state machine and switches can automatically record flow
+state transitions by matching incoming packets to installed filters. FAST
+can support a variety of dynamic applications, and can be readily
+implemented with commodity switch components and software switches.
+
+**** Arashloo et al.: [[http://doi.acm.org/10.1145/2934872.2934892][*SNAP: Stateful Network-Wide Abstractions for Packet Processing*]], /ACM SIGCOMM/, 2016.
+     :PROPERTIES:
+     :RELEVANCE:   important
+     :END:
+SNAP offers a simpler "centralized" stateful programming model on top of
+the simple match-action paradigm offered by OpenFlow.  SNAP programs are
+developed on a one-big-switch abstraction and may contain reads and writes
+to global, persistent arrays, allowing programmers to implement a broad
+range of stateful applications. The SNAP compiler then distributes, places,
+and optimizes access to these stateful arrays, discovering read/write
+dependencies and translating one-big-switch programs into an efficient
+internal representation based on a novel variant of binary decision
+diagrams.
+
+**** Sivaraman et al.: [[http://doi.acm.org/10.1145/2934872.2934900][*Packet Transactions: High-Level Programming for Line-Rate Switches*]], /ACM SIGCOMM/, 2016.
+     :PROPERTIES:
+     :RELEVANCE:   important
+     :END:
+This paper shows how to program data-plane algorithms in a high-level
+language and compile those programs into low-level microcode that can run
+on programmable line-rate switching chips. The key challenge is that many
+data-plane algorithms create and modify algorithmic state. To achieve
+line-rate programmability for stateful algorithms, the paper introduces the
+notion of a packet transaction: a sequential packet-processing code block
+that is atomic and isolated from other such code blocks. The idea is
+developed in Domino, a C-like imperative language to express data-plane
+algorithms, and many examples are shown that can be run at line rate with
+modest estimated chip-area overhead.
+
+**** Giuseppe Bianchi et al.: [[http://arxiv.org/abs/1605.01977][*Open Packet Processor: a programmable architecture for wire speed platform-independent stateful in-network processing*]], /unpublished manuscript/, 2016.
+     :PROPERTIES:
+     :RELEVANCE:   interesting
+     :END:
+This paper aims at contributing to the debate on how to bring
+programmability of stateful packet processing tasks inside the network
+switches, while retaining platform independency. The proposed approach,
+named "Open Packet Processor" (OPP), shows the viability of eXtended Finite
+State Machines (XFSM) as low-level data plane programming
+abstraction. Platform independence is accomplished by decoupling the
+implementation of hardware primitives from their usage by an application
+formally described via an abstract XFSM.
+
+**** Luo et al.: [[http://doi.acm.org/10.1145/3050220.3050233][*Swing State: Consistent Updates for Stateful and Programmable Data Planes*]], /ACM SOSR/, 2017.
+     :PROPERTIES:
+     :RELEVANCE:   interesting
+     :END:
+The paper presents Swing State, a general state-management framework and
+runtime system supporting consistent state migration in stateful data
+planes. The key insight is to perform state migration entirely within the
+data plane by piggybacking state updates on live traffic. To minimize the
+overhead, Swing State only migrates the states that cannot be safely
+reconstructed at the destination switch. A prototype of Swing State for P4
+is also described.
+
+**** Dargahi et al.: [[https://doi.org/10.1109/COMST.2017.2689819][*A Survey on the Security of Stateful SDN Data Planes*]], /IEEE Communications Surveys Tutorials/, 2017.
+     :PROPERTIES:
+     :RELEVANCE:   important
+     :END:
+The paper provides the reader with a background on stateful SDN data plane
+proposals, focusing on the security implications that data plane
+programmability brings about, identifies potential attack scenarios, and
+highlights possible vulnerabilities specific to stateful in-switch
+processing, including denial of service and saturation attacks.
+
+**** Murad Kablan et al.: [[https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/kablan][*Stateless Network Functions: Breaking the Tight Coupling of State and Processing*]], /USENIX NSDI 17/, 2017.
+     :PROPERTIES:
+     :RELEVANCE:   mustread
+     :END:
+The paper presents Stateless Network Functions, a new architecture for
+network functions virtualization, where the existing design of network
+functions is decomposed into a stateless processing component along with a
+data-store layer. The StatelessNF processing instances are architected
+around efficient pipelines utilizing DPDK for high performance network I/O,
+packaged as Docker containers for easy deployment, and a data store
+interface optimized based on the expected request patterns to efficiently
+access a RAMCloud-based data store. A network-wide orchestrator monitors
+the instances for load and failure, manages instances to scale and provide
+resilience, and leverages an OpenFlow-based network to direct traffic to
+instances. 
+
+** Programmable Parsing and Scheduling
+
+**** Gibb et al.: [[https://doi.org/10.1109/ANCS.2013.6665172][*Design principles for packet parsers*]], /IEEE/ACM ANCS/, 2013.
+     :PROPERTIES:
+     :RELEVANCE:   important
+     :END:
+The paper presents an interesting view on parser design and the trade-offs
+between different designs, asking whether it is better to design one fast
+parser or several slow parsers, what are the costs of making the parser
+reconfigurable in the field, and what design decisions most impact power
+and area. The paper describes trade-offs in parser design, identifies
+design principles for switch and router architects, and describes a parser
+generator that outputs synthesizable Verilog that is available for
+download.
+
+**** Radhika Mittal et al.: [[https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/mittal][*Universal Packet Scheduling*]], /USENIX NSDI/, 2016.
+     :PROPERTIES:
+     :RELEVANCE:   interesting
+     :END:
+The addresses a seemingly simple question: Is there a universal packet
+scheduling algorithm? It turns out that in general the answer is "no";
+however, the authors manage to show that the classical Least Slack Time
+First (LSTF) scheduling algorithm comes closest to being universal and it
+can closely replay a wide range of scheduling algorithms. LSTF is evaluated
+as to whether in practice it can meet various network-wide objectives; the
+authors find that LSTF performs comparable to the state-of-the-art for each
+of performance metric. 
+
+**** Sivaraman et al.: [[http://doi.acm.org/10.1145/2934872.2934899][*Programmable Packet Scheduling at Line Rate*]], /ACM SIGCOMM/, 2016.
+     :PROPERTIES:
+     :RELEVANCE:   important
+     :END:
+Similarly to the "Universal Packet Scheduling" paper, this paper presents
+another design for a programmable packet scheduler, which allows scheduling
+algorithms, potentially algorithms that are unknown today, to be programmed
+into a switch without requiring hardware redesign.  The design uses the
+property that scheduling algorithms make two decisions, in what order to
+schedule packets and when to schedule them, and exploits that in many
+scheduling algorithms definitive decisions on these two questions can be
+made when packets are enqueued. The resultant design uses a single
+abstraction: the push-in first-out queue (PIFO), a priority queue that
+maintains the scheduling order or time.
+
+**** Sivaraman et al.: [[http://doi.acm.org/10.1145/2535771.2535796][*No Silver Bullet: Extending SDN to the Data Plane*]], /ACM HotNets/, 2013.
+     :PROPERTIES:
+     :RELEVANCE:   interesting
+     :END:
+Instead of going with a universal scheduler, the authors argue that
+Software-Defined Networking must be extended to control the fast-path
+scheduling and queueing behavior of a switch. To this end, they propose
+adding a small FPGA to switches, and synthesize, place, and route hardware
+implementations for CoDel and RED.
 
 * Programmable Switch Architectures
 
@@ -78,7 +425,6 @@ router functionality both across multiple servers and across multiple cores
 within a single server. RouteBricks adopts a fully programmable Click/Linux
 environment and is built entirely from off-the-shelf, general-purpose
 server hardware.
-
 
 *** The Dataflow Graph Abstraction
 
@@ -431,353 +777,6 @@ rules with overlapping patterns. Rather long dependency chains must be
 broken to cache smaller groups of rules while preserving the semantics of
 the policy.
 
-* Abstractions
-
-** Languages and Compilers
-
-*** Low-level APIs
-
-**** McKeown et al.: [[http://doi.acm.org/10.1145/1355734.1355746][*OpenFlow: Enabling Innovation in Campus Networks*]], /ACM SIGCOMM Comput. Commun. Rev./, 2008.
-     :PROPERTIES:
-     :RELEVANCE:   mustread
-     :END:
-THe OpenFlow whitepaper. The original idea in OpenFlow was to provide a way
-for researchers to run experimental protocols in the networks they use
-every day. OpenFlow is based on an Ethernet switch, with an internal
-flow-table, and a standardized interface to add and remove flow entries.
-This allowed, in addition to allowing researchers to evaluate their ideas
-in real-world traffic settings, for OpenFlow to serve as a useful campus
-component in large-scale testbeds.
-
-**** Duncan et al.: [[https://ieeexplore.ieee.org/iel5/5166953/5166954/05167027.pdf][*packetC: Language for High Performance Packet Processing*]], /IEEE HPCC/, 2009.
-     :PROPERTIES:
-     :RELEVANCE:   interesting
-     :END:
-This paper describes a model which combines a parallel model and
-heterogeneous multiprocessor implementations.  The parallel packet
-processing model uses coarse-grain, SPMD parallelism to free users from
-thread management and it requires the host system to locate protocol
-headers in the packet before a parallel copy of the program executes.  The
-packetC language abstracts and encapsulates familiar packet processing data
-sets and operations into new aggregate data types and operators, e.g., for
-packets, databases and searchsets. 
-
-**** Song et al.: [[http://doi.acm.org/10.1145/2491185.2491190][*Protocol-oblivious Forwarding: Unleash the Power of SDN Through a Future-proof Forwarding Plane*]], /ACM HotSDN/, 2013.
-     :PROPERTIES:
-     :RELEVANCE:   important
-     :END:
-As an alternative to P4, Protocol-Oblivious Forwarding (POF) is presented
-as a key enabler for highly flexible and programmable SDN. The goal is to
-remove any dependency on protocol-specific configurations on the forwarding
-elements and, in addition to P4's stateless design, enhance the data-path
-with new stateful instructions to support genuine software defined
-networking behavior. A generic flow instruction set (FIS) is defined to
-fulfill this purpose and both hardware-based and open source software-based
-prototypes are shown to demonstrate the feasibility and advantages of POF.
-
-**** Bosshart et al.: [[http://www.sigcomm.org/sites/default/files/ccr/papers/2014/July/0000000-0000004.pdf][*P4: Programming protocol-independent packet processors*]], /ACM SIGCOMM Comput. Commun. Rev./, 2014.
-     :PROPERTIES:
-     :RELEVANCE:   mustread
-     :END:
-This seminal paper introduces P4, a high-level language for programming
-protocol-independent packet processors. P4 has three goals: (1)
-reconfigurability, in that programmers can change the way switches process
-packets once they are deployed, (2) protocol independence, in that switches
-are not tied to any specific network protocols, and (3) target
-independence, in that programmers can describe packet-processing
-functionality independently of the specifics of the underlying
-hardware. The paper demonstrates P4 by showing configure a switch to add a
-new hierarchical label.
-
-**** Shahbaz et al.: [[http://doi.acm.org/10.1145/2774993.2775000][*The Case for an Intermediate Representation for Programmable Data Planes*]], /ACM SOSR/, 2015.
-     :PROPERTIES:
-     :RELEVANCE:   important
-     :END:
-The paper introduces NetASM, an intermediate representation for
-programmable data planes. NetASM is a device-independent language that is
-expressive enough to act as the target language for compilers for
-high-level languages, yet low-level enough to be efficiently assembled on
-various device architectures. It enables conventional compiler optimization
-techniques to significantly improve the performance and resource
-utilization of custom packet-processing pipelines on a variety of targets.
-
-**** Bifulco et al.: [[http://doi.acm.org/10.1145/2890955.2890962][*Improving SDN with InSPired Switches*]], /ACM SOSR/, 2016.
-     :PROPERTIES:
-     :RELEVANCE:   mustread
-     :END:
-The paper proposes an API for programming the generation of packets in
-programmable switches, instead of forging network packets on the controller
-side.  The InSP API allows a programmer to define in-switch packet
-generation operations, which include the specification of triggering
-conditions, packet's content and forwarding actions.
-
-**** Choi et al.: [[https://www.cs.princeton.edu/~mshahbaz/papers/sosr17demos-pvpp.pdf][*PVPP: A Programmable Vector Packet Processor*]], /ACM SOSR/, 2017.
-     :PROPERTIES:
-     :RELEVANCE:   interesting
-     :END:
-PVPP is a data-plane program compiler from P4, a data plane DSL based on
-match-action tables, to the fd.io Vector Packet Processor (VPP) software
-switch, based on the packet processing node graph model. PVPP compiles a
-data plane program written in P4 to VPP's internal graph
-representation. 
-
-*** High-level Languages and Compilers
-
-**** Christopher Monsanto et al.: [[https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final232.pdf][*Composing Software Defined Networks*]], /USENIX NSDI/, 2013.
-     :PROPERTIES:
-     :RELEVANCE:   mustread
-     :END:
-The paper introduces Pyretic, a novel programming language for writing
-composable SDN applications using a set of high level topology and
-packet-processing abstractions. Pyretic improves on Frenetic (an earlier
-incarnation of a similar language) by adding support for sequential
-composition, the use of topology abstractions to define what each module
-can see and do with the network, and an abstract packet model that
-introduces virtual fields into packets. Modular applications are written
-using the static policy language NetCore, which provides primitive actions,
-matching predicates, query policies, and policies.
-
-**** Voellmy et al.: [[https://conferences.sigcomm.org/sigcomm/2013/papers/sigcomm/p87.pdf][*Maple: simplifying SDN programming using algorithmic policies*]], /ACM SIGCOMM Comput. Commun. Rev./, 2013.
-     :PROPERTIES:
-     :RELEVANCE:   important
-     :END:
-The paper presents Maple, a system that simplifies SDN programming by (1)
-allowing a programmer to use a standard programming language to design an
-arbitrary, centralized algorithm, to decide the behavior of an entire
-network, and (2) providing an abstraction that the programmer-defined,
-centralized policy runs on every packet entering a network, and hence is
-oblivious to the challenge of translating a high-level policy into sets of
-rules on distributed individual switches. To implement algorithmic policies
-efficiently, Maple includes not only a highly-efficient multicore
-scheduler, but more importantly a novel tracing runtime optimizer that can
-automatically record reusable policy decisions, offload work to switches
-when possible, and keep switch flow tables up-to-date by dynamically
-tracing the dependency of policy decisions on packet contents as well as
-the environment. 
-
-**** Foster et al.: [[http://frenetic-lang.org/publications/overview-ieeecoms13.pdf][*Languages for software-defined networks*]], /IEEE Communications Magazine/, 2013.
-     :PROPERTIES:
-     :RELEVANCE:   mustread
-     :END:
-An easily approachable survey on higher-level abstractions for creating and
-composing packet processing applications using the Frenetic framework.
-
-**** Bonelli et al.: [[http://doi.acm.org/10.1145/2658260.2658269][*A Purely Functional Approach to Packet Processing*]], /IEEE/ACM ANCS/, 2014.
-     :PROPERTIES:
-     :RELEVANCE:   interesting
-     :END:
-The paper introduces PFQ-Lang, an extensible functional language to
-process, analyze and forward packets, which allows easy development by
-leveraging functional composition and allows to exploit multi-queue NICs
-and multi-core architectures.
-
-**** Lavanya Jose et al.: [[https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/jose][*Compiling Packet Programs to Reconfigurable Switches*]], /USENIX NSDI/, 2015.
-     :PROPERTIES:
-     :RELEVANCE:   mustread
-     :END:
-Seminal paper exploring the design of a compiler for programmable switching
-chips, in particular how to map logical lookup tables to physical tables
-while meeting data and control dependencies in the program. A Integer
-Linear Programming (ILP) and greedy approach is presented to generate
-solutions optimized for latency, pipeline occupancy, or power
-consumption. The authors show benchmarks from real production networks to
-two different programmable switch architectures: RMT and Intel’s FlexPipe.
-
-**** Firestone et al.: [[https://www.usenix.org/system/files/conference/nsdi17/nsdi17-firestone.pdf][*VFP: A Virtual Switch Platform for Host Sdn in the Public Cloud*]], /USENIX NSDI/, 2017.
-     :PROPERTIES:
-     :RELEVANCE:   important
-     :END:
-The paper presents the Virtual Filtering Platform (VFP), a programmable
-virtual switch that powers Microsoft Azure, a large public cloud. VFP
-includes support for multiple independent network controllers, policy based
-on connections rather than only on packets, efficient caching and
-classification algorithms for performance, and efficient offload of flow
-policy to programmable NICs. The paper presents the design of VFP and its
-API, its flow language and compiler used for flow processing, performance
-results, and experiences deploying and using VFP in Azure over several
-years.
-
-**** Wang et al.: [[https://www.cs.cornell.edu/~jnfoster/papers/p4fpga.pdf][*P4FPGA: A Rapid Prototyping Framework for P4*]], /ACM SOSR/, 2017.
-     :PROPERTIES:
-     :RELEVANCE:   interesting
-     :END:
-P4FPGA is a tool for developing and evaluating data plane applications. It
-is both an open-source compiler and runtime; the compiler in turn extends
-the P4.org reference compiler with a custom backend that generates FPGA
-code. By combining high-level programming abstractions offered by P4 with a
-flexible and powerful hardware target, P4FPGA may allow developers to
-rapidly prototype and deploy new data plane applications.
-
-** Abstractions for Embedded State
-
-**** Verdú et al.: [[http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=ED2CCB19D8967081D9DE927A7AB43614?doi=10.1.1.482.5955&rep=rep1&type=pdf][*Workload Characterization of Stateful Networking Applications*]], /IEEE HPC/, 2008.
-     :PROPERTIES:
-     :RELEVANCE:   important
-     :END:
-This paper presents the first workload characterization of stateful
-networking applications. The analysis emphasizes the study of data cache
-behaviour, but discusses branch prediction, instruction distribution,
-etc. Another important contribution is the study of the state categories of
-different networking applications. 
-
-**** Bianchi et al.: [[http://doi.acm.org/10.1145/2602204.2602211][*OpenState: Programming Platform-independent Stateful Openflow Applications Inside the Switch*]], /ACM SIGCOMM Comput. Commun. Rev./, 2014.
-     :PROPERTIES:
-     :RELEVANCE:   mustread
-     :END:
-The paper tackles the challenge to devise a stateful data plane programming
-abstraction (versus the stateless OpenFlow match/action table abstraction)
-which still entails high performance and remains consistent with vendors'
-preference for closed platforms. The authors posit that a promising answer
-revolves around the usage of extended finite state machines, as an
-extension (super-set) of the OpenFlow match/action abstraction, turn the
-proposed abstraction into an actual table-based API, and we show how it can
-be supported by (mostly) reusing core primitives already implemented in
-OpenFlow devices.
-
-**** Moshref et al.: [[http://doi.acm.org/10.1145/2620728.2620729][*Flow-level State Transition As a New Switch Primitive for SDN*]], /ACM HotSDN/, 2014.
-     :PROPERTIES:
-     :RELEVANCE:   interesting
-     :END:
-The paper proposes FAST (Flow-level State Transitions) as a new switch
-primitive for software-defined networks. With FAST, the controller simply
-preinstalls a state machine and switches can automatically record flow
-state transitions by matching incoming packets to installed filters. FAST
-can support a variety of dynamic applications, and can be readily
-implemented with commodity switch components and software switches.
-
-**** Arashloo et al.: [[http://doi.acm.org/10.1145/2934872.2934892][*SNAP: Stateful Network-Wide Abstractions for Packet Processing*]], /ACM SIGCOMM/, 2016.
-     :PROPERTIES:
-     :RELEVANCE:   important
-     :END:
-SNAP offers a simpler "centralized" stateful programming model on top of
-the simple match-action paradigm offered by OpenFlow.  SNAP programs are
-developed on a one-big-switch abstraction and may contain reads and writes
-to global, persistent arrays, allowing programmers to implement a broad
-range of stateful applications. The SNAP compiler then distributes, places,
-and optimizes access to these stateful arrays, discovering read/write
-dependencies and translating one-big-switch programs into an efficient
-internal representation based on a novel variant of binary decision
-diagrams.
-
-**** Sivaraman et al.: [[http://doi.acm.org/10.1145/2934872.2934900][*Packet Transactions: High-Level Programming for Line-Rate Switches*]], /ACM SIGCOMM/, 2016.
-     :PROPERTIES:
-     :RELEVANCE:   important
-     :END:
-This paper shows how to program data-plane algorithms in a high-level
-language and compile those programs into low-level microcode that can run
-on programmable line-rate switching chips. The key challenge is that many
-data-plane algorithms create and modify algorithmic state. To achieve
-line-rate programmability for stateful algorithms, the paper introduces the
-notion of a packet transaction: a sequential packet-processing code block
-that is atomic and isolated from other such code blocks. The idea is
-developed in Domino, a C-like imperative language to express data-plane
-algorithms, and many examples are shown that can be run at line rate with
-modest estimated chip-area overhead.
-
-**** Giuseppe Bianchi et al.: [[http://arxiv.org/abs/1605.01977][*Open Packet Processor: a programmable architecture for wire speed platform-independent stateful in-network processing*]], /unpublished manuscript/, 2016.
-     :PROPERTIES:
-     :RELEVANCE:   interesting
-     :END:
-This paper aims at contributing to the debate on how to bring
-programmability of stateful packet processing tasks inside the network
-switches, while retaining platform independency. The proposed approach,
-named "Open Packet Processor" (OPP), shows the viability of eXtended Finite
-State Machines (XFSM) as low-level data plane programming
-abstraction. Platform independence is accomplished by decoupling the
-implementation of hardware primitives from their usage by an application
-formally described via an abstract XFSM.
-
-**** Luo et al.: [[http://doi.acm.org/10.1145/3050220.3050233][*Swing State: Consistent Updates for Stateful and Programmable Data Planes*]], /ACM SOSR/, 2017.
-     :PROPERTIES:
-     :RELEVANCE:   interesting
-     :END:
-The paper presents Swing State, a general state-management framework and
-runtime system supporting consistent state migration in stateful data
-planes. The key insight is to perform state migration entirely within the
-data plane by piggybacking state updates on live traffic. To minimize the
-overhead, Swing State only migrates the states that cannot be safely
-reconstructed at the destination switch. A prototype of Swing State for P4
-is also described.
-
-**** Dargahi et al.: [[https://doi.org/10.1109/COMST.2017.2689819][*A Survey on the Security of Stateful SDN Data Planes*]], /IEEE Communications Surveys Tutorials/, 2017.
-     :PROPERTIES:
-     :RELEVANCE:   important
-     :END:
-The paper provides the reader with a background on stateful SDN data plane
-proposals, focusing on the security implications that data plane
-programmability brings about, identifies potential attack scenarios, and
-highlights possible vulnerabilities specific to stateful in-switch
-processing, including denial of service and saturation attacks.
-
-**** Murad Kablan et al.: [[https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/kablan][*Stateless Network Functions: Breaking the Tight Coupling of State and Processing*]], /USENIX NSDI 17/, 2017.
-     :PROPERTIES:
-     :RELEVANCE:   mustread
-     :END:
-The paper presents Stateless Network Functions, a new architecture for
-network functions virtualization, where the existing design of network
-functions is decomposed into a stateless processing component along with a
-data-store layer. The StatelessNF processing instances are architected
-around efficient pipelines utilizing DPDK for high performance network I/O,
-packaged as Docker containers for easy deployment, and a data store
-interface optimized based on the expected request patterns to efficiently
-access a RAMCloud-based data store. A network-wide orchestrator monitors
-the instances for load and failure, manages instances to scale and provide
-resilience, and leverages an OpenFlow-based network to direct traffic to
-instances. 
-
-** Programmable Parsing and Scheduling
-
-**** Gibb et al.: [[https://doi.org/10.1109/ANCS.2013.6665172][*Design principles for packet parsers*]], /IEEE/ACM ANCS/, 2013.
-     :PROPERTIES:
-     :RELEVANCE:   important
-     :END:
-The paper presents an interesting view on parser design and the trade-offs
-between different designs, asking whether it is better to design one fast
-parser or several slow parsers, what are the costs of making the parser
-reconfigurable in the field, and what design decisions most impact power
-and area. The paper describes trade-offs in parser design, identifies
-design principles for switch and router architects, and describes a parser
-generator that outputs synthesizable Verilog that is available for
-download.
-
-**** Radhika Mittal et al.: [[https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/mittal][*Universal Packet Scheduling*]], /USENIX NSDI/, 2016.
-     :PROPERTIES:
-     :RELEVANCE:   interesting
-     :END:
-The addresses a seemingly simple question: Is there a universal packet
-scheduling algorithm? It turns out that in general the answer is "no";
-however, the authors manage to show that the classical Least Slack Time
-First (LSTF) scheduling algorithm comes closest to being universal and it
-can closely replay a wide range of scheduling algorithms. LSTF is evaluated
-as to whether in practice it can meet various network-wide objectives; the
-authors find that LSTF performs comparable to the state-of-the-art for each
-of performance metric. 
-
-**** Sivaraman et al.: [[http://doi.acm.org/10.1145/2934872.2934899][*Programmable Packet Scheduling at Line Rate*]], /ACM SIGCOMM/, 2016.
-     :PROPERTIES:
-     :RELEVANCE:   important
-     :END:
-Similarly to the "Universal Packet Scheduling" paper, this paper presents
-another design for a programmable packet scheduler, which allows scheduling
-algorithms, potentially algorithms that are unknown today, to be programmed
-into a switch without requiring hardware redesign.  The design uses the
-property that scheduling algorithms make two decisions, in what order to
-schedule packets and when to schedule them, and exploits that in many
-scheduling algorithms definitive decisions on these two questions can be
-made when packets are enqueued. The resultant design uses a single
-abstraction: the push-in first-out queue (PIFO), a priority queue that
-maintains the scheduling order or time.
-
-**** Sivaraman et al.: [[http://doi.acm.org/10.1145/2535771.2535796][*No Silver Bullet: Extending SDN to the Data Plane*]], /ACM HotNets-XII/, 2013.
-     :PROPERTIES:
-     :RELEVANCE:   interesting
-     :END:
-Instead of going with a universal scheduler, the authors argue that
-Software-Defined Networking must be extended to control the fast-path
-scheduling and queueing behavior of a switch. To this end, they propose
-adding a small FPGA to switches, and synthesize, place, and route hardware
-implementations for CoDel and RED.
-
 * Miscellaneous Topics
 
 ** History
@@ -855,6 +854,24 @@ for a single device is consolidated in one location and EPC functions are
 reorganized for efficient access to this consolidated state. A prototype
 for PEPC is also presented, as a software EPC that implements the key
 components of the design.
+
+** In-Network Computation
+
+**** Sapio et al.: *[[http://doi.acm.org/10.1145/3152434.3152461][In-Network Computation is a Dumb Idea Whose Time Has Come]]*, /ACM HotNets/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The authors ask the question, given that programmable data plane hardware
+creates new opportunities for infusing intelligence into the network, what
+kinds of computation should be delegated to the data plane? The paper
+discusses the opportunities and challenges for co-designing data center
+distributed systems with their network layer, under the constraints imposed
+by the limitations of the network machine architecture of programmable
+devices. They find that, in particular, aggregation functions raise
+opportunities to exploit the limited computation power of networking
+hardware to lessen network congestion and improve the overall application
+performance.
+
 
 * COMMENT Local variables
 # Local variables:
