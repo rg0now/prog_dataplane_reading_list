@@ -462,6 +462,18 @@ to leverage NIC features implemented in software and hardware, without
 sacrificing performance. This paper serves the foundation for the BESS
 software switch.
 
+**** Martins et al.: *[[https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-martins.pdf][ClickOS and the Art of Network Function Virtualization]]*, /USENIX NSDI/, 2014.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+The paper introduces ClickOS, a high-performance, virtualized software
+middlebox platform. ClickOS virtual machines are small (5MB), boot quickly
+(about 30 milliseconds), add little delay (45 microseconds), and over one
+hundred of them can be concurrently run while saturating a 10Gb pipe on a
+commodity server. A wide range of middleboxes is implemented, including a
+firewall, a carrier-grade NAT and a load balancer, and the evaluations
+suggest that ClickOS can handle packets in the millions per second.
+
 **** Sangjin Han et al.: *[[http://span.cs.berkeley.edu/bess.html][Berkeley Extensible Software Switch]]*, /project website/, 2015.
      :PROPERTIES:
      :RELEVANCE:   important
@@ -648,6 +660,17 @@ packet-processing language with object-oriented semantics, called PX, to
 high-performance reconfigurable-computing architectures based on
 field-programmable gate array (FPGA) technology, including components for
 packet parsing, editing, and table lookups.
+
+**** Kuzniar et al.: *[[https://infoscience.epfl.ch/record/199497/files/switches-tr-oct14_1.pdf][What you need to know about SDN control and data planes]]*, /EPFL Technical Report 199497/, 2014.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+The definite source on OpenFlow switches and the differences between them.
+The authors measure, report, and explain the performance characteristics of
+the control- and data-planes in three hardware OpenFlow switches. The
+results highlight differences between the OpenFlow specification and its
+implementations that, if ignored, pose a serious threat to network security
+and correctness.
 
 **** Li et al.: *[[http://doi.acm.org/10.1145/2934872.2934897][ClickNP: Highly Flexible and High Performance Network Processing with Reconfigurable Hardware]]*, /ACM SIGCOMM/, 2016.
      :PROPERTIES:
@@ -857,6 +880,53 @@ components of the design.
 
 ** In-Network Computation
 
+**** Dang et al.: *[[http://doi.acm.org/10.1145/2774993.2774999][NetPaxos: Consensus at Network Speed]]*, /ACM SOSR/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+This paper explores the possibility of implementing the widely deployed
+Paxos consensus protocol in network devices. Two different approaches are
+presented: (1) a detailed design description for implementing the full
+Paxos logic in SDN switches, which identifies a sufficient set of required
+OpenFlow extensions, and (2) an alternative, optimistic protocol which can
+be implemented without changes to the OpenFlow API, but relies on
+assumptions about how the network orders messages. Although neither of
+these protocols can be fully implemented without changes to the underlying
+switch firmware, the authors argue that such changes are feasible in
+existing hardware. 
+
+**** Dang et al.: *[[http://doi.acm.org/10.1145/2935634.2935638][Paxos Made Switch-y]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2016.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+This paper posits that there are significant performance benefits to be
+gained by implementing the Paxos protocol, the foundation for building many
+fault-tolerant distributed systems and services, in network devices. The
+paper describes an implementation of Paxos in P4.
+
+**** Gong et al.: *[[http://doi.acm.org/10.1145/2774993.2775068][Towards Accurate Online Traffic Matrix Estimation in Software-defined Networks]]*, /ACM SOSR/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper seeks for accurate, feasible and scalable traffic matrix
+estimation approaches, by designing feasible traffic measurement rules that
+can be installed in TCAM entries of SDN switches.  The statistics of the
+measurement rules are collected by the controller to estimate fine-grained
+traffic matrix. Two strategies are proposes, called Maximum Load Rule First
+(MLRF) and Large Flow First (LFF), both of which LFF satisfy the flow
+aggregation constraints (determined by associated routing policies) and
+have low-complexity.
+
+**** Sivaraman et al.: *[[http://doi.acm.org/10.1145/3050220.3063772][Heavy-Hitter Detection Entirely in the Data Plane]]*, /ACM SOSR/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper describes HashPipe, a heavy hitter detection algorithm using
+programmable data planes. HashPipe implements a pipeline of hash tables
+which retain counters for heavy flows while evicting lighter flows over
+time. HashPipe is prototyped in P4 and evaluated with packet traces from an
+ISP backbone link and a data center.
+
 **** Sapio et al.: *[[http://doi.acm.org/10.1145/3152434.3152461][In-Network Computation is a Dumb Idea Whose Time Has Come]]*, /ACM HotNets/, 2017.
      :PROPERTIES:
      :RELEVANCE: important
@@ -872,6 +942,201 @@ opportunities to exploit the limited computation power of networking
 hardware to lessen network congestion and improve the overall application
 performance.
 
+**** Huang et al.: *[[http://doi.acm.org/10.1145/3098822.3098831][SketchVisor: Robust Network Measurement for Software Packet Processing]]*, /ACM SIGCOMM/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper presents SketchVisor, a robust network measurement framework,
+which augments sketch-based measurement in the data plane with a fast path
+that is activated under high traffic load to provide high-performance local
+measurement with slight accuracy degradation. It further recovers accurate
+network-wide measurement results via compressive sensing. A SketchVisor
+prototype is build on top of Open vSwitch; testbed experiments show that
+SketchVisor achieves high throughput and high accuracy for a wide range of
+network measurement tasks.
+
+**** Miao et al.: *[[http://doi.acm.org/10.1145/3098822.3098824][SilkRoad: Making Stateful Layer-4 Load Balancing Fast and Cheap Using Switching ASICs]]*, /ACM SIGCOMM/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper explores how to use programmable switching ASICs to build much
+faster load balancers than have been built before. The proposed system,
+called SilkRoad, is defined in a 400 lines of P4 and, when compiled to a
+state-of-the-art switching ASIC, it can load-balance ten million
+connections simultaneously at line rate.
+
+**** Naveen Sharma et al.: *[[https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/sharma][Evaluating the Power of Flexible Packet Processing for Network Resource Allocation]]*, /USENIX NSDI/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The main contribution of this work is providing a set of general building
+blocks that mask the limitations of programmable switches (limited state,
+support limited types of operations, limited per-packet computation) using
+approximation techniques and thereby enabling the implementation of
+realistic network protocols. These building blocks are then used to tackle
+the network resource allocation problem within datacenters and realize
+approximate variants of congestion control and load balancing protocols,
+such as XCP, RCP, and CONGA, that require explicit support from the
+network. The evaluations show that the proposed approximations are accurate
+and that they do not exceed the hardware resource limits associated with
+flexible switches.
+
+**** Liu et al.: *[[http://doi.acm.org/10.1145/3093315.3037731][IncBricks: Toward In-Network Computation with an In-Network Cache]]*, /SIGOPS Oper. Syst. Rev./, 2017.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+This paper presents IncBricks, an in-network caching fabric with basic
+computing primitives. IncBricks is a hardware-software co-designed system
+that supports caching in the network using a programmable network
+middlebox. As a key-value store accelerator, our prototype lowers request
+latency by over 30% and doubles throughput for 1024 byte values in a common
+cluster configuration. The results demonstrate the effectiveness of
+in-network computing and that efficient datacenter network request
+processing is possible if we carefully split the computation across
+programmable switches, network accelerators, and end hosts.
+
+**** Giuseppe Siracusano et al.: *[[http://arxiv.org/abs/1801.05731][In-network Neural Networks]]*, //, 2018.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The paper presents N2Net, a system that implements binary neural networks
+using commodity switching chips deployed in network switches and
+routers. N2Net shows that these devices can run simple neural network
+models, whose input is encoded in the network packets' header, at packet
+processing speeds (billions of packets per second). Furthermore, the
+authors' experience highlights that switching chips could support even more
+complex models, provided that some minor and cheap modifications to the
+chip's design are applied.
+
+** Implementing the Match-action Abstraction: HW, Algorithms, and Data Structures
+
+**** Srinivasan et al.: *[[http://doi.acm.org/10.1145/316188.316216][Packet Classification Using Tuple Space Search]]*, /ACM SIGCOMM/, 1999.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+This paper presents the packet classifier algorithm that underlies the Open
+vSwitch fast-path. Packet classification requires matching each packet
+against a database of flow rules and forwarding the packet according to the
+highest priority rule. The paper introduces a generic packet classification
+algorithm, called Tuple Space Search (TSS), based on the observation that
+real databases typically use only a small number of distinct field lengths.
+Thus, by mapping rules to tuples even a simple linear search of the tuple
+space can provide significant speedup over naive linear search over the
+filters. Each tuple is maintained as a hash table that can be searched in
+one memory access. 
+
+**** Pagiamtzis et al.: *[[https://www.pagiamtzis.com/pubs/pagiamtzis-jssc2006.pdf][Content-addressable memory (CAM) circuits and architectures: A tutorial and survey]]*, /IEEE Journal of Solid-State Circuits/, 2006.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+Content-addressable memory (CAM) and Ternary CAM (TCAM) chips are the most
+important component in programmable switch ASICs, performing packet
+classification according to configurable header fields, matching rules, and
+priority, in a single clock cycle using dedicated comparison circuitry. The
+paper surveys recent developments in the design of large-capacity CAMs. The
+main CAM-design challenge is to reduce power consumption associated with
+the large amount of parallel active circuitry, without sacrificing speed or
+memory density. The paper reviews CAM-design techniques at the circuit
+level and at the architectural level.
+
+**** Fu et al.: *[[http://doi.acm.org/10.1145/1544012.1544033][Efficient IP-address Lookup with a Shared Forwarding Table for Multiple Virtual Routers]]*, /ACM CoNEXT/, 2008.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+Programmable routers often need to support a separate forwarding
+information base (FIB) for each virtual router provisioned by the
+controller, which leads to memory scaling challenges. In this paper, a
+small, shared FIB data structure is presented and a fast lookup algorithm
+that capitalize on the commonality of IP prefixes between each
+FIB. Experiments with real packet traces and routing tables show that the
+approach achieves much lower memory requirements and considerably faster
+lookup times.
+
+**** Ma et al.: *[[http://doi.acm.org/10.1145/2377677.2377749][A Smart Pre-classifier to Reduce Power Consumption of TCAMs for Multi-dimensional Packet Classification]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2012.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+Ternary Content-Addressable Memories (TCAMs) have become the industrial
+standard for high-throughput packet classification, and as such, for
+programmable switch ASICs. However, one major drawback of TCAMs is their
+high power consumption. In this paper, a practical and efficient solution
+is proposed which introduces a smart pre-classifier to reduce power
+consumption of TCAMs for multi-dimensional packet classification. The
+classifier dimension is reduced by pre-classifying a packet on two header
+fields, source and destination IP addresses. Then, the high dimensional
+problem can use only a small portion of a TCAM for a given packet. The
+pre-classifier is built such that a given packet matches at most one entry
+in the pre-classifier, and each rule is stored only once in one of the TCAM
+blocks, which avoids rule replication. The presented solution uses
+commodity TCAMs.
+
+**** Zhou et al.: *[[http://doi.acm.org/10.1145/2535372.2535379][{Scalable, High Performance Ethernet Forwarding with CuckooSwitch}]]*, /ACM CoNEXT/, 2013.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+Programmable switches usually need to implement some or more match-action
+tables in the fast-path.  This paper presents CuckooSwitch, a
+software-based switch design built around a memory-efficient,
+high-performance, and highly-concurrent hash table for compact and fast FIB
+lookup. The authors show that CuckooSwitch can process the maximum packets
+per second rate achievable across the underlying hardware's PCI buses while
+maintaining a forwarding table of one billion forwarding entries.
+
+**** Rétvári et al.: *[[http://doi.acm.org/10.1145/2486001.2486009][Compressing IP Forwarding Tables: Towards Entropy Bounds and Beyond]]*, /ACM SIGCOMM/, 2013.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+The main goal of this paper is to demonstrate how data compression can
+benefit the networking community, by showing how to squeeze the
+longest-prefix-matching lookup table, consulted by switches for IP lookup,
+into information-theoretical entropy bounds with essentially zero cost on
+lookup performance and FIB update. The state-of-the-art in compressed data
+structures yields a static entropy-compressed FIB representation with
+asymptotically optimal lookup. Since this data structure results too slow
+for practical uses, the authors redesign the venerable prefix tree to also
+admit entropy bounds and support lookup in optimal time and update in
+nearly optimal time.
+
+**** Kogan et al.: *[[http://doi.acm.org/10.1145/2619239.2626294][SAX-PAC (Scalable And eXpressive PAcket Classification)]]*, /ACM SIGCOMM/, 2014.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+Efficient packet classification is a core concern for programmable network
+devices, but it is also very difficult to implement
+efficiently. Traditional multi-field classification approaches, in both
+software and ternary content-addressable memory (TCAMs), entail trade-offs
+between (memory) space and (lookup) time. In this work, a novel approach is
+presented, which identifies properties of many classifiers that can be
+implemented in linear space and with worst-case guaranteed logarithmic time
+and allows the addition of more fields including range constraints without
+impacting space and time complexities.
+
+**** Bifulco et al.: *[[http://doi.acm.org/10.1145/2785956.2790008][Towards Scalable SDN Switches: Enabling Faster Flow Table Entries Installation]]*, /ACM SIGCOMM/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The authors argue that a hybrid software-hardware switch may help in
+lowering the flow-table entries installation time, and present ShadowSwitch
+(sSw), an OpenFlow switch prototype that implements such a design. sSw
+builds on two key observations. First, software tables are very fast to be
+updated, hence, forwarding tables updates always happen in software first
+and, eventually, entries are moved to the TCAM to achieve higher overall
+throughput and offload the software forwarder. Lookup in software is
+performed only in case there are no entries matching a packet in
+hardware. Second, since deleting entries from TCAM is much faster than
+adding them, ShadowSwitch may translate an entry installation in a mix of
+installation in software tables and deletion from hardware tables.
+
+**** Chen et al.: *[[http://doi.acm.org/10.1145/3143361.3143391][Hermes: Providing Tight Control over High-Performance SDN Switches]]*, /ACM CoNEXT/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper presents the design and evaluation of Hermes, a practical and
+immediately deployable framework that offers a novel method for
+partitioning and optimizing switch TCAM to enable performance guarantees
+for control plane actions, in particular, inserting, modifying, or deleting
+rules. Hermes provides these guarantees by trading-off a nominal amount of
+TCAM space for assured performance.
 
 * COMMENT Local variables
 # Local variables:
