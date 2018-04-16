@@ -44,7 +44,7 @@ not prove overly stable over time.
 
 *** Low-level APIs
 
-**** McKeown et al.: [[http://doi.acm.org/10.1145/1355734.1355746][*OpenFlow: Enabling Innovation in Campus Networks*]], /ACM SIGCOMM Comput. Commun. Rev./, 2008.
+**** McKeown et al.: *[[http://doi.acm.org/10.1145/1355734.1355746][OpenFlow: Enabling Innovation in Campus Networks]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2008.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -56,7 +56,7 @@ This allowed, in addition to allowing researchers to evaluate their ideas
 in real-world traffic settings, for OpenFlow to serve as a useful campus
 component in large-scale testbeds.
 
-**** Duncan et al.: [[https://ieeexplore.ieee.org/iel5/5166953/5166954/05167027.pdf][*packetC: Language for High Performance Packet Processing*]], /IEEE HPCC/, 2009.
+**** Duncan et al.: *[[https://ieeexplore.ieee.org/iel5/5166953/5166954/05167027.pdf][packetC: Language for High Performance Packet Processing]]*, /IEEE HPCC/, 2009.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -69,7 +69,7 @@ packetC language abstracts and encapsulates familiar packet processing data
 sets and operations into new aggregate data types and operators, e.g., for
 packets, databases and searchsets. 
 
-**** Song et al.: [[http://doi.acm.org/10.1145/2491185.2491190][*Protocol-oblivious Forwarding: Unleash the Power of SDN Through a Future-proof Forwarding Plane*]], /ACM HotSDN/, 2013.
+**** Song et al.: *[[http://doi.acm.org/10.1145/2491185.2491190][Protocol-oblivious Forwarding: Unleash the Power of SDN Through a Future-proof Forwarding Plane]]*, /ACM HotSDN/, 2013.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -82,7 +82,7 @@ networking behavior. A generic flow instruction set (FIS) is defined to
 fulfill this purpose and both hardware-based and open source software-based
 prototypes are shown to demonstrate the feasibility and advantages of POF.
 
-**** Bosshart et al.: [[http://www.sigcomm.org/sites/default/files/ccr/papers/2014/July/0000000-0000004.pdf][*P4: Programming protocol-independent packet processors*]], /ACM SIGCOMM Comput. Commun. Rev./, 2014.
+**** Bosshart et al.: *[[http://www.sigcomm.org/sites/default/files/ccr/papers/2014/July/0000000-0000004.pdf][P4: Programming protocol-independent packet processors]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2014.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -96,7 +96,7 @@ functionality independently of the specifics of the underlying
 hardware. The paper demonstrates P4 by showing configure a switch to add a
 new hierarchical label.
 
-**** Shahbaz et al.: [[http://doi.acm.org/10.1145/2774993.2775000][*The Case for an Intermediate Representation for Programmable Data Planes*]], /ACM SOSR/, 2015.
+**** Shahbaz et al.: *[[http://doi.acm.org/10.1145/2774993.2775000][The Case for an Intermediate Representation for Programmable Data Planes]]*, /ACM SOSR/, 2015.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -108,7 +108,7 @@ various device architectures. It enables conventional compiler optimization
 techniques to significantly improve the performance and resource
 utilization of custom packet-processing pipelines on a variety of targets.
 
-**** Bifulco et al.: [[http://doi.acm.org/10.1145/2890955.2890962][*Improving SDN with InSPired Switches*]], /ACM SOSR/, 2016.
+**** Bifulco et al.: *[[http://doi.acm.org/10.1145/2890955.2890962][Improving SDN with InSPired Switches]]*, /ACM SOSR/, 2016.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -118,7 +118,7 @@ side.  The InSP API allows a programmer to define in-switch packet
 generation operations, which include the specification of triggering
 conditions, packet's content and forwarding actions.
 
-**** Choi et al.: [[https://www.cs.princeton.edu/~mshahbaz/papers/sosr17demos-pvpp.pdf][*PVPP: A Programmable Vector Packet Processor*]], /ACM SOSR/, 2017.
+**** Choi et al.: *[[https://www.cs.princeton.edu/~mshahbaz/papers/sosr17demos-pvpp.pdf][PVPP: A Programmable Vector Packet Processor]]*, /ACM SOSR/, 2017.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -130,7 +130,7 @@ representation.
 
 *** High-level Languages and Compilers
 
-**** Christopher Monsanto et al.: [[https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final232.pdf][*Composing Software Defined Networks*]], /USENIX NSDI/, 2013.
+**** Christopher Monsanto et al.: *[[https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final232.pdf][Composing Software Defined Networks]]*, /USENIX NSDI/, 2013.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -144,7 +144,7 @@ introduces virtual fields into packets. Modular applications are written
 using the static policy language NetCore, which provides primitive actions,
 matching predicates, query policies, and policies.
 
-**** Voellmy et al.: [[https://conferences.sigcomm.org/sigcomm/2013/papers/sigcomm/p87.pdf][*Maple: simplifying SDN programming using algorithmic policies*]], /ACM SIGCOMM Comput. Commun. Rev./, 2013.
+**** Voellmy et al.: *[[https://conferences.sigcomm.org/sigcomm/2013/papers/sigcomm/p87.pdf][Maple: simplifying SDN programming using algorithmic policies]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2013.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -162,14 +162,14 @@ when possible, and keep switch flow tables up-to-date by dynamically
 tracing the dependency of policy decisions on packet contents as well as
 the environment. 
 
-**** Foster et al.: [[http://frenetic-lang.org/publications/overview-ieeecoms13.pdf][*Languages for software-defined networks*]], /IEEE Communications Magazine/, 2013.
+**** Foster et al.: *[[http://frenetic-lang.org/publications/overview-ieeecoms13.pdf][Languages for software-defined networks]]*, /IEEE Communications Magazine/, 2013.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
 An easily approachable survey on higher-level abstractions for creating and
 composing packet processing applications using the Frenetic framework.
 
-**** Bonelli et al.: [[http://doi.acm.org/10.1145/2658260.2658269][*A Purely Functional Approach to Packet Processing*]], /IEEE/ACM ANCS/, 2014.
+**** Bonelli et al.: *[[http://doi.acm.org/10.1145/2658260.2658269][A Purely Functional Approach to Packet Processing]]*, /IEEE/ACM ANCS/, 2014.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -178,7 +178,7 @@ process, analyze and forward packets, which allows easy development by
 leveraging functional composition and allows to exploit multi-queue NICs
 and multi-core architectures.
 
-**** Lavanya Jose et al.: [[https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/jose][*Compiling Packet Programs to Reconfigurable Switches*]], /USENIX NSDI/, 2015.
+**** Lavanya Jose et al.: *[[https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/jose][Compiling Packet Programs to Reconfigurable Switches]]*, /USENIX NSDI/, 2015.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -190,7 +190,7 @@ solutions optimized for latency, pipeline occupancy, or power
 consumption. The authors show benchmarks from real production networks to
 two different programmable switch architectures: RMT and Intel’s FlexPipe.
 
-**** Firestone et al.: [[https://www.usenix.org/system/files/conference/nsdi17/nsdi17-firestone.pdf][*VFP: A Virtual Switch Platform for Host Sdn in the Public Cloud*]], /USENIX NSDI/, 2017.
+**** Firestone et al.: *[[https://www.usenix.org/system/files/conference/nsdi17/nsdi17-firestone.pdf][VFP: A Virtual Switch Platform for Host Sdn in the Public Cloud]]*, /USENIX NSDI/, 2017.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -204,7 +204,7 @@ API, its flow language and compiler used for flow processing, performance
 results, and experiences deploying and using VFP in Azure over several
 years.
 
-**** Wang et al.: [[https://www.cs.cornell.edu/~jnfoster/papers/p4fpga.pdf][*P4FPGA: A Rapid Prototyping Framework for P4*]], /ACM SOSR/, 2017.
+**** Wang et al.: *[[https://www.cs.cornell.edu/~jnfoster/papers/p4fpga.pdf][P4FPGA: A Rapid Prototyping Framework for P4]]*, /ACM SOSR/, 2017.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -217,7 +217,7 @@ rapidly prototype and deploy new data plane applications.
 
 ** Abstractions for Embedded State
 
-**** Verdú et al.: [[http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=ED2CCB19D8967081D9DE927A7AB43614?doi=10.1.1.482.5955&rep=rep1&type=pdf][*Workload Characterization of Stateful Networking Applications*]], /IEEE HPC/, 2008.
+**** Verdú et al.: *[[http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=ED2CCB19D8967081D9DE927A7AB43614?doi=10.1.1.482.5955&rep=rep1&type=pdf][Workload Characterization of Stateful Networking Applications]]*, /IEEE HPC/, 2008.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -227,7 +227,7 @@ behaviour, but discusses branch prediction, instruction distribution,
 etc. Another important contribution is the study of the state categories of
 different networking applications. 
 
-**** Bianchi et al.: [[http://doi.acm.org/10.1145/2602204.2602211][*OpenState: Programming Platform-independent Stateful Openflow Applications Inside the Switch*]], /ACM SIGCOMM Comput. Commun. Rev./, 2014.
+**** Bianchi et al.: *[[http://doi.acm.org/10.1145/2602204.2602211][OpenState: Programming Platform-independent Stateful Openflow Applications Inside the Switch]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2014.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -241,7 +241,7 @@ proposed abstraction into an actual table-based API, and we show how it can
 be supported by (mostly) reusing core primitives already implemented in
 OpenFlow devices.
 
-**** Moshref et al.: [[http://doi.acm.org/10.1145/2620728.2620729][*Flow-level State Transition As a New Switch Primitive for SDN*]], /ACM HotSDN/, 2014.
+**** Moshref et al.: *[[http://doi.acm.org/10.1145/2620728.2620729][Flow-level State Transition As a New Switch Primitive for SDN]]*, /ACM HotSDN/, 2014.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -252,7 +252,7 @@ state transitions by matching incoming packets to installed filters. FAST
 can support a variety of dynamic applications, and can be readily
 implemented with commodity switch components and software switches.
 
-**** Arashloo et al.: [[http://doi.acm.org/10.1145/2934872.2934892][*SNAP: Stateful Network-Wide Abstractions for Packet Processing*]], /ACM SIGCOMM/, 2016.
+**** Arashloo et al.: *[[http://doi.acm.org/10.1145/2934872.2934892][SNAP: Stateful Network-Wide Abstractions for Packet Processing]]*, /ACM SIGCOMM/, 2016.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -266,7 +266,7 @@ dependencies and translating one-big-switch programs into an efficient
 internal representation based on a novel variant of binary decision
 diagrams.
 
-**** Sivaraman et al.: [[http://doi.acm.org/10.1145/2934872.2934900][*Packet Transactions: High-Level Programming for Line-Rate Switches*]], /ACM SIGCOMM/, 2016.
+**** Sivaraman et al.: *[[http://doi.acm.org/10.1145/2934872.2934900][Packet Transactions: High-Level Programming for Line-Rate Switches]]*, /ACM SIGCOMM/, 2016.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -281,7 +281,7 @@ developed in Domino, a C-like imperative language to express data-plane
 algorithms, and many examples are shown that can be run at line rate with
 modest estimated chip-area overhead.
 
-**** Giuseppe Bianchi et al.: [[http://arxiv.org/abs/1605.01977][*Open Packet Processor: a programmable architecture for wire speed platform-independent stateful in-network processing*]], /unpublished manuscript/, 2016.
+**** Giuseppe Bianchi et al.: *[[http://arxiv.org/abs/1605.01977][Open Packet Processor: a programmable architecture for wire speed platform-independent stateful in-network processing]]*, /unpublished manuscript/, 2016.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -294,7 +294,7 @@ abstraction. Platform independence is accomplished by decoupling the
 implementation of hardware primitives from their usage by an application
 formally described via an abstract XFSM.
 
-**** Luo et al.: [[http://doi.acm.org/10.1145/3050220.3050233][*Swing State: Consistent Updates for Stateful and Programmable Data Planes*]], /ACM SOSR/, 2017.
+**** Luo et al.: *[[http://doi.acm.org/10.1145/3050220.3050233][Swing State: Consistent Updates for Stateful and Programmable Data Planes]]*, /ACM SOSR/, 2017.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -306,7 +306,7 @@ overhead, Swing State only migrates the states that cannot be safely
 reconstructed at the destination switch. A prototype of Swing State for P4
 is also described.
 
-**** Dargahi et al.: [[https://doi.org/10.1109/COMST.2017.2689819][*A Survey on the Security of Stateful SDN Data Planes*]], /IEEE Communications Surveys Tutorials/, 2017.
+**** Dargahi et al.: *[[https://doi.org/10.1109/COMST.2017.2689819][A Survey on the Security of Stateful SDN Data Planes]]*, /IEEE Communications Surveys Tutorials/, 2017.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -316,7 +316,7 @@ programmability brings about, identifies potential attack scenarios, and
 highlights possible vulnerabilities specific to stateful in-switch
 processing, including denial of service and saturation attacks.
 
-**** Murad Kablan et al.: [[https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/kablan][*Stateless Network Functions: Breaking the Tight Coupling of State and Processing*]], /USENIX NSDI 17/, 2017.
+**** Murad Kablan et al.: *[[https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/kablan][Stateless Network Functions: Breaking the Tight Coupling of State and Processing]]*, /USENIX NSDI 17/, 2017.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -334,7 +334,7 @@ instances.
 
 ** Programmable Parsing and Scheduling
 
-**** Gibb et al.: [[https://doi.org/10.1109/ANCS.2013.6665172][*Design principles for packet parsers*]], /IEEE/ACM ANCS/, 2013.
+**** Gibb et al.: *[[https://doi.org/10.1109/ANCS.2013.6665172][Design principles for packet parsers]]*, /IEEE/ACM ANCS/, 2013.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -347,7 +347,7 @@ design principles for switch and router architects, and describes a parser
 generator that outputs synthesizable Verilog that is available for
 download.
 
-**** Radhika Mittal et al.: [[https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/mittal][*Universal Packet Scheduling*]], /USENIX NSDI/, 2016.
+**** Radhika Mittal et al.: *[[https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/mittal][Universal Packet Scheduling]]*, /USENIX NSDI/, 2016.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -360,7 +360,7 @@ as to whether in practice it can meet various network-wide objectives; the
 authors find that LSTF performs comparable to the state-of-the-art for each
 of performance metric. 
 
-**** Sivaraman et al.: [[http://doi.acm.org/10.1145/2934872.2934899][*Programmable Packet Scheduling at Line Rate*]], /ACM SIGCOMM/, 2016.
+**** Sivaraman et al.: *[[http://doi.acm.org/10.1145/2934872.2934899][Programmable Packet Scheduling at Line Rate]]*, /ACM SIGCOMM/, 2016.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -375,7 +375,7 @@ made when packets are enqueued. The resultant design uses a single
 abstraction: the push-in first-out queue (PIFO), a priority queue that
 maintains the scheduling order or time.
 
-**** Sivaraman et al.: [[http://doi.acm.org/10.1145/2535771.2535796][*No Silver Bullet: Extending SDN to the Data Plane*]], /ACM HotNets/, 2013.
+**** Sivaraman et al.: *[[http://doi.acm.org/10.1145/2535771.2535796][No Silver Bullet: Extending SDN to the Data Plane]]*, /ACM HotNets/, 2013.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -391,7 +391,7 @@ implementations for CoDel and RED.
 
 *** Viability of Software Switching
 
-**** Egi et al.: [[http://doi.acm.org/10.1145/1544012.1544032][*Towards High Performance Virtual Routers on Commodity Hardware*]], /ACM CoNEXT/, 2008.
+**** Egi et al.: *[[http://doi.acm.org/10.1145/1544012.1544032][Towards High Performance Virtual Routers on Commodity Hardware]]*, /ACM CoNEXT/, 2008.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -403,7 +403,7 @@ cores one can achieve very high forwarding rates. The authors also identify
 principles for the construction of high-performance software router systems
 on commodity hardware.
 
-**** Greenhalgh et al.: [[http://www.sigcomm.org/sites/default/files/ccr/papers/2009/April/1517480-1517484.pdf][*Flow Processing and the Rise of Commodity Network Hardware*]], /SIGCOMM Comput. Commun. Rev./, 2009.
+**** Greenhalgh et al.: *[[http://www.sigcomm.org/sites/default/files/ccr/papers/2009/April/1517480-1517484.pdf][Flow Processing and the Rise of Commodity Network Hardware]]*, /SIGCOMM Comput. Commun. Rev./, 2009.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -415,7 +415,7 @@ offering the possibility to control the switching of flows in a
 fine-grained manner, into a single integrated package deployed on commodity
 hardware.
 
-**** Dobrescu et al.: [[http://kfall.net/ucbpage/papers/sosp09.pdf][*RouteBricks: exploiting parallelism to scale software routers*]], /ACM SOSP/, 2009.
+**** Dobrescu et al.: *[[http://kfall.net/ucbpage/papers/sosp09.pdf][RouteBricks: exploiting parallelism to scale software routers]]*, /ACM SOSP/, 2009.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -428,7 +428,7 @@ server hardware.
 
 *** The Dataflow Graph Abstraction
 
-**** Morris et al.: [[https://pdos.csail.mit.edu/papers/click:tocs00/paper.pdf][*The Click modular router*]], /ACM Trans. on Computer Systems/, 2000.
+**** Morris et al.: *[[https://pdos.csail.mit.edu/papers/click:tocs00/paper.pdf][The Click modular router]]*, /ACM Trans. on Computer Systems/, 2000.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -438,7 +438,7 @@ router functions like packet classification, queuing, scheduling, organized
 into a directed graph with packet processing modules at the vertices;
 packets flow along the edges of the graph.
 
-**** Sun et al.: [[https://dl.acm.org/citation.cfm?id=2537861][*Fast and Flexible: Parallel Packet Processing with GPUs and Click*]], /IEEE/ACM ANCS/, 2013.
+**** Sun et al.: *[[https://dl.acm.org/citation.cfm?id=2537861][Fast and Flexible: Parallel Packet Processing with GPUs and Click]]*, /IEEE/ACM ANCS/, 2013.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -451,7 +451,7 @@ features that support batched packet processing, memory structures
 optimized for offloading to coprocessors, and asynchronous scheduling with
 in-order completion. 
 
-**** Sangjin Han et al.: [[http://www.eecs.berkeley.edu/Pubs/TechRpts/2015/EECS-2015-155.pdf][*SoftNIC: A Software NIC to Augment Hardware*]], /unpublished manuscript/, 2015.
+**** Sangjin Han et al.: *[[http://www.eecs.berkeley.edu/Pubs/TechRpts/2015/EECS-2015-155.pdf][SoftNIC: A Software NIC to Augment Hardware]]*, /unpublished manuscript/, 2015.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -462,7 +462,7 @@ to leverage NIC features implemented in software and hardware, without
 sacrificing performance. This paper serves the foundation for the BESS
 software switch.
 
-**** Sangjin Han et al.: [[http://span.cs.berkeley.edu/bess.html][*Berkeley Extensible Software Switch*]], /project website/, 2015.
+**** Sangjin Han et al.: *[[http://span.cs.berkeley.edu/bess.html][Berkeley Extensible Software Switch]]*, /project website/, 2015.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -475,7 +475,7 @@ pipeline. Packets received at a port flow through the pipeline to another
 port, and each module in the pipeline performs module-specific operations
 on packets. 
 
-**** Honda et al.: [[http://doi.acm.org/10.1145/2774993.2775065][*mSwitch: A Highly-scalable, Modular Software Switch*]], /ACM SOSR/, 2015.
+**** Honda et al.: *[[http://doi.acm.org/10.1145/2774993.2775065][mSwitch: A Highly-scalable, Modular Software Switch]]*, /ACM SOSR/, 2015.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -487,7 +487,7 @@ implemented on top: a learning bridge, an accelerated Open vSwitch module,
 a protocol demultiplexer for userspace protocol stacks, and a filtering
 module that can direct packets to virtualized middleboxes.
 
-**** Aurojit Panda et al.: [[https://www.usenix.org/system/files/conference/osdi16/osdi16-panda.pdf][*NetBricks: Taking the V out of NFV*]], /USENIX OSDI/, 2016.
+**** Aurojit Panda et al.: *[[https://www.usenix.org/system/files/conference/osdi16/osdi16-panda.pdf][NetBricks: Taking the V out of NFV]]*, /USENIX OSDI/, 2016.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -499,7 +499,7 @@ new isolation technique is called zero-copy software isolation.
 
 *** The Match-action Abstraction
 
-**** Ben Pfaff et al.: [[https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/pfaff][*The Design and Implementation of Open vSwitch*]], /USENIX NSDI/, 2015.
+**** Ben Pfaff et al.: *[[https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/pfaff][The Design and Implementation of Open vSwitch]]*, /USENIX NSDI/, 2015.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -508,7 +508,7 @@ multi-layer, open source virtual switch. The design document details the
 advanced flow classification and caching techniques that Open vSwitch uses
 to optimize its operations and conserve hypervisor resources.
 
-**** Shahbaz et al.: [[http://doi.acm.org/10.1145/2934872.2934886][*PISCES: A Programmable, Protocol-Independent Software Switch*]], /ACM SIGCOMM/, 2016.
+**** Shahbaz et al.: *[[http://doi.acm.org/10.1145/2934872.2934886][PISCES: A Programmable, Protocol-Independent Software Switch]]*, /ACM SIGCOMM/, 2016.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -520,7 +520,7 @@ P4 specification to optimize forwarding performance; the evaluations show
 that PISCES performs comparably to OVS but PISCES programs are about 40
 times shorter than equivalent OVS source code.
 
-**** Ethan Jackson et al.: [[https://www.usenix.org/conference/atc16/technical-sessions/presentation/jackson][*SoftFlow: A Middlebox Architecture for Open vSwitch*]], /USENIX ATC/, 2016.
+**** Ethan Jackson et al.: *[[https://www.usenix.org/conference/atc16/technical-sessions/presentation/jackson][SoftFlow: A Middlebox Architecture for Open vSwitch]]*, /USENIX ATC/, 2016.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -529,7 +529,7 @@ integrates middlebox functionality while maintaining the familiar OpenFlow
 forwarding model and performing significantly better than alternative
 techniques for middlebox integration.
 
-**** Molnár et al.: [[http://doi.acm.org/10.1145/2934872.2934887][*Dataplane Specialization for High-performance OpenFlow Software Switching*]], /ACM SIGCOMM/, 2016.
+**** Molnár et al.: *[[http://doi.acm.org/10.1145/2934872.2934887][Dataplane Specialization for High-performance OpenFlow Software Switching]]*, /ACM SIGCOMM/, 2016.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -543,7 +543,7 @@ pipeline into efficient machine code, which can then be readily used as the
 switch fast-path, delivering superior packet processing speed, improved
 latency and CPU scalability, and predictable performance.
 
-**** Rétvári et al.: [[https://conferences.sigcomm.org/sigcomm/2017/files/program-netpl/sigcomm17netpl-paper4.pdf][*Dynamic Compilation and Optimization of Packet Processing Programs*]], /ACM SIGCOMM NetPL/, 2017.
+**** Rétvári et al.: *[[https://conferences.sigcomm.org/sigcomm/2017/files/program-netpl/sigcomm17netpl-paper4.pdf][Dynamic Compilation and Optimization of Packet Processing Programs]]*, /ACM SIGCOMM NetPL/, 2017.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -559,7 +559,7 @@ of custom-compiled datapaths beyond what is possible in a static setting.
 
 *** Packet I/O Libraries
 
-**** Rizzo et al.: [[https://www.usenix.org/system/files/conference/atc12/atc12-final186.pdf][*Netmap: a novel framework for fast packet I/O*]], /USENIX ATC/, 2012.
+**** Rizzo et al.: *[[https://www.usenix.org/system/files/conference/atc12/atc12-final186.pdf][Netmap: a novel framework for fast packet I/O]]*, /USENIX ATC/, 2012.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -573,7 +573,7 @@ eliminated by sharing buffers and metadata between kernel and userspace,
 while still protecting access to device registers and other kernel memory
 areas.
 
-**** Intel et al.: [[http://dpdk.org][*Intel DPDK: Data Plane Development Kit*]], /project website/, 2016.
+**** Intel et al.: *[[http://dpdk.org][Intel DPDK: Data Plane Development Kit]]*, /project website/, 2016.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -584,7 +584,7 @@ receive and send packets within the minimum number of CPU cycles (usually
 less than 80 cycles), develop fast packet capture algorithms (like
 =tcpdump=), and run third-party fast path stacks.
 
-**** fd.io: [[https://fd.io][*The Fast Data Project*]], /project website/, 2016.
+**** fd.io: *[[https://fd.io][The Fast Data Project]]*, /project website/, 2016.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -596,7 +596,7 @@ and PowerPC) and deployment environments (bare metal, VM, container).
 
 ** Hardware Switch Architectures
 
-**** De Carli et al.: [[http://doi.acm.org/10.1145/1592568.1592593][*PLUG: Flexible Lookup Modules for Rapid Deployment of New Protocols in High-speed Routers*]], /ACM SIGCOMM/, 2009.
+**** De Carli et al.: *[[http://doi.acm.org/10.1145/1592568.1592593][PLUG: Flexible Lookup Modules for Rapid Deployment of New Protocols in High-speed Routers]]*, /ACM SIGCOMM/, 2009.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -610,7 +610,7 @@ model for the PLUG and mapped them to the PLUG hardware, showing that
 throughput, area, power, and latency of PLUGs are close to those of
 specialized lookup modules.
 
-**** Anwer et al.: [[http://doi.acm.org/10.1145/1851182.1851206][*SwitchBlade: A Platform for Rapid Deployment of Network Protocols on Programmable Hardware*]], /ACM SIGCOMM/, 2010.
+**** Anwer et al.: *[[http://doi.acm.org/10.1145/1851182.1851206][SwitchBlade: A Platform for Rapid Deployment of Network Protocols on Programmable Hardware]]*, /ACM SIGCOMM/, 2010.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -625,7 +625,7 @@ value. SwitchBlade also allows multiple custom data planes to operate in
 parallel on the same physical hardware, while providing complete isolation
 for protocols running in parallel.
 
-**** Bosshart et al.: [[http://doi.acm.org/10.1145/2486001.2486011][*Forwarding Metamorphosis: Fast Programmable Match-action Processing in Hardware for SDN*]], /ACM SIGCOMM/, 2013.
+**** Bosshart et al.: *[[http://doi.acm.org/10.1145/2486001.2486011][Forwarding Metamorphosis: Fast Programmable Match-action Processing in Hardware for SDN]]*, /ACM SIGCOMM/, 2013.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -639,7 +639,7 @@ essential minimal set of action primitives to specify how headers are
 processed in hardware. RMT allows the forwarding plane to be changed in the
 field without modifying hardware.
 
-**** Brebner et al.: [[https://doi.org/10.1109/MM.2014.19][*High-Speed Packet Processing using Reconfigurable Computing*]], /IEEE Micro/, 2014.
+**** Brebner et al.: *[[https://doi.org/10.1109/MM.2014.19][High-Speed Packet Processing using Reconfigurable Computing]]*, /IEEE Micro/, 2014.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -649,7 +649,7 @@ high-performance reconfigurable-computing architectures based on
 field-programmable gate array (FPGA) technology, including components for
 packet parsing, editing, and table lookups.
 
-**** Li et al.: [[http://doi.acm.org/10.1145/2934872.2934897][*ClickNP: Highly Flexible and High Performance Network Processing with Reconfigurable Hardware*]], /ACM SIGCOMM/, 2016.
+**** Li et al.: *[[http://doi.acm.org/10.1145/2934872.2934897][ClickNP: Highly Flexible and High Performance Network Processing with Reconfigurable Hardware]]*, /ACM SIGCOMM/, 2016.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -662,7 +662,7 @@ it is completely programmable using high-level C-like languages and exposes
 a modular programming abstraction that resembles Click Modular Router, and
 also high performance.
 
-**** Chole et al.: [[http://doi.acm.org/10.1145/3098822.3098823][*dRMT: Disaggregated Programmable Switching*]], /ACM SIGCOMM/, 2017.
+**** Chole et al.: *[[http://doi.acm.org/10.1145/3098822.3098823][dRMT: Disaggregated Programmable Switching]]*, /ACM SIGCOMM/, 2017.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -678,7 +678,7 @@ stages and into a centralized pool that is accessible through a
 crossbar. In addition, dRMT replaces RMT's pipeline stages with a cluster
 of processors that can execute match and action operations in any order.
 
-**** Narayana et al.: [[http://doi.acm.org/10.1145/3098822.3098829][*Language-Directed Hardware Design for Network Performance Monitoring*]], /ACM SIGCOMM/, 2017.
+**** Narayana et al.: *[[http://doi.acm.org/10.1145/3098822.3098829][Language-Directed Hardware Design for Network Performance Monitoring]]*, /ACM SIGCOMM/, 2017.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -693,7 +693,7 @@ fraction of a switch's hardware resources.
 
 ** Hybrid Hardware/Software Architectures
 
-**** Han et al.: [[http://doi.acm.org/10.1145/1851182.1851207][*PacketShader: A GPU-accelerated Software Router*]], /ACM SIGCOMM/, 2010.
+**** Han et al.: *[[http://doi.acm.org/10.1145/1851182.1851207][PacketShader: A GPU-accelerated Software Router]]*, /ACM SIGCOMM/, 2010.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -705,7 +705,7 @@ I/O engine. The paper presents implementations for IPv4 and IPv6
 forwarding, OpenFlow switching, and IPsec tunneling to demonstrate the
 flexibility and performance advantage of PacketShader. 
 
-**** Pongrácz et al.: [[http://doi.acm.org/10.1145/2491185.2491204][*Cheap Silicon: A Myth or Reality Picking the Right Data Plane Hardware for Software Defined Networking*]], /ACM HotSDN/, 2013.
+**** Pongrácz et al.: *[[http://doi.acm.org/10.1145/2491185.2491204][Cheap Silicon: A Myth or Reality Picking the Right Data Plane Hardware for Software Defined Networking]]*, /ACM HotSDN/, 2013.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -717,7 +717,7 @@ programmable and hard-coded chips is not primarily due to programmability
 itself, but because the internal balance of programmable network processors
 is tuned to more complex use cases.
 
-**** Kalia et al.: [[https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-kalia.pdf][*Raising the Bar for Using GPUs in Software Packet Processing*]], /USENIX NSDI/, 2015.
+**** Kalia et al.: *[[https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-kalia.pdf][Raising the Bar for Using GPUs in Software Packet Processing]]*, /USENIX NSDI/, 2015.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -731,7 +731,7 @@ demonstrate that applying a similar style of optimization to algorithm
 implementations, a CPU-only implementation is more resource efficient than
 the version running on the GPU.
 
-**** Kaufmann et al.: [[http://doi.acm.org/10.1145/2954679.2872367][*High Performance Packet Processing with FlexNIC*]], /ACM SIGPLAN Not./, 2016.
+**** Kaufmann et al.: *[[http://doi.acm.org/10.1145/2954679.2872367][High Performance Packet Processing with FlexNIC]]*, /ACM SIGPLAN Not./, 2016.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -745,7 +745,7 @@ operations on packets while exchanging them with host memory. This moves
 some of the packet processing traditionally done in software to the NIC,
 where it can be done flexibly and at high speed.
 
-**** Younghwan Go et al.: [[https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/go][*APUNet: Revitalizing GPU as Packet Processing Accelerator*]], /USENIX NSDI/, 2017.
+**** Younghwan Go et al.: *[[https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/go][APUNet: Revitalizing GPU as Packet Processing Accelerator]]*, /USENIX NSDI/, 2017.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -763,7 +763,7 @@ CPU over GPU in most applications is due to data transfer bottleneck in
 PCIe communication of discrete GPU rather than lack of capacity of GPU
 itself.
 
-**** Katta et al.: [[http://doi.acm.org/10.1145/2890955.2890969][*CacheFlow: Dependency-Aware Rule-Caching for Software-Defined Networks*]], /ACM SOSR/, 2016.
+**** Katta et al.: *[[http://doi.acm.org/10.1145/2890955.2890969][CacheFlow: Dependency-Aware Rule-Caching for Software-Defined Networks]]*, /ACM SOSR/, 2016.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -781,13 +781,13 @@ the policy.
 
 ** History
 
-**** Feamster et al.: [[http://doi.acm.org/10.1145/2559899.2560327][*The Road to SDN*]], /ACM Queue/, 2013.
+**** Feamster et al.: *[[http://doi.acm.org/10.1145/2559899.2560327][The Road to SDN]]*, /ACM Queue/, 2013.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
 An intellectual history of programmable networks. A mustread.
 
-**** Zilberman et al.: [[https://doi.org/10.1109/JPROC.2015.2435732][*Reconfigurable Network Systems and Software-Defined Networking*]], /Proceedings of the IEEE/, 2015.
+**** Zilberman et al.: *[[https://doi.org/10.1109/JPROC.2015.2435732][Reconfigurable Network Systems and Software-Defined Networking]]*, /Proceedings of the IEEE/, 2015.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
@@ -800,7 +800,7 @@ switching systems, highlighting programmability and reconfiguration
 aspects, and describes the trends in reconfigurable network
 elements.
 
-**** Nick McKeown et al.: [[https://conferences.sigcomm.org/sigcomm/2017/files/program-netpl/01-mckeown.pptx][*Programmable Forwarding Planes are Here to Stay*]], /ACM SIGCOMM NetPL/, 2017.
+**** Nick McKeown et al.: *[[https://conferences.sigcomm.org/sigcomm/2017/files/program-netpl/01-mckeown.pptx][Programmable Forwarding Planes are Here to Stay]]*, /ACM SIGCOMM NetPL/, 2017.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -812,7 +812,7 @@ SDN, and why they are here to stay.
 
 ** Large-scale Deployments
 
-**** Casado et al.: [[http://doi.acm.org/10.1145/1282380.1282382][*Ethane: Taking Control of the Enterprise*]], /ACM SIGCOMM/, 2007.
+**** Casado et al.: *[[http://doi.acm.org/10.1145/1282380.1282382][Ethane: Taking Control of the Enterprise]]*, /ACM SIGCOMM/, 2007.
      :PROPERTIES:
      :RELEVANCE:   mustread
      :END:
@@ -825,7 +825,7 @@ flows. While radical, this design is backwards-compatible with existing
 hosts and switches.  Ethane was implemented in both hardware and software,
 supporting both wired and wireless hosts.
 
-**** Jain et al.: [[http://doi.acm.org/10.1145/2486001.2486019][*B4: Experience with a Globally-deployed Software Defined Wan*]], /ACM SIGCOMM/, 2013.
+**** Jain et al.: *[[http://doi.acm.org/10.1145/2486001.2486019][B4: Experience with a Globally-deployed Software Defined Wan]]*, /ACM SIGCOMM/, 2013.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -839,7 +839,7 @@ edge. These characteristics led to a Software Defined Networking architecture
 using OpenFlow to control relatively simple switches built from merchant
 silicon.
 
-**** Qazi et al.: [[http://doi.acm.org/10.1145/3098822.3098848][*A High Performance Packet Core for Next Generation Cellular Networks*]], /ACM SIGCOMM/, 2017.
+**** Qazi et al.: *[[http://doi.acm.org/10.1145/3098822.3098848][A High Performance Packet Core for Next Generation Cellular Networks]]*, /ACM SIGCOMM/, 2017.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
@@ -875,6 +875,6 @@ performance.
 
 * COMMENT Local variables
 # Local variables:
-# eval: (setq reftex-cite-format "%A et al.: [[%U][*%t*]], /%h/, %y.\n")
+# eval: (setq reftex-cite-format "%A et al.: *[[%U][%t]]*, /%h/, %y.\n")
 # End:
 
