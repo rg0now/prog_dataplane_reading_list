@@ -809,19 +809,19 @@ where it can be done flexibly and at high speed.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
-This is the answer to the question raised by the previous paper.  Kalia et
-al. argue that the key enabler for high packet-processing performance is
-the inherent feature of GPU that automatically hides memory access latency
-rather than its parallel computation power and claim that CPU can
-outperform or achieve a similar performance as GPU if its code is
-re-arranged to run concurrently with memory access. This paper revists
-these claims and find, with eight popular algorithms widely used in network
-applications, that (a) there are many compute-bound algorithms that do
-benefit from the parallel computation capacity of GPU while CPU-based
-optimizations fail to help, and (b) the relative performance advantage of
-CPU over GPU in most applications is due to data transfer bottleneck in
-PCIe communication of discrete GPU rather than lack of capacity of GPU
-itself.
+This is the answer to the question raised by the "Raising the Bar for Using
+GPUs" paper.  Kalia et al. argue that the key enabler for high
+packet-processing performance is the inherent feature of GPU that
+automatically hides memory access latency rather than its parallel
+computation power and claim that CPU can outperform or achieve a similar
+performance as GPU if its code is re-arranged to run concurrently with
+memory access. This paper revists these claims and find, with eight popular
+algorithms widely used in network applications, that (a) there are many
+compute-bound algorithms that do benefit from the parallel computation
+capacity of GPU while CPU-based optimizations fail to help, and (b) the
+relative performance advantage of CPU over GPU in most applications is due
+to data transfer bottleneck in PCIe communication of discrete GPU rather
+than lack of capacity of GPU itself.
 
 * Applications
 
