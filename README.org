@@ -777,6 +777,20 @@ demonstrate that applying a similar style of optimization to algorithm
 implementations, a CPU-only implementation is more resource efficient than
 the version running on the GPU.
 
+**** Katta et al.: *[[http://doi.acm.org/10.1145/2890955.2890969][CacheFlow: Dependency-Aware Rule-Caching for Software-Defined Networks]]*, /ACM SOSR/, 2016.
+     :PROPERTIES:
+     :RELEVANCE:   interesting
+     :END:
+The paper presents an architecture to allow high-speed forwarding even with
+large rule tables and fast updates, by combining the best of hardware and
+software processing. The CacheFlow system caches the most popular rules in
+the small TCAM and relies on software to handle the small amount of
+cache-miss traffic. The authors observe that one cannot blindly apply
+existing cache-replacement algorithms, because of dependencies between
+rules with overlapping patterns. Rather long dependency chains must be
+broken to cache smaller groups of rules while preserving the semantics of
+the policy.
+
 **** Kaufmann et al.: *[[http://doi.acm.org/10.1145/2954679.2872367][High Performance Packet Processing with FlexNIC]]*, /ACM SIGPLAN Not./, 2016.
      :PROPERTIES:
      :RELEVANCE:   interesting
@@ -808,20 +822,6 @@ optimizations fail to help, and (b) the relative performance advantage of
 CPU over GPU in most applications is due to data transfer bottleneck in
 PCIe communication of discrete GPU rather than lack of capacity of GPU
 itself.
-
-**** Katta et al.: *[[http://doi.acm.org/10.1145/2890955.2890969][CacheFlow: Dependency-Aware Rule-Caching for Software-Defined Networks]]*, /ACM SOSR/, 2016.
-     :PROPERTIES:
-     :RELEVANCE:   interesting
-     :END:
-The paper presents an architecture to allow high-speed forwarding even with
-large rule tables and fast updates, by combining the best of hardware and
-software processing. The CacheFlow system caches the most popular rules in
-the small TCAM and relies on software to handle the small amount of
-cache-miss traffic. The authors observe that one cannot blindly apply
-existing cache-replacement algorithms, because of dependencies between
-rules with overlapping patterns. Rather long dependency chains must be
-broken to cache smaller groups of rules while preserving the semantics of
-the policy.
 
 * Applications
 
