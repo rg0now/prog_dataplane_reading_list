@@ -1134,7 +1134,7 @@ in the pre-classifier, and each rule is stored only once in one of the TCAM
 blocks, which avoids rule replication. The presented solution uses
 commodity TCAMs.
 
-**** Zhou et al.: *[[http://doi.acm.org/10.1145/2535372.2535379][{Scalable, High Performance Ethernet Forwarding with CuckooSwitch}]]*, /ACM CoNEXT/, 2013.
+**** Zhou et al.: *[[http://doi.acm.org/10.1145/2535372.2535379][Scalable, High Performance Ethernet Forwarding with CuckooSwitch]]*, /ACM CoNEXT/, 2013.
      :PROPERTIES:
      :RELEVANCE: important
      :END:
