@@ -97,7 +97,7 @@ hardware. The paper demonstrates P4 by showing configure a switch to add a
 new hierarchical label.
 
 **** Sivaraman et al.: *[[http://doi.acm.org/10.1145/2774993.2775007][DC.P4: Programming the Forwarding Plane of a Data-center Switch]]*, /ACM SOSR/, 2015.
-	 :PROPERTIES:
+     :PROPERTIES:
      :RELEVANCE:   important
      :END:
 The paper presents a case study that uses P4 to express the forwarding behavior 
@@ -408,7 +408,7 @@ scheduling and queueing behavior of a switch. To this end, they propose
 adding a small FPGA to switches, and synthesize, place, and route hardware
 implementations for CoDel and RED.
 
-* Programmable Switch Architectures
+* Architecture
 
 ** Software Switch Architectures
 
@@ -823,6 +823,177 @@ rules with overlapping patterns. Rather long dependency chains must be
 broken to cache smaller groups of rules while preserving the semantics of
 the policy.
 
+* Applications
+
+** In-network Computation
+
+**** Sapio et al.: *[[http://doi.acm.org/10.1145/3152434.3152461][In-Network Computation is a Dumb Idea Whose Time Has Come]]*, /ACM HotNets/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The authors ask the question, given that programmable data plane hardware
+creates new opportunities for infusing intelligence into the network, what
+kinds of computation should be delegated to the data plane? The paper
+discusses the opportunities and challenges for co-designing data center
+distributed systems with their network layer, under the constraints imposed
+by the limitations of the network machine architecture of programmable
+devices. They find that, in particular, aggregation functions raise
+opportunities to exploit the limited computation power of networking
+hardware to lessen network congestion and improve the overall application
+performance.
+
+**** Liu et al.: *[[http://doi.acm.org/10.1145/3093315.3037731][IncBricks: Toward In-Network Computation with an In-Network Cache]]*, /SIGOPS Oper. Syst. Rev./, 2017.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+This paper presents IncBricks, an in-network caching fabric with basic
+computing primitives. IncBricks is a hardware-software co-designed system
+that supports caching in the network using a programmable network
+middlebox. As a key-value store accelerator, our prototype lowers request
+latency by over 30% and doubles throughput for 1024 byte values in a common
+cluster configuration. The results demonstrate the effectiveness of
+in-network computing and that efficient datacenter network request
+processing is possible if we carefully split the computation across
+programmable switches, network accelerators, and end hosts.
+
+**** Naveen Sharma et al.: *[[https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/sharma][Evaluating the Power of Flexible Packet Processing for Network Resource Allocation]]*, /USENIX NSDI/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The main contribution of this work is providing a set of general building
+blocks that mask the limitations of programmable switches (limited state,
+support limited types of operations, limited per-packet computation) using
+approximation techniques and thereby enabling the implementation of
+realistic network protocols. These building blocks are then used to tackle
+the network resource allocation problem within datacenters and realize
+approximate variants of congestion control and load balancing protocols,
+such as XCP, RCP, and CONGA, that require explicit support from the
+network. The evaluations show that the proposed approximations are accurate
+and that they do not exceed the hardware resource limits associated with
+flexible switches.
+
+**** Giuseppe Siracusano et al.: *[[http://arxiv.org/abs/1801.05731][In-network Neural Networks]]*, /unpublished manuscript/, 2018.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The paper presents N2Net, a system that implements binary neural networks
+using commodity switching chips deployed in network switches and
+routers. N2Net shows that these devices can run simple neural network
+models, whose input is encoded in the network packets' header, at packet
+processing speeds (billions of packets per second). Furthermore, the
+authors' experience highlights that switching chips could support even more
+complex models, provided that some minor and cheap modifications to the
+chip's design are applied.
+
+** Distributed Consensus
+
+**** Dang et al.: *[[http://doi.acm.org/10.1145/2774993.2774999][NetPaxos: Consensus at Network Speed]]*, /ACM SOSR/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+This paper explores the possibility of implementing the widely deployed
+Paxos consensus protocol in network devices. Two different approaches are
+presented: (1) a detailed design description for implementing the full
+Paxos logic in SDN switches, which identifies a sufficient set of required
+OpenFlow extensions, and (2) an alternative, optimistic protocol which can
+be implemented without changes to the OpenFlow API, but relies on
+assumptions about how the network orders messages. Although neither of
+these protocols can be fully implemented without changes to the underlying
+switch firmware, the authors argue that such changes are feasible in
+existing hardware. 
+
+**** Dang et al.: *[[http://doi.acm.org/10.1145/2935634.2935638][Paxos Made Switch-y]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2016.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+This paper posits that there are significant performance benefits to be
+gained by implementing the Paxos protocol, the foundation for building many
+fault-tolerant distributed systems and services, in network devices. The
+paper describes an implementation of Paxos in P4.
+
+**** Li et al.: *[[https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/li-xiaozhou][Be Fast, Cheap and in Control with SwitchKV]]*, /USENIX NSDI/, 2016.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+SwitchKV implements a key-value store system leveraging SDN network switches to
+balance the cache servers workload routing the traffic based on the content of
+the network packets. To identify the content of a packet, the key of a 
+key-value entry is encoded in the packet header. A hybrid cache strategy keeps
+the cache and switch forwarding rules updated, finally achieving significant
+improvements in both system's throughput and latency.
+
+**** Xin et al.: *[[https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/li-xiaozhou][NetCache: Balancing Key-Value Stores with Fast In-Network Caching]]*, /ACM SOSP/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+NetCache implements a small cache in for key-velue stores in a programmable
+hardware switch data plane. The switch works as a cache at the datacenter's
+rack level, handling requests directed to the rack's server. The
+implementation deals with consistency problems and shows how to overcome
+the constraints of hardware to provide throughput and latency improvements.
+
+**** Xin Jin et al.: *[[https://www.usenix.org/conference/nsdi18/presentation/jin][NetChain: Scale-Free Sub-RTT Coordination]]*, /USENIX NSDI/, 2018.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+This paper presents NetChain, a new approach that provides scale-free
+sub-RTT coordination in data centers. NetChain exploits programmable
+switches to store data and process queries entirely in the network data
+plane. This eliminates the query processing at coordination servers and
+cuts the end-to-end latency to as little as half of an RTT.  New protocols
+and algorithms are designed for NetChain guarantees strong consistency and
+handles switch failures efficiently.
+
+** Monitoring and Measurement
+
+**** Gong et al.: *[[http://doi.acm.org/10.1145/2774993.2775068][Towards Accurate Online Traffic Matrix Estimation in Software-defined Networks]]*, /ACM SOSR/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper seeks for accurate, feasible and scalable traffic matrix
+estimation approaches, by designing feasible traffic measurement rules that
+can be installed in TCAM entries of SDN switches.  The statistics of the
+measurement rules are collected by the controller to estimate fine-grained
+traffic matrix. Two strategies are proposes, called Maximum Load Rule First
+(MLRF) and Large Flow First (LFF), both of which LFF satisfy the flow
+aggregation constraints (determined by associated routing policies) and
+have low-complexity.
+
+**** Sivaraman et al.: *[[http://doi.acm.org/10.1145/3050220.3063772][Heavy-Hitter Detection Entirely in the Data Plane]]*, /ACM SOSR/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper describes HashPipe, a heavy hitter detection algorithm using
+programmable data planes. HashPipe implements a pipeline of hash tables
+which retain counters for heavy flows while evicting lighter flows over
+time. HashPipe is prototyped in P4 and evaluated with packet traces from an
+ISP backbone link and a data center.
+
+**** Huang et al.: *[[http://doi.acm.org/10.1145/3098822.3098831][SketchVisor: Robust Network Measurement for Software Packet Processing]]*, /ACM SIGCOMM/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper presents SketchVisor, a robust network measurement framework,
+which augments sketch-based measurement in the data plane with a fast path
+that is activated under high traffic load to provide high-performance local
+measurement with slight accuracy degradation. It further recovers accurate
+network-wide measurement results via compressive sensing. A SketchVisor
+prototype is build on top of Open vSwitch; testbed experiments show that
+SketchVisor achieves high throughput and high accuracy for a wide range of
+network measurement tasks.
+
+** Load balancing
+
+**** Miao et al.: *[[http://doi.acm.org/10.1145/3098822.3098824][SilkRoad: Making Stateful Layer-4 Load Balancing Fast and Cheap Using Switching ASICs]]*, /ACM SIGCOMM/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper explores how to use programmable switching ASICs to build much
+faster load balancers than have been built before. The proposed system,
+called SilkRoad, is defined in a 400 lines of P4 and, when compiled to a
+state-of-the-art switching ASIC, it can load-balance ten million
+connections simultaneously at line rate.
+
 * Miscellaneous Topics
 
 ** History
@@ -900,159 +1071,6 @@ for a single device is consolidated in one location and EPC functions are
 reorganized for efficient access to this consolidated state. A prototype
 for PEPC is also presented, as a software EPC that implements the key
 components of the design.
-
-** In-Network Computation
-
-**** Dang et al.: *[[http://doi.acm.org/10.1145/2774993.2774999][NetPaxos: Consensus at Network Speed]]*, /ACM SOSR/, 2015.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-This paper explores the possibility of implementing the widely deployed
-Paxos consensus protocol in network devices. Two different approaches are
-presented: (1) a detailed design description for implementing the full
-Paxos logic in SDN switches, which identifies a sufficient set of required
-OpenFlow extensions, and (2) an alternative, optimistic protocol which can
-be implemented without changes to the OpenFlow API, but relies on
-assumptions about how the network orders messages. Although neither of
-these protocols can be fully implemented without changes to the underlying
-switch firmware, the authors argue that such changes are feasible in
-existing hardware. 
-
-**** Dang et al.: *[[http://doi.acm.org/10.1145/2935634.2935638][Paxos Made Switch-y]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2016.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-This paper posits that there are significant performance benefits to be
-gained by implementing the Paxos protocol, the foundation for building many
-fault-tolerant distributed systems and services, in network devices. The
-paper describes an implementation of Paxos in P4.
-
-**** Gong et al.: *[[http://doi.acm.org/10.1145/2774993.2775068][Towards Accurate Online Traffic Matrix Estimation in Software-defined Networks]]*, /ACM SOSR/, 2015.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-The paper seeks for accurate, feasible and scalable traffic matrix
-estimation approaches, by designing feasible traffic measurement rules that
-can be installed in TCAM entries of SDN switches.  The statistics of the
-measurement rules are collected by the controller to estimate fine-grained
-traffic matrix. Two strategies are proposes, called Maximum Load Rule First
-(MLRF) and Large Flow First (LFF), both of which LFF satisfy the flow
-aggregation constraints (determined by associated routing policies) and
-have low-complexity.
-
-**** Sivaraman et al.: *[[http://doi.acm.org/10.1145/3050220.3063772][Heavy-Hitter Detection Entirely in the Data Plane]]*, /ACM SOSR/, 2017.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-The paper describes HashPipe, a heavy hitter detection algorithm using
-programmable data planes. HashPipe implements a pipeline of hash tables
-which retain counters for heavy flows while evicting lighter flows over
-time. HashPipe is prototyped in P4 and evaluated with packet traces from an
-ISP backbone link and a data center.
-
-**** Sapio et al.: *[[http://doi.acm.org/10.1145/3152434.3152461][In-Network Computation is a Dumb Idea Whose Time Has Come]]*, /ACM HotNets/, 2017.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-The authors ask the question, given that programmable data plane hardware
-creates new opportunities for infusing intelligence into the network, what
-kinds of computation should be delegated to the data plane? The paper
-discusses the opportunities and challenges for co-designing data center
-distributed systems with their network layer, under the constraints imposed
-by the limitations of the network machine architecture of programmable
-devices. They find that, in particular, aggregation functions raise
-opportunities to exploit the limited computation power of networking
-hardware to lessen network congestion and improve the overall application
-performance.
-
-**** Huang et al.: *[[http://doi.acm.org/10.1145/3098822.3098831][SketchVisor: Robust Network Measurement for Software Packet Processing]]*, /ACM SIGCOMM/, 2017.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-The paper presents SketchVisor, a robust network measurement framework,
-which augments sketch-based measurement in the data plane with a fast path
-that is activated under high traffic load to provide high-performance local
-measurement with slight accuracy degradation. It further recovers accurate
-network-wide measurement results via compressive sensing. A SketchVisor
-prototype is build on top of Open vSwitch; testbed experiments show that
-SketchVisor achieves high throughput and high accuracy for a wide range of
-network measurement tasks.
-
-**** Miao et al.: *[[http://doi.acm.org/10.1145/3098822.3098824][SilkRoad: Making Stateful Layer-4 Load Balancing Fast and Cheap Using Switching ASICs]]*, /ACM SIGCOMM/, 2017.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-The paper explores how to use programmable switching ASICs to build much
-faster load balancers than have been built before. The proposed system,
-called SilkRoad, is defined in a 400 lines of P4 and, when compiled to a
-state-of-the-art switching ASIC, it can load-balance ten million
-connections simultaneously at line rate.
-
-**** Li et al.: *[[https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/li-xiaozhou][Be Fast, Cheap and in Control with SwitchKV]]*, /USENIX NSDI/, 2016.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-SwitchKV implements a key-value store system leveraging SDN network switches to
-balance the cache servers workload routing the traffic based on the content of
-the network packets. To identify the content of a packet, the key of a 
-key-value entry is encoded in the packet header. A hybrid cache strategy keeps
-the cache and switch forwarding rules updated, finally achieving significant
-improvements in both system's throughput and latency.
-
-**** Xin et al.: *[[https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/li-xiaozhou][NetCache: Balancing Key-Value Stores with Fast In-Network Caching]]*, /ACM SOSP/, 2017.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-NetCache implements a small cache in for key-velue stores in a programmable
-hardwre switch data plane. The switch works as a cache at the datacenter's rack
-level, handling requests directed to the rack's server. The implementation
-deals with consistency problems and shows how to overcome the contraints of
-hardware to provide throughput and latency improvements.
-
-
-**** Naveen Sharma et al.: *[[https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/sharma][Evaluating the Power of Flexible Packet Processing for Network Resource Allocation]]*, /USENIX NSDI/, 2017.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-The main contribution of this work is providing a set of general building
-blocks that mask the limitations of programmable switches (limited state,
-support limited types of operations, limited per-packet computation) using
-approximation techniques and thereby enabling the implementation of
-realistic network protocols. These building blocks are then used to tackle
-the network resource allocation problem within datacenters and realize
-approximate variants of congestion control and load balancing protocols,
-such as XCP, RCP, and CONGA, that require explicit support from the
-network. The evaluations show that the proposed approximations are accurate
-and that they do not exceed the hardware resource limits associated with
-flexible switches.
-
-**** Liu et al.: *[[http://doi.acm.org/10.1145/3093315.3037731][IncBricks: Toward In-Network Computation with an In-Network Cache]]*, /SIGOPS Oper. Syst. Rev./, 2017.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-This paper presents IncBricks, an in-network caching fabric with basic
-computing primitives. IncBricks is a hardware-software co-designed system
-that supports caching in the network using a programmable network
-middlebox. As a key-value store accelerator, our prototype lowers request
-latency by over 30% and doubles throughput for 1024 byte values in a common
-cluster configuration. The results demonstrate the effectiveness of
-in-network computing and that efficient datacenter network request
-processing is possible if we carefully split the computation across
-programmable switches, network accelerators, and end hosts.
-
-**** Giuseppe Siracusano et al.: *[[http://arxiv.org/abs/1801.05731][In-network Neural Networks]]*, /unpublished manuscript/, 2018.
-
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-The paper presents N2Net, a system that implements binary neural networks
-using commodity switching chips deployed in network switches and
-routers. N2Net shows that these devices can run simple neural network
-models, whose input is encoded in the network packets' header, at packet
-processing speeds (billions of packets per second). Furthermore, the
-authors' experience highlights that switching chips could support even more
-complex models, provided that some minor and cheap modifications to the
-chip's design are applied.
 
 ** Implementing the Match-action Abstraction: HW, Algorithms, and Data Structures
 
