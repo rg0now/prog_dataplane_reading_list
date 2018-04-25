@@ -370,6 +370,17 @@ design principles for switch and router architects, and describes a parser
 generator that outputs synthesizable Verilog that is available for
 download.
 
+**** Sivaraman et al.: *[[http://doi.acm.org/10.1145/2535771.2535796][No Silver Bullet: Extending SDN to the Data Plane]]*, /ACM HotNets/, 2013.
+     :PROPERTIES:
+     :RELEVANCE:   interesting
+     :END:
+The authors argue that, instead of going with a universal scheduler that
+would handle all queuing strategies that may arise in a programmable
+switch, Software-Defined Networking must be extended to control the
+fast-path scheduling and queuing behavior of a switch. To this end, they
+propose adding a small FPGA to switches, and synthesize, place, and route
+hardware implementations for CoDel and RED.
+
 **** Radhika Mittal et al.: *[[https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/mittal][Universal Packet Scheduling]]*, /USENIX NSDI/, 2016.
      :PROPERTIES:
      :RELEVANCE:   interesting
@@ -398,15 +409,20 @@ made when packets are enqueued. The resultant design uses a single
 abstraction: the push-in first-out queue (PIFO), a priority queue that
 maintains the scheduling order or time.
 
-**** Sivaraman et al.: *[[http://doi.acm.org/10.1145/2535771.2535796][No Silver Bullet: Extending SDN to the Data Plane]]*, /ACM HotNets/, 2013.
+**** Naveen Sharma et al.: *[[https://www.usenix.org/conference/nsdi18/presentation/sharma][Approximating Fair Queueing on Reconfigurable Switches]]*, /USENIX NSDI/, 2018.
      :PROPERTIES:
      :RELEVANCE:   interesting
      :END:
-Instead of going with a universal scheduler, the authors argue that
-Software-Defined Networking must be extended to control the fast-path
-scheduling and queueing behavior of a switch. To this end, they propose
-adding a small FPGA to switches, and synthesize, place, and route hardware
-implementations for CoDel and RED.
+The paper discusses how to leverage configurable per-packet processing and
+the ability to maintain mutable state inside switches to achieve fair
+bandwidth allocation across all traversing flows. The problem is that
+implementing fair queuing mechanisms in high-speed switches is expensive,
+since they require complex flow classification, buffer allocation, and
+scheduling on a per-packet basis. The proposed dequeuing scheduler, called
+Rotating Strict Priority scheduler, simulates an ideal round-robin scheme
+where each active flow transmits a single bit of data in every round, which
+allows to transmit packets from multiple queues in approximate sorted
+order.
 
 * Architecture
 
@@ -736,6 +752,20 @@ switch hardware that performs flexible aggregations at line rate and scales
 to millions of keys. Marple can express switch queries that could
 previously run only on end hosts, while Marple queries only occupy a modest
 fraction of a switch's hardware resources.
+
+**** Daniel Firestone et al.: *[[https://www.usenix.org/conference/nsdi18/presentation/firestone][Azure Accelerated Networking: SmartNICs in the Public Cloud]]*, /USENIX NSDI/, 2018.
+     :PROPERTIES:
+     :RELEVANCE:   mustread
+     :END:
+Modern public cloud architectures rely on complex networking policies and
+running the necessary network stacks on CPU cores takes away processing
+power from VMs, increasing the cost of running cloud services, and adding
+latency and variability to network performance. The paper presents the
+design of AccelNet, the Azure Accelerated Networking scheme for offloading
+host networking to hardware, using custom Azure SmartNICs based on FPGAs,
+including the hardware/software co-design model, performance results on key
+workloads, and experiences and lessons learned from developing and
+deploying AccelNet.
 
 ** Hybrid Hardware/Software Architectures
 
