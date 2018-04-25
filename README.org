@@ -201,7 +201,7 @@ solutions optimized for latency, pipeline occupancy, or power
 consumption. The authors show benchmarks from real production networks to
 two different programmable switch architectures: RMT and Intel’s FlexPipe.
 
-**** Firestone et al.: *[[https://www.usenix.org/system/files/conference/nsdi17/nsdi17-firestone.pdf][VFP: A Virtual Switch Platform for Host Sdn in the Public Cloud]]*, /USENIX NSDI/, 2017.
+**** Firestone et al.: *[[https://www.usenix.org/system/files/conference/nsdi17/nsdi17-firestone.pdf][VFP: A Virtual Switch Platform for Host SDN in the Public Cloud]]*, /USENIX NSDI/, 2017.
      :PROPERTIES:
      :RELEVANCE:   important
      :END:
