@@ -608,6 +608,22 @@ also input to the compiler, opening the door to a handful of runtime
 optimization opportunities that can be leveraged to improve the performance
 of custom-compiled datapaths beyond what is possible in a static setting.
 
+**** Michael Dalton et al.: *[[https://www.usenix.org/conference/nsdi18/presentation/dalton][Andromeda: Performance, Isolation, and Velocity at Scale in Cloud Network Virtualization]]*, /USENIX NSDI/, 2018.
+     :PROPERTIES:
+     :RELEVANCE:   mustread
+     :END:
+This paper presents the design and experience with Andromeda, the network
+virtualization stack underlying the Google Cloud Platform. Andromeda is
+designed around the Hoverboard programming model, which uses gateways for
+the long tail of low bandwidth flows enabling the control plane to program
+network connectivity for tens of thousands of VMs in seconds, and applies
+per-flow processing to elephant flows only. The paper cites statistics
+indicating that above 80% of VM pairs never talk to each other in a
+deployment and only 1--2% generate sufficient traffic to warrant per-flow
+processing. The architecture also uses a high-performance OS bypass
+software packet processing path for CPU-intensive per packet operations,
+implemented on coprocessor threads.
+
 *** Packet I/O Libraries
 
 **** Rizzo et al.: *[[https://www.usenix.org/system/files/conference/atc12/atc12-final186.pdf][Netmap: a novel framework for fast packet I/O]]*, /USENIX ATC/, 2012.
