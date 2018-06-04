@@ -16,13 +16,11 @@
 /See the [[https://rg0now.github.io/prog_dataplane_reading_list/README.html][HTML version]] for a nicely formatted version./
 
 This is a reading list for students, practitioners, and researchers
-interested in the general area of programmable data plane devices,
-including SmartNICs, programmable middleboxes and software/hardware
-switches, everything that may underlie a software-defined network. The
-reading list concentrates on progammable switches principally, and only a
-marginal attempt is made to address the broader context of Network Function
-Virtualization, service chaining, or 5G, where programmable data planes are
-primarily applied.
+interested in the general area of programmable data plane devices. Topics
+include SmartNICs, programmable middleboxes and software/hardware switches,
+that is, everything that may underlie a software-defined network, with only
+a marginal attention to the major application areas like Network Function
+Virtualization, service chaining, or 5G.
 
 The reading list completes the survey paper:
 
