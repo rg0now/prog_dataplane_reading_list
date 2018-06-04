@@ -19,7 +19,16 @@ This is a reading list for students, practitioners, and researchers
 interested in the general area of programmable data plane devices,
 including SmartNICs, programmable middleboxes and software/hardware
 switches, everything that may underlie a software-defined network. The
-reading list completes the survey paper "TODO".
+reading list concentrates on progammable switches principally, and only a
+marginal attempt is made to address the broader context of Network Function
+Virtualization, service chaining, or 5G, where programmable data planes are
+primarily applied.
+
+The reading list completes the survey paper:
+
+Roberto Bifulco and Gábor Rétvári:
+/A Survey on the Programmable Data Plane: Abstractions, Architectures, and Open Problems/,
+to appear at /IEEE HPSR/, 2018.
 
 The reading list is organized into a rough hierarchy based on the major
 topics of /Abstractions/, /Architecture/, and /Miscellanea/; note that this
@@ -317,6 +326,19 @@ abstraction. Platform independence is accomplished by decoupling the
 implementation of hardware primitives from their usage by an application
 formally described via an abstract XFSM.
 
+**** Junaid Khalid et al.: *[[https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/khalid][Paving the Way for NFV: Simplifying Middlebox Modifications Using StateAlyzr]]*, /USENIX NSDI 16/, 2016.
+     :PROPERTIES:
+     :RELEVANCE:   interesting
+     :END:
+Migrating/cloning internal state in elastically scalable Network Functions
+Virtualization (NFV) require modifications to middlebox code to identify
+needed state. The paper presents a framework-independent system,
+StateAlyzr, that embodies novel algorithms adapted from program analysis to
+provably and automatically identify all state that must be migrated/cloned
+to ensure consistent middlebox output in the face of
+redistribution. StateAlyzr reduces man-hours required for code modification
+by nearly 20x.
+
 **** Luo et al.: *[[http://doi.acm.org/10.1145/3050220.3050233][Swing State: Consistent Updates for Stateful and Programmable Data Planes]]*, /ACM SOSR/, 2017.
      :PROPERTIES:
      :RELEVANCE:   interesting
@@ -354,6 +376,18 @@ access a RAMCloud-based data store. A network-wide orchestrator monitors
 the instances for load and failure, manages instances to scale and provide
 resilience, and leverages an OpenFlow-based network to direct traffic to
 instances. 
+
+**** Shinae Woo et al.: *[[https://www.usenix.org/conference/nsdi18/presentation/woo][Elastic Scaling of Stateful Network Functions]]*, /USENIX NSDI 18/, 2018.
+     :PROPERTIES:
+     :RELEVANCE:   mustread
+     :END:
+Elastic scaling is a central promise of NFV but has been hard to realize in
+practice, because most Network Functions (NFs) are stateful and this state
+need to be shared across NF instances. The paper presents S6, building on
+the insight that a distributed shared state abstraction is well-suited to
+the NFV context. State is organized as a distributed shared object (DSO)
+space, extended with techniques designed to meet the need for elasticity
+and high-performance in NFV workloads.
 
 ** Programmable Parsing and Scheduling
 
@@ -814,9 +848,9 @@ is tuned to more complex use cases.
      :RELEVANCE:   interesting
      :END:
 The paper opens the debate as to whether Graphics Processing Units (GPUs)
-are indeed useful as accelerators for software-based routing and packet
-handling applications. The authors argue that for many such applications
-the benefits arise less from the GPU hardware itself as from the expression
+are useful for accelerating software-based routing and packet handling
+applications. The authors argue that for many such applications the
+benefits arise less from the GPU hardware itself than from the expression
 of the problem in a language such as CUDA or OpenCL that facilitates memory
 latency hiding and vectorization through massive concurrency. They then
 demonstrate that applying a similar style of optimization to algorithm
