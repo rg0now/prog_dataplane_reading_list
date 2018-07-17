@@ -25,8 +25,8 @@ Virtualization, service chaining, or 5G.
 The reading list completes the survey paper:
 
 Roberto Bifulco and Gábor Rétvári:
-/A Survey on the Programmable Data Plane: Abstractions, Architectures, and Open Problems/,
-to appear at /IEEE HPSR/, 2018.
+[[https://rg0now.github.io/prog_dataplane_reading_list/2018_HPSR.pdf][A Survey on the Programmable Data Plane: Abstractions, Architectures, and Open Problems]],
+in /IEEE HPSR/, 2018.
 
 The reading list is organized into a rough hierarchy based on the major
 topics of /Abstractions/, /Architecture/, and /Miscellanea/; note that this
