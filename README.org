@@ -29,13 +29,13 @@ Roberto Bifulco and Gábor Rétvári:
 in /IEEE HPSR/, 2018.
 
 The reading list is organized into a rough hierarchy based on the major
-topics of /Abstractions/, /Architecture/, and /Miscellanea/; note that this
-hierarchy is more or less arbitrary and the purpose is just to have /some/
-organization at all. The individual papers are tagged as "mustread",
-"important", and "interesting" (available only in the HTML version), with
-the approximate meaning "read at least these papers to get a good
-understanding of the area", "papers for getting more familiar with some
-sub-areas", and "interesting contributions to the field",
+topics of /Abstractions/, /Architecture/, /Applications/, and
+/Miscellanea/; note that this hierarchy is more or less arbitrary and the
+purpose is just to have /some/ organization at all. The individual papers
+are tagged as "mustread", "important", and "interesting" (available only in
+the HTML version), with the approximate meaning "read at least these papers
+to get a good understanding of the area", "papers for getting more familiar
+with some sub-areas", and "interesting contributions to the field",
 respectively. Just like the hierarchy, the tags are also pretty much
 arbitrary and follow the subjective views of the authors; your mileage may
 vary.
