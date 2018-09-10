@@ -37,8 +37,8 @@ the HTML version), with the approximate meaning "read at least these papers
 to get a good understanding of the area", "papers for getting more familiar
 with some sub-areas", and "interesting contributions to the field",
 respectively. Just like the hierarchy, the tags are also pretty much
-arbitrary and follow the subjective views of the authors; your mileage may
-vary.
+arbitrary and follow the subjective view of the authors; as always, your
+mileage may vary.
 
 /Note:/ Some of the linked papers are behind paywalls. We double-checked
 that all listed papers can be accessed freely by a moderate amount of
