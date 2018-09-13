@@ -1072,6 +1072,98 @@ called SilkRoad, is defined in a 400 lines of P4 and, when compiled to a
 state-of-the-art switching ASIC, it can load-balance ten million
 connections simultaneously at line rate.
 
+** Unclassified
+
+**** Anat Bremler-Barr et al.: *[[https://ieeexplore.ieee.org/document/8264855/][Load balancing memcached traffic using software defined networking]]*, /IFIP Networking/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Schiff et al.: *[[https://dl.acm.org/citation.cfm?id=2673874][Reclaiming the brain: Useful openflow functions in the data plane]]*, /ACM HotNets/, 2014.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Schiff et al.: *[[https://dl.acm.org/citation.cfm?id=2875957][In-band synchronization for distributed SDN control planes]]*, /SIGCOMM CCR/, 2016.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Curtis et al.: *[[https://conferences.sigcomm.org/sigcomm/2011/papers/sigcomm/p254.pdf][DevoFlow: scaling flow management for high-performance networks]]*, /SIGCOMM CCR/, 2011.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Junda Liu et al.: *[[https://www.usenix.org/conference/nsdi13/technical-sessions/presentation/liu_junda][Ensuring connectivity via data plane mechanisms]]*, /USENIX NSDI/, 2013.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Borokhovich et al.: *[[https://www.sciencedirect.com/science/article/pii/S0140366416306478][The show must go on: Fundamental data plane connectivity services for dependable SDNs]]*, /Elsevier ComCom/, 2018.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Sanvito et al.: *[[https://dl.acm.org/citation.cfm?id=3229594][Can the Network Be the AI Accelerator]]*, /SIGCOMM NetCompute/, 2018.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Katta et al.: *[[https://conferences.sigcomm.org/sosr/2016/papers/sosr_paper67.pdf][Hula: Scalable load balancing using programmable data planes]]*, /ACM SOSR/, 2016.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Jin et al.: *[[https://conferences.sigcomm.org/co-next/2013/program/p163.pdf][Softcell: Scalable and flexible cellular core network architecture]]*, /ACM CoNEXT/, 2013.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Kim et al.: *[[http://web.mit.edu/anirudh/www/int-demo.pdf][In-band network telemetry via programmable dataplanes]]*, /ACM SIGCOMM/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Kim et al.: *[[https://p4.org/assets/INT-current-spec.pdf][In-band Network Telemetry (INT)]]*, /P4 Consortium/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Han et al.: *[[https://ieeexplore.ieee.org/document/7110117/][Blueswitch: enabling provably consistent configuration of network switches]]*, /ACM/IEEE ANCS/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Al-Fares et al.: *[[http://dl.acm.org/citation.cfm?id=1855711.1855730][Hedera: Dynamic Flow Scheduling for Data Center Networks]]*, /USENIX NSDI/, 2010.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Ghasemi et al.: *[[https://dl.acm.org/citation.cfm?id=3050228][Dapper: Data plane performance diagnosis of TCP]]*, /ACM SOSR/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Graham et al.: *[[https://ieeexplore.ieee.org/document/7830486/][Scalable hierarchical aggregation protocol (SHArP): a hardware architecture for efficient data reduction]]*, /IEEE COMHPC/, 2016.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Mai et al.: *[[https://dl.acm.org/citation.cfm?id=2674996][Netagg: Using middleboxes for application-specific on-path aggregation in data centres]]*, /ACM CoNEXT/, 2014.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Jeyakumar et al.: *[[https://dl.acm.org/citation.cfm?id=2626292][Millions of little minions: Using packets for low latency network programming and visibility]]*, /SIGCOMM CCR/, 2014.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
+**** Schwartz et al.: *[[https://dl.acm.org/citation.cfm?id=332893][Smart packets: Applying active networks to network management]]*, /ACM TOCS/, 2000.
+     :PROPERTIES:
+     :RELEVANCE: TODO
+     :END:
+
 * Miscellaneous Topics
 
 ** History
