@@ -1022,6 +1022,23 @@ cuts the end-to-end latency to as little as half of an RTT.  New protocols
 and algorithms are designed for NetChain guarantees strong consistency and
 handles switch failures efficiently.
 
+**** Schiff et al.: *[[https://dl.acm.org/citation.cfm?id=2875957][In-band synchronization for distributed SDN control planes]]*, /SIGCOMM CCR/, 2016.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The paper considers the design of consistent distributed
+control planes in which the actions performed on the data plane by
+different controllers need to be synchronized. 
+Schiff et al.~propose a synchronization
+framework for control planes based on atomic transactions,
+implemented on the data plane switches. The authors
+show that their approach allows to realize fundamental
+consensus primitives in the presence of controller failures,
+and also discuss applications for consistent policy composition.
+With a proof-of-concept implementation, it is demonstrated that 
+the framework can be implemented using the standard
+OpenFlow protocol.
+
 ** Monitoring and Measurement
 
 **** Gong et al.: *[[http://doi.acm.org/10.1145/2774993.2775068][Towards Accurate Online Traffic Matrix Estimation in Software-defined Networks]]*, /ACM SOSR/, 2015.
@@ -1074,30 +1091,6 @@ connections simultaneously at line rate.
 
 ** Unclassified
 
-**** Anat Bremler-Barr et al.: *[[https://ieeexplore.ieee.org/document/8264855/][Load balancing memcached traffic using software defined networking]]*, /IFIP Networking/, 2017.
-     :PROPERTIES:
-     :RELEVANCE: TODO
-     :END:
-
-**** Schiff et al.: *[[https://dl.acm.org/citation.cfm?id=2673874][Reclaiming the brain: Useful openflow functions in the data plane]]*, /ACM HotNets/, 2014.
-     :PROPERTIES:
-     :RELEVANCE: TODO
-     :END:
-
-**** Schiff et al.: *[[https://dl.acm.org/citation.cfm?id=2875957][In-band synchronization for distributed SDN control planes]]*, /SIGCOMM CCR/, 2016.
-     :PROPERTIES:
-     :RELEVANCE: TODO
-     :END:
-
-**** Curtis et al.: *[[https://conferences.sigcomm.org/sigcomm/2011/papers/sigcomm/p254.pdf][DevoFlow: scaling flow management for high-performance networks]]*, /SIGCOMM CCR/, 2011.
-     :PROPERTIES:
-     :RELEVANCE: TODO
-     :END:
-
-**** Junda Liu et al.: *[[https://www.usenix.org/conference/nsdi13/technical-sessions/presentation/liu_junda][Ensuring connectivity via data plane mechanisms]]*, /USENIX NSDI/, 2013.
-     :PROPERTIES:
-     :RELEVANCE: TODO
-     :END:
 
 **** Borokhovich et al.: *[[https://www.sciencedirect.com/science/article/pii/S0140366416306478][The show must go on: Fundamental data plane connectivity services for dependable SDNs]]*, /Elsevier ComCom/, 2018.
      :PROPERTIES:
@@ -1119,10 +1112,6 @@ connections simultaneously at line rate.
      :RELEVANCE: TODO
      :END:
 
-**** Kim et al.: *[[http://web.mit.edu/anirudh/www/int-demo.pdf][In-band network telemetry via programmable dataplanes]]*, /ACM SIGCOMM/, 2015.
-     :PROPERTIES:
-     :RELEVANCE: TODO
-     :END:
 
 **** Kim et al.: *[[https://p4.org/assets/INT-current-spec.pdf][In-band Network Telemetry (INT)]]*, /P4 Consortium/, 2015.
      :PROPERTIES:
@@ -1196,6 +1185,36 @@ and new languages that have emerged for programmable forwarding. The talk
 considers how we got here, why programmable forwarding planes are
 inevitable, why now is the right time, why they are a final frontier for
 SDN, and why they are here to stay.
+
+** Functionality of the Data Plane
+
+**** Curtis et al.: *[[https://conferences.sigcomm.org/sigcomm/2011/papers/sigcomm/p254.pdf][DevoFlow: scaling flow management for high-performance networks]]*, /SIGCOMM CCR/, 2011.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+This paper is motivated by the observation that OpenFlow,
+in its original design, imposes great overheads, 
+involving the switch’s control-plane too often. 
+In order to meet the needs of high-performance
+networks, the authors propose and evaluate DevoFlow,
+which provides less fine-grained visibility, 
+at significantly lower costs. In a case study,
+the authors show that DevoFlow can load-balance data center traffic
+as well as fine-grained solutions, but with much fewer flow table entries and using much fewer control messages.
+
+
+**** Schiff et al.: *[[https://dl.acm.org/citation.cfm?id=2673874][Reclaiming the Brain: Useful OpenFlow Functions in the Data Plane]]*, /ACM HotNets/, 2014.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+Schiff et al.~show that standard OpenFlow can be exploited 
+to implement powerful functionality in the data plane,
+e.g., to reduce the number of interactions with the
+control plane or to render the network more robust.
+Example applications of such a SmartSouth include 
+topology snapshot, anycast, blackhole detection and 
+critical node detection.
+
 
 ** Large-scale Deployments
 
