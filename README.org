@@ -1106,6 +1106,16 @@ connections simultaneously at line rate.
      :PROPERTIES:
      :RELEVANCE: mustread
      :END:
+HULA is motivated by the shortcomings of ECMP as well as of
+existing congestion-aware load-balancing techniques such as CONGA,
+which, due to limited switch memory, can only maintain a 
+limited amount of congestion-tracking state at the edge switches,
+and hence do not scale. HULA is a more flexible and scalable
+data-plane load-balancing algorithm in which each switch only
+tracks congestion for the best path to a destination
+through a neighboring switch. HULA is designed for 
+programmable switches and is programmed in P4. 
+
 
 **** Jin et al.: *[[https://conferences.sigcomm.org/co-next/2013/program/p163.pdf][Softcell: Scalable and flexible cellular core network architecture]]*, /ACM CoNEXT/, 2013.
      :PROPERTIES:
@@ -1122,18 +1132,48 @@ connections simultaneously at line rate.
      :PROPERTIES:
      :RELEVANCE: important
      :END:
+The paper is motivated by the challenges involved in 
+consistent updates of distributed network
+configurations, given the complexity of modern switch datapaths
+and the exposed opaque configuration mechanisms. 
+Indeed, the authors demonstrate that even simple rule 
+updates result in inconsistent packet switching
+in multi-table datapaths. 
+The main contribution of the paper is a hardware design 
+that supports a transactional configuration
+mechanism, providing strong switch-level atomicity:
+all packets traversing the datapath will encounter either the
+old configuration or the new one, and never an inconsistent mix of
+the two. The approach is prototyped using the NetFPGA
+hardware platform. 
 
 **** Al-Fares et al.: *[[http://dl.acm.org/citation.cfm?id=1855711.1855730][Hedera: Dynamic Flow Scheduling for Data Center Networks]]*, /USENIX NSDI/, 2010.
      :PROPERTIES:
      :RELEVANCE: important
      :END:
+This paper is motivated by the limitations
+of existing IP multipathing protocols relying 
+on per-flow static hashing, which can result in suboptimal
+throughput and bandwidth losses due to longterm
+collisions. Hedera is a dynamic flow scheduling
+system for multi-stage switch topologies as they often
+appear in data centers. Hedera uses flow information from
+constituent switches and reroutes traffic to non-conflicting 
+routes accordingly. The authors show that the more 
+global view of routing and traffic demands allows
+Hedera to see bottlenecks that
+switch-local schedulers cannot,
+and to adaptively schedule the switching fabric
+in a way which significantly improves 
+aggregate network utilization with
+minimal overheads. 
 
 **** Ghasemi et al.: *[[https://dl.acm.org/citation.cfm?id=3050228][Dapper: Data plane performance diagnosis of TCP]]*, /ACM SOSR/, 2017.
      :PROPERTIES:
      :RELEVANCE: important
      :END:
 Dapper is a system which leverages emerging edge
-devices offering flexible packet processing at high speed
+devices offering flexible and high-speed packet processing
 on commodity hardware, to diagnose cloud performance problems 
 in a timely manner. In particular, Dapper analyzes TCP performance in
 real time near the end-hosts, i.e., at the hypervisor, NIC,
@@ -1183,7 +1223,7 @@ state.
      :END: 
 This paper is situated in the context of Active Networks, and considers
 the application of active networks technology to network management
-and monitoring. The main idea of Smart Packets, which contain programs written in a safe language, is to move management decision points closer to the nodes being managed, as well as to target specific aspects of the node for information rather than conducting an exhaustive collection.
+and monitoring. The main idea of Smart Packets, which contain programs written in a safe language, is to move management decision points closer to the nodes being managed, as well as to target specific aspects of the node for information.
  
 
 * Miscellaneous Topics
