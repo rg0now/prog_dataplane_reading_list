@@ -903,6 +903,37 @@ than lack of capacity of GPU itself.
 
 * Applications
 
+** Resilient Routing
+
+**** Liu et al.: *[[https://dblp.org/rec/bib/conf/nsdi/LiuPSGSS13][Ensuring Connectivity via Data PlaneMechanism]]*, /USENIX NSDI/, 2013.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The authors propose to move the responsibility for
+maintaining basic network connectivity (as opposed to the computation of
+optimal paths which require global control plane knowledge)
+to the data plane, which operates orders of
+magnitude faster than the control plane.
+Their Data-Driven Connectivity (DDC) approach,
+which can handle arbitrary delays and losses,
+relies on simple state changes which can done at packet rates.
+In particular, DCC relies on link reversal routing, 
+adapted to suit the data plane, e.g., to handle message loss. 
+
+** Telemetry
+
+**** Kim et al.: *[[http://web.mit.edu/anirudh/www/int-demo.pdf][In-band Network Telemetry via Programmable Dataplanes]]*, /ACM SIGCOMM/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+In-band Network Telemetry (INT) is a powerful new network-diagnostics and debug mechanism,
+which allows, e.g., to diagnose performance problems related to
+latency spikes. The INT abstraction allows data packets 
+to query switch-internal state (e.g., queue size, link utilization, 
+and queuing latency). The paper reports on a prototype implemented
+in the P4 language, hence supporting various different programmable 
+network devices. 
+
 ** In-network Computation
 
 **** Sapio et al.: *[[http://doi.acm.org/10.1145/3152434.3152461][In-Network Computation is a Dumb Idea Whose Time Has Come]]*, /ACM HotNets/, 2017.
@@ -1088,6 +1119,59 @@ faster load balancers than have been built before. The proposed system,
 called SilkRoad, is defined in a 400 lines of P4 and, when compiled to a
 state-of-the-art switching ASIC, it can load-balance ten million
 connections simultaneously at line rate.
+
+**** Bremler{-}Barr et al.: *[[https://ieeexplore.ieee.org/document/8264855/][Load Balancing Memcached Traffic Using Software Defined Networking]]*, /IFIP Networking/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+In order to deal with skewed distributions of the popularity
+of certain keys in key-value stores, the authors propose (and implement) 
+MBalancer, an OpenFlow switch based L7 load balancing scheme, which 
+offloads requests from bottleneck Memcached servers. 
+MBalancer runs as an SDN application, 
+identifies the (typically small number of) hot keys, 
+and to many (or all) Memcached servers. The SDN controller
+updates the SDN switches forwarding tables and uses SDNs' 
+readily-available load balancing capabilities such as 
+OpenFlow’s select groups. 
+
+For P4 switches, we present equivalent load
+balancing program)
+SDN switches are based on a per-packet match-action
+paradigm, where fixed bits of the packet header are matched
+against forwarding table rules to decide which action to
+perform on the packet (e.g., forward to specific port, rewrite
+header, or drop the packet). MBalancer uses specific locations
+(namely, a fixed offset) in the packets’ Layer 7 header, in
+which Memcached’s keys appear. While such a matching is not
+supported by OpenFlow 1.5 (which restricts the matching to
+L2-L4 header fields), many SDN switch vendors today extend
+the matching capabilities to support matching in fixed location
+in the payload 1. Moreover, P4 [5] recently proposed a method
+for dynamically configuring the header parsing, allowing for
+even greater control over how matching is performed and on
+which parts of the header. Thus, in this paper, we present
+implementations of MBalancer both over P4 switches and
+OpenFlow switches with the above-mentioned capabilities.
+We have evaluated MBalancer both in simulations and in experiments,
+and show that in practice about 10 key duplications
+suffice for gaining a performance boost equivalent to adding 2-
+10 additional servers (the exact number depends on the specific
+settings). Moreover, we have shown that smartly duplicating
+the keys to half of the servers yields almost the same results
+to duplicating the keys to all the servers. In contrast, we show
+that moving keys between servers (without duplication) almost
+never helps.
+We have implemented MBalancer and run it in a small SDN
+network, with a NoviFlow switch that is capable of matching
+fixed bits in the payload. Our experiments show balanced
+request load and overall throughput gain that conforms to
+our analysis. Furthermore, MBalancer significantly reduces the
+average latency of requests.
+
+
+
+
 
 ** Unclassified
 
