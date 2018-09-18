@@ -1091,16 +1091,16 @@ connections simultaneously at line rate.
 
 ** Unclassified
 
-
-**** Borokhovich et al.: *[[https://www.sciencedirect.com/science/article/pii/S0140366416306478][The show must go on: Fundamental data plane connectivity services for dependable SDNs]]*, /Elsevier ComCom/, 2018.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-
 **** Sanvito et al.: *[[https://dl.acm.org/citation.cfm?id=3229594][Can the Network Be the AI Accelerator]]*, /SIGCOMM NetCompute/, 2018.
      :PROPERTIES:
      :RELEVANCE: mustread
      :END:
+This paper analyzes the feasibility and opportunities from
+using programmable network devices (e.g., network cards 
+and switches), as accelerators for Artificial Neural Networks (NNs).
+In particular, the authors investigate the properties of NN 
+processing on CPUs, and find that programmable network devices 
+may indeed be a suitable engine, for implementing a CPU’s NN co-processor.
 
 **** Katta et al.: *[[https://conferences.sigcomm.org/sosr/2016/papers/sosr_paper67.pdf][Hula: Scalable load balancing using programmable data planes]]*, /ACM SOSR/, 2016.
      :PROPERTIES:
@@ -1116,17 +1116,31 @@ tracks congestion for the best path to a destination
 through a neighboring switch. HULA is designed for 
 programmable switches and is programmed in P4. 
 
+**** Borokhovich et al.: *[[https://www.sciencedirect.com/science/article/pii/S0140366416306478][The show must go on: Fundamental data plane connectivity services for dependable SDNs]]*, /Elsevier ComCom/, 2018.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper argues that in order to provide a high availability, connectivity, and robustness, dependable SDNs must implement 
+functionality for inband network traversals, e.g., to find failover paths in the presence link failures. Three fundamentally different mechanisms are described: simple stateless mechanisms, efficient mechanisms based on packet tagging, and mechanisms based on dynamic state at the switches.
 
 **** Jin et al.: *[[https://conferences.sigcomm.org/co-next/2013/program/p163.pdf][Softcell: Scalable and flexible cellular core network architecture]]*, /ACM CoNEXT/, 2013.
      :PROPERTIES:
      :RELEVANCE: important
      :END:
+SoftCell aims to overcome today's expensive, inflexible and 
+complex cellular core networks by supporting fine-grained 
+policies for mobile devices, using commodity switches and servers. 
+In particular, SoftCell allows to flexibly route traffic through sequences of middleboxes based on subscriber attributes and applications.
+Scalability is achieved by minimizing the size of the 
+forwarding tables, using aggregation, and by performing
+packet classification at the access switches, next to the base stations.
 
 
 **** Kim et al.: *[[https://p4.org/assets/INT-current-spec.pdf][In-band Network Telemetry (INT)]]*, /P4 Consortium/, 2015.
      :PROPERTIES:
      :RELEVANCE: mustread
      :END:
+The current specification of In-band Ntework Telemetry (INT).
 
 **** Han et al.: *[[https://ieeexplore.ieee.org/document/7110117/][Blueswitch: enabling provably consistent configuration of network switches]]*, /ACM/IEEE ANCS/, 2015.
      :PROPERTIES:
@@ -1215,7 +1229,8 @@ a internal network state. The idea is motivated by a clear
 work division: switches forward and execute TTPs 
 in-band at line rate, and endhosts perform
 arbitrary (and easily updated) computation on network
-state.
+state. The paper presents a number of use case descriptions 
+motivating In‐band Network Telemetry (INT). 
 
 **** Schwartz et al.: *[[https://dl.acm.org/citation.cfm?id=332893][Smart packets: Applying active networks to network management]]*, /ACM TOCS/, 2000.
      :PROPERTIES:
