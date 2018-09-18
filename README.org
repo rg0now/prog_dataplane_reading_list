@@ -1283,6 +1283,13 @@ Dapper was prototyped in P4.
      :PROPERTIES:
      :RELEVANCE: important
      :END:
+SHArP is designed to offload operation processing,  
+by relying on intelligent network devices manipulating 
+data traversing the datacenter. SHArP is implemented in Mellanox’s 
+SwitchIB-2 ASIC, using in-network trees to reduce data from a group of sources, and
+to distribute the result. Multiple parallel jobs with several
+partially overlapping groups are supported, and pipelining is used 
+for improving latency further.
 
 **** Mai et al.: *[[https://dl.acm.org/citation.cfm?id=2674996][Netagg: Using middleboxes for application-specific on-path aggregation in data centres]]*, /ACM CoNEXT/, 2014.
      :PROPERTIES:
