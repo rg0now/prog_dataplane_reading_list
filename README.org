@@ -1,7 +1,7 @@
 #+STATUS: "mustread" "important" "interesting" ""
 #+COLUMNS: %120ITEM %STATUS
 #+OPTIONS: num:nil author:t prop:t toc:t
-#+AUTHOR: Roberto Bifulco, Gábor Rétvári
+#+AUTHOR: Roberto Bifulco, Stefan Schnid, Gábor Rétvári
 #+TITLE: The Programmable Data Plane: Reading List
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
@@ -148,6 +148,19 @@ representation.
 
 *** High-level Languages and Compilers
 
+**** Curtis et al.: *[[https://conferences.sigcomm.org/sigcomm/2011/papers/sigcomm/p254.pdf][DevoFlow: scaling flow management for high-performance networks]]*, /SIGCOMM CCR/, 2011.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+This paper is motivated by the observation that OpenFlow, in its original
+design, imposes great overheads, involving the switch’s control-plane too
+often.  In order to meet the needs of high-performance networks, the
+authors propose and evaluate DevoFlow, which provides less fine-grained
+visibility, at significantly lower costs. In a case study, the authors show
+that DevoFlow can load-balance data center traffic as well as fine-grained
+solutions, but with much fewer flow table entries and using much fewer
+control messages.
+
 **** Christopher Monsanto et al.: *[[https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final232.pdf][Composing Software Defined Networks]]*, /USENIX NSDI/, 2013.
      :PROPERTIES:
      :RELEVANCE:   mustread
@@ -196,6 +209,16 @@ process, analyze and forward packets, which allows easy development by
 leveraging functional composition and allows to exploit multi-queue NICs
 and multi-core architectures.
 
+**** Schiff et al.: *[[https://dl.acm.org/citation.cfm?id=2673874][Reclaiming the Brain: Useful OpenFlow Functions in the Data Plane]]*, /ACM HotNets/, 2014.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+Schiff et al. show that standard OpenFlow can be exploited to implement
+powerful functionality in the data plane, e.g., to reduce the number of
+interactions with the control plane or to render the network more robust.
+Example applications of such a SmartSouth include topology snapshot,
+anycast, blackhole detection and critical node detection.
+
 **** Lavanya Jose et al.: *[[https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/jose][Compiling Packet Programs to Reconfigurable Switches]]*, /USENIX NSDI/, 2015.
      :PROPERTIES:
      :RELEVANCE:   mustread
@@ -232,6 +255,21 @@ the P4.org reference compiler with a custom backend that generates FPGA
 code. By combining high-level programming abstractions offered by P4 with a
 flexible and powerful hardware target, P4FPGA may allow developers to
 rapidly prototype and deploy new data plane applications.
+
+**** Csikor et al.: *[[http://lendulet.tmit.bme.hu/lendulet_website/wp-content/papercite-data/pdf/csikor2018networking.pdf][HARMLESS: Cost-Effective Transitioning to SDN for Small Enterprises]]*, /IFIP Netwoking/, 2018.
+     :PROPERTIES:
+     :RELEVANCE:   interesting
+     :END:
+The paper proposes HARMLESS, a new SDN switch design that seamlessly adds
+SDN capability to legacy network gear, by emulating the OpenFlow switch OS
+in a separate software switch component. This way, HARMLESS enables a quick
+and easy leap into SDN, combining the rapid innovation and upgrade cycles
+of software switches with the port density and cost-efficiency of
+hardware-based appliances into a fully dataplane-transparent and
+vendor-neutral solution. HARMLESS incurs an order of magnitude smaller
+initial expenditure for an SDN deployment than existing turnkey vendor SDN
+solutions while it yields matching, or even better data plane performance
+for smaller enterprises.
 
 ** Abstractions for Embedded State
 
@@ -903,38 +941,91 @@ than lack of capacity of GPU itself.
 
 * Applications
 
-** Resilient Routing
+** Resilient, Robust, and Efficient Forwarding
 
-**** Liu et al.: *[[https://dblp.org/rec/bib/conf/nsdi/LiuPSGSS13][Ensuring Connectivity via Data PlaneMechanism]]*, /USENIX NSDI/, 2013.
+**** Al-Fares et al.: *[[http://dl.acm.org/citation.cfm?id=1855711.1855730][Hedera: Dynamic Flow Scheduling for Data Center Networks]]*, /USENIX NSDI/, 2010.
      :PROPERTIES:
      :RELEVANCE: important
      :END:
-The authors propose to move the responsibility for
-maintaining basic network connectivity (as opposed to the computation of
-optimal paths which require global control plane knowledge)
-to the data plane, which operates orders of
-magnitude faster than the control plane.
-Their Data-Driven Connectivity (DDC) approach,
-which can handle arbitrary delays and losses,
-relies on simple state changes which can done at packet rates.
-In particular, DCC relies on link reversal routing, 
-adapted to suit the data plane, e.g., to handle message loss. 
+This paper is motivated by the limitations of existing IP multipath
+protocols relying on per-flow static hashing, which can result in
+suboptimal throughput and bandwidth losses due to long-term
+collisions. Hedera is a dynamic flow scheduling system for multi-stage
+switch topologies as they often appear in data centers. Hedera uses flow
+information from constituent switches and reroutes traffic to
+non-conflicting routes accordingly. The authors show that the more global
+view of routing and traffic demands allows Hedera to see bottlenecks that
+switch-local schedulers cannot, and to adaptively schedule the switching
+fabric in a way which significantly improves aggregate network utilization
+with minimal overheads.
 
-** Telemetry
-
-**** Kim et al.: *[[http://web.mit.edu/anirudh/www/int-demo.pdf][In-band Network Telemetry via Programmable Dataplanes]]*, /ACM SIGCOMM/, 2015.
+**** Liu et al.: *[[https://dblp.org/rec/bib/conf/nsdi/LiuPSGSS13][Ensuring Connectivity via Data Plane Mechanisms]]*, /USENIX NSDI/, 2013.
      :PROPERTIES:
      :RELEVANCE: important
      :END:
-In-band Network Telemetry (INT) is a powerful new network-diagnostics and debug mechanism,
-which allows, e.g., to diagnose performance problems related to
-latency spikes. The INT abstraction allows data packets 
-to query switch-internal state (e.g., queue size, link utilization, 
-and queuing latency). The paper reports on a prototype implemented
-in the P4 language, hence supporting various different programmable 
-network devices. 
+The authors propose to move the responsibility for maintaining basic
+network connectivity (as opposed to the computation of optimal paths which
+require global control plane knowledge) to the data plane, which operates
+orders of magnitude faster than the control plane.  Their Data-Driven
+Connectivity (DDC) approach, which can handle arbitrary delays and losses,
+relies on simple state changes which can done at packet rates.  In
+particular, DCC relies on link reversal routing, adapted to suit the data
+plane, e.g., to handle message loss.
+
+**** Han et al.: *[[https://ieeexplore.ieee.org/document/7110117/][Blueswitch: enabling provably consistent configuration of network switches]]*, /ACM/IEEE ANCS/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The paper is motivated by the challenges involved in consistent updates of
+distributed network configurations, given the complexity of modern switch
+datapaths and the exposed opaque configuration mechanisms.  The authors
+demonstrate that even simple rule updates result in inconsistent packet
+switching in multi-table datapaths.  The main contribution of the paper is
+a hardware design that supports a transactional configuration mechanism,
+providing strong switch-level atomicity: all packets traversing the
+datapath will encounter either the old configuration or the new one, and
+never an inconsistent mix of the two. The approach is prototyped using the
+NetFPGA hardware platform.
+
+**** Borokhovich et al.: *[[https://www.sciencedirect.com/science/article/pii/S0140366416306478][The show must go on: Fundamental data plane connectivity services for dependable SDNs]]*, /Elsevier ComCom/, 2018.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper argues that in order to provide a high availability,
+connectivity, and robustness, dependable SDNs must implement functionality
+for inband network traversals, e.g., to find failover paths in the presence
+link failures. Three fundamentally different mechanisms are described:
+simple stateless mechanisms, efficient mechanisms based on packet tagging,
+and mechanisms based on dynamic state at the switches.
 
 ** In-network Computation
+
+**** Mai et al.: *[[https://dl.acm.org/citation.cfm?id=2674996][Netagg: Using middleboxes for application-specific on-path aggregation in data centres]]*, /ACM CoNEXT/, 2014.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+This paper is motivated by the performance challenges faced by data-center
+applications, such as Hadoop batch processing, during the data aggregation
+phase: if the network struggles to support many-to-few, high-bandwidth
+communication between servers then it can become a bottleneck. Mai et
+al. propose to depart from performing data aggregation at edge servers, but
+rather, do it more efficiently along network paths. The presented software
+platform, NETAGG, supports on-path aggregation for network-bound
+partition/aggregation applications. It is based on a middlebox-like design,
+in which dedicated servers that can execute aggregation functions provided
+by applications. The authors demonstrate that NETAGG can improve throughput
+substantially.
+
+**** Graham et al.: *[[https://ieeexplore.ieee.org/document/7830486/][Scalable hierarchical aggregation protocol (SHArP): a hardware architecture for efficient data reduction]]*, /IEEE COMHPC/, 2016.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+SHArP is designed to offload computational load to the network, by relying
+on intelligent network devices manipulating data traversing the
+datacenter. SHArP is implemented in Mellanox’s SwitchIB-2 ASIC, using
+in-network trees to reduce data from a group of sources, and to distribute
+the result. Multiple parallel jobs with several partially overlapping
+groups are supported, and pipelining is used for improving latency further.
 
 **** Sapio et al.: *[[http://doi.acm.org/10.1145/3152434.3152461][In-Network Computation is a Dumb Idea Whose Time Has Come]]*, /ACM HotNets/, 2017.
      :PROPERTIES:
@@ -980,6 +1071,17 @@ such as XCP, RCP, and CONGA, that require explicit support from the
 network. The evaluations show that the proposed approximations are accurate
 and that they do not exceed the hardware resource limits associated with
 flexible switches.
+
+**** Sanvito et al.: *[[https://dl.acm.org/citation.cfm?id=3229594][Can the Network Be the AI Accelerator]]*, /SIGCOMM NetCompute/, 2018.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+This paper analyzes the feasibility and opportunities from using
+programmable network devices (e.g., network cards and switches), as
+accelerators for Artificial Neural Networks (NNs).  In particular, the
+authors investigate the properties of NN processing on CPUs, and find that
+programmable network devices may indeed be a suitable engine, for
+implementing a CPU’s NN co-processor.
 
 **** Giuseppe Siracusano et al.: *[[http://arxiv.org/abs/1801.05731][In-network Neural Networks]]*, /unpublished manuscript/, 2018.
      :PROPERTIES:
@@ -1031,6 +1133,20 @@ key-value entry is encoded in the packet header. A hybrid cache strategy keeps
 the cache and switch forwarding rules updated, finally achieving significant
 improvements in both system's throughput and latency.
 
+**** Schiff et al.: *[[https://dl.acm.org/citation.cfm?id=2875957][In-band synchronization for distributed SDN control planes]]*, /SIGCOMM CCR/, 2016.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The paper considers the design of consistent distributed control planes in
+which the actions performed on the data plane by different controllers need
+to be synchronized.  The authors propose a synchronization framework for
+based on atomic transactions implemented in the data plane switches and
+show that their approach allows to realize fundamental consensus primitives
+in the presence of controller failures. They also discuss applications for
+consistent policy composition.  With a proof-of-concept implementation, it
+is demonstrated that the framework can be implemented using the standard
+OpenFlow protocol.
+
 **** Xin et al.: *[[https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/li-xiaozhou][NetCache: Balancing Key-Value Stores with Fast In-Network Caching]]*, /ACM SOSP/, 2017.
      :PROPERTIES:
      :RELEVANCE: interesting
@@ -1053,24 +1169,31 @@ cuts the end-to-end latency to as little as half of an RTT.  New protocols
 and algorithms are designed for NetChain guarantees strong consistency and
 handles switch failures efficiently.
 
-**** Schiff et al.: *[[https://dl.acm.org/citation.cfm?id=2875957][In-band synchronization for distributed SDN control planes]]*, /SIGCOMM CCR/, 2016.
+** Monitoring, Telemetry, and Measurement
+
+**** Jeyakumar et al.: *[[https://dl.acm.org/citation.cfm?id=2626292][Millions of little minions: Using packets for low latency network programming and visibility]]*, /SIGCOMM CCR/, 2014.
      :PROPERTIES:
      :RELEVANCE: important
      :END:
-The paper considers the design of consistent distributed
-control planes in which the actions performed on the data plane by
-different controllers need to be synchronized. 
-Schiff et al.~propose a synchronization
-framework for control planes based on atomic transactions,
-implemented on the data plane switches. The authors
-show that their approach allows to realize fundamental
-consensus primitives in the presence of controller failures,
-and also discuss applications for consistent policy composition.
-With a proof-of-concept implementation, it is demonstrated that 
-the framework can be implemented using the standard
-OpenFlow protocol.
+Jeyakumar et al. present an approach to give end-hosts visibility into
+network behavior and to quickly introduce new data plane functionality, via
+a new Tiny Packet Program (TTP) interface. TTPs are embedded into packets
+by endhosts and can actively query and manipulate internal network
+state. The idea is motivated by a clear work division: switches forward and
+execute TTPs in-band at line rate, and endhosts perform arbitrary (and
+easily updated) computation on network state. The paper presents a number
+of use case descriptions motivating In‐band Network Telemetry (INT).
 
-** Monitoring and Measurement
+**** Kim et al.: *[[http://web.mit.edu/anirudh/www/int-demo.pdf][In-band Network Telemetry via Programmable Dataplanes]]*, /ACM SIGCOMM/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+In-band Network Telemetry (INT) is a powerful new network-diagnostics and
+debug mechanism, which allows, e.g., to diagnose performance problems
+related to latency spikes. The INT abstraction allows data packets to query
+switch-internal state (e.g., queue size, link utilization, and queuing
+latency). The paper reports on a prototype implemented in the P4 language,
+hence supporting various different programmable network devices.
 
 **** Gong et al.: *[[http://doi.acm.org/10.1145/2774993.2775068][Towards Accurate Online Traffic Matrix Estimation in Software-defined Networks]]*, /ACM SOSR/, 2015.
      :PROPERTIES:
@@ -1084,6 +1207,12 @@ traffic matrix. Two strategies are proposes, called Maximum Load Rule First
 (MLRF) and Large Flow First (LFF), both of which LFF satisfy the flow
 aggregation constraints (determined by associated routing policies) and
 have low-complexity.
+
+**** Kim et al.: *[[https://p4.org/assets/INT-current-spec.pdf][In-band Network Telemetry (INT)]]*, /P4 Consortium/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+A specification of In-band Network Telemetry (INT) using P4.
 
 **** Sivaraman et al.: *[[http://doi.acm.org/10.1145/3050220.3063772][Heavy-Hitter Detection Entirely in the Data Plane]]*, /ACM SOSR/, 2017.
      :PROPERTIES:
@@ -1110,6 +1239,19 @@ network measurement tasks.
 
 ** Load balancing
 
+**** Katta et al.: *[[https://conferences.sigcomm.org/sosr/2016/papers/sosr_paper67.pdf][Hula: Scalable load balancing using programmable data planes]]*, /ACM SOSR/, 2016.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+HULA is motivated by the shortcomings of ECMP as well as of existing
+congestion-aware load-balancing techniques such as CONGA, which, due to
+limited switch memory, can only maintain a limited amount of
+congestion-tracking state at the edge switches, and hence do not
+scale. HULA is a more flexible and scalable data-plane load-balancing
+algorithm in which each switch tracks congestion only for the best path to
+a destination through a neighboring switch. HULA is designed for
+programmable switches and is programmed in P4.
+
 **** Miao et al.: *[[http://doi.acm.org/10.1145/3098822.3098824][SilkRoad: Making Stateful Layer-4 Load Balancing Fast and Cheap Using Switching ASICs]]*, /ACM SIGCOMM/, 2017.
      :PROPERTIES:
      :RELEVANCE: interesting
@@ -1120,222 +1262,47 @@ called SilkRoad, is defined in a 400 lines of P4 and, when compiled to a
 state-of-the-art switching ASIC, it can load-balance ten million
 connections simultaneously at line rate.
 
-**** Bremler{-}Barr et al.: *[[https://ieeexplore.ieee.org/document/8264855/][Load Balancing Memcached Traffic Using Software Defined Networking]]*, /IFIP Networking/, 2017.
+**** Bremler-Barr et al.: *[[https://ieeexplore.ieee.org/document/8264855/][Load Balancing Memcached Traffic Using Software Defined Networking]]*, /IFIP Networking/, 2017.
      :PROPERTIES:
      :RELEVANCE: interesting
      :END:
-In order to deal with skewed distributions of the popularity
-of certain keys in key-value stores, the authors propose (and implement) 
-MBalancer, an OpenFlow switch based L7 load balancing scheme, which 
-offloads requests from bottleneck Memcached servers. 
-MBalancer runs as an SDN application, 
-identifies the (typically small number of) hot keys, 
-and to many (or all) Memcached servers. The SDN controller
-updates the SDN switches forwarding tables and uses SDNs' 
-readily-available load balancing capabilities such as 
-OpenFlow’s select groups. 
-
-For P4 switches, we present equivalent load
-balancing program)
-SDN switches are based on a per-packet match-action
-paradigm, where fixed bits of the packet header are matched
-against forwarding table rules to decide which action to
-perform on the packet (e.g., forward to specific port, rewrite
-header, or drop the packet). MBalancer uses specific locations
-(namely, a fixed offset) in the packets’ Layer 7 header, in
-which Memcached’s keys appear. While such a matching is not
-supported by OpenFlow 1.5 (which restricts the matching to
-L2-L4 header fields), many SDN switch vendors today extend
-the matching capabilities to support matching in fixed location
-in the payload 1. Moreover, P4 [5] recently proposed a method
-for dynamically configuring the header parsing, allowing for
-even greater control over how matching is performed and on
-which parts of the header. Thus, in this paper, we present
-implementations of MBalancer both over P4 switches and
-OpenFlow switches with the above-mentioned capabilities.
-We have evaluated MBalancer both in simulations and in experiments,
-and show that in practice about 10 key duplications
-suffice for gaining a performance boost equivalent to adding 2-
-10 additional servers (the exact number depends on the specific
-settings). Moreover, we have shown that smartly duplicating
-the keys to half of the servers yields almost the same results
-to duplicating the keys to all the servers. In contrast, we show
-that moving keys between servers (without duplication) almost
-never helps.
-We have implemented MBalancer and run it in a small SDN
-network, with a NoviFlow switch that is capable of matching
-fixed bits in the payload. Our experiments show balanced
-request load and overall throughput gain that conforms to
-our analysis. Furthermore, MBalancer significantly reduces the
-average latency of requests.
-
-
-
-
-
-** Unclassified
-
-**** Sanvito et al.: *[[https://dl.acm.org/citation.cfm?id=3229594][Can the Network Be the AI Accelerator]]*, /SIGCOMM NetCompute/, 2018.
-     :PROPERTIES:
-     :RELEVANCE: mustread
-     :END:
-This paper analyzes the feasibility and opportunities from
-using programmable network devices (e.g., network cards 
-and switches), as accelerators for Artificial Neural Networks (NNs).
-In particular, the authors investigate the properties of NN 
-processing on CPUs, and find that programmable network devices 
-may indeed be a suitable engine, for implementing a CPU’s NN co-processor.
-
-**** Katta et al.: *[[https://conferences.sigcomm.org/sosr/2016/papers/sosr_paper67.pdf][Hula: Scalable load balancing using programmable data planes]]*, /ACM SOSR/, 2016.
-     :PROPERTIES:
-     :RELEVANCE: mustread
-     :END:
-HULA is motivated by the shortcomings of ECMP as well as of
-existing congestion-aware load-balancing techniques such as CONGA,
-which, due to limited switch memory, can only maintain a 
-limited amount of congestion-tracking state at the edge switches,
-and hence do not scale. HULA is a more flexible and scalable
-data-plane load-balancing algorithm in which each switch only
-tracks congestion for the best path to a destination
-through a neighboring switch. HULA is designed for 
-programmable switches and is programmed in P4. 
-
-**** Borokhovich et al.: *[[https://www.sciencedirect.com/science/article/pii/S0140366416306478][The show must go on: Fundamental data plane connectivity services for dependable SDNs]]*, /Elsevier ComCom/, 2018.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-The paper argues that in order to provide a high availability, connectivity, and robustness, dependable SDNs must implement 
-functionality for inband network traversals, e.g., to find failover paths in the presence link failures. Three fundamentally different mechanisms are described: simple stateless mechanisms, efficient mechanisms based on packet tagging, and mechanisms based on dynamic state at the switches.
-
-**** Jin et al.: *[[https://conferences.sigcomm.org/co-next/2013/program/p163.pdf][Softcell: Scalable and flexible cellular core network architecture]]*, /ACM CoNEXT/, 2013.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-SoftCell aims to overcome today's expensive, inflexible and 
-complex cellular core networks by supporting fine-grained 
-policies for mobile devices, using commodity switches and servers. 
-In particular, SoftCell allows to flexibly route traffic through sequences of middleboxes based on subscriber attributes and applications.
-Scalability is achieved by minimizing the size of the 
-forwarding tables, using aggregation, and by performing
-packet classification at the access switches, next to the base stations.
-
-
-**** Kim et al.: *[[https://p4.org/assets/INT-current-spec.pdf][In-band Network Telemetry (INT)]]*, /P4 Consortium/, 2015.
-     :PROPERTIES:
-     :RELEVANCE: mustread
-     :END:
-The current specification of In-band Ntework Telemetry (INT).
-
-**** Han et al.: *[[https://ieeexplore.ieee.org/document/7110117/][Blueswitch: enabling provably consistent configuration of network switches]]*, /ACM/IEEE ANCS/, 2015.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-The paper is motivated by the challenges involved in 
-consistent updates of distributed network
-configurations, given the complexity of modern switch datapaths
-and the exposed opaque configuration mechanisms. 
-Indeed, the authors demonstrate that even simple rule 
-updates result in inconsistent packet switching
-in multi-table datapaths. 
-The main contribution of the paper is a hardware design 
-that supports a transactional configuration
-mechanism, providing strong switch-level atomicity:
-all packets traversing the datapath will encounter either the
-old configuration or the new one, and never an inconsistent mix of
-the two. The approach is prototyped using the NetFPGA
-hardware platform. 
-
-**** Al-Fares et al.: *[[http://dl.acm.org/citation.cfm?id=1855711.1855730][Hedera: Dynamic Flow Scheduling for Data Center Networks]]*, /USENIX NSDI/, 2010.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-This paper is motivated by the limitations
-of existing IP multipathing protocols relying 
-on per-flow static hashing, which can result in suboptimal
-throughput and bandwidth losses due to longterm
-collisions. Hedera is a dynamic flow scheduling
-system for multi-stage switch topologies as they often
-appear in data centers. Hedera uses flow information from
-constituent switches and reroutes traffic to non-conflicting 
-routes accordingly. The authors show that the more 
-global view of routing and traffic demands allows
-Hedera to see bottlenecks that
-switch-local schedulers cannot,
-and to adaptively schedule the switching fabric
-in a way which significantly improves 
-aggregate network utilization with
-minimal overheads. 
+Memcached is an in-memory key-value distributed caching solution, commonly
+used by web servers for fast content delivery. In order to deal with skewed
+distributions of key popularity in key-value stores, the authors propose
+and implement MBalancer, a switch-based L7 load balancing scheme, which
+offloads requests from bottleneck Memcached servers.  MBalancer runs as an
+SDN application, identifies the (typically small number of) hot keys,
+duplicates these hot keys to many (or all) Memcached servers, and adjusts
+the switches' forwarding tables accordingly. Experiences with an
+implementation of MBalancer on a hardware-based OpenFlow switch indicate
+significant throughput boost and latency reduction.
 
 **** Ghasemi et al.: *[[https://dl.acm.org/citation.cfm?id=3050228][Dapper: Data plane performance diagnosis of TCP]]*, /ACM SOSR/, 2017.
      :PROPERTIES:
      :RELEVANCE: important
      :END:
-Dapper is a system which leverages emerging edge
-devices offering flexible and high-speed packet processing
-on commodity hardware, to diagnose cloud performance problems 
-in a timely manner. In particular, Dapper analyzes TCP performance in
-real time near the end-hosts, i.e., at the hypervisor, NIC,
-or top-of-rack switch, by determining whether a connection
-is limited by the sender, the network, or the receiver. 
-Dapper was prototyped in P4.
-
-**** Graham et al.: *[[https://ieeexplore.ieee.org/document/7830486/][Scalable hierarchical aggregation protocol (SHArP): a hardware architecture for efficient data reduction]]*, /IEEE COMHPC/, 2016.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-SHArP is designed to offload operation processing,  
-by relying on intelligent network devices manipulating 
-data traversing the datacenter. SHArP is implemented in Mellanox’s 
-SwitchIB-2 ASIC, using in-network trees to reduce data from a group of sources, and
-to distribute the result. Multiple parallel jobs with several
-partially overlapping groups are supported, and pipelining is used 
-for improving latency further.
-
-**** Mai et al.: *[[https://dl.acm.org/citation.cfm?id=2674996][Netagg: Using middleboxes for application-specific on-path aggregation in data centres]]*, /ACM CoNEXT/, 2014.
-     :PROPERTIES:
-     :RELEVANCE: mustread
-     :END:
-This paper is motivated by the performance challenges faced
-by datacenter applications, such as Hadoop batch processing, 
-during the data aggregation step:
-if the network struggles to support many-to-few, high-bandwidth 
-traffic between servers, it can become a bottleneck. 
-Mai et al.~propose to depart from performing data aggregation 
-at edge servers, but rather, do it more efficiently 
-along network paths. The presented software platform, NETAGG, 
-hence  supports on-path aggregation for network-bound partition/aggregation applications. It is based on a middlebox-like design, in which dedicated servers (agg boxes) are connected to network switches, using shim layers on edge servers to redirect application traffic transparently to the agg boxes.
-These  agg boxes can execute aggregation functions provided by applications. The authors demonstrate that NETAGG can improve
-throughput substantially.
-
-**** Jeyakumar et al.: *[[https://dl.acm.org/citation.cfm?id=2626292][Millions of little minions: Using packets for low latency network programming and visibility]]*, /SIGCOMM CCR/, 2014.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-Jeyakumar et al.~present an approach to give end-hosts 
-unprecedented visibility into network behavior and to
-quickly introduce new data plane functionality, via a Tiny
-Packet Program (TTP) interface. TTPs are embedded into packets 
-by endhost and can actively query and manipulate
-a internal network state. The idea is motivated by a clear
-work division: switches forward and execute TTPs 
-in-band at line rate, and endhosts perform
-arbitrary (and easily updated) computation on network
-state. The paper presents a number of use case descriptions 
-motivating In‐band Network Telemetry (INT). 
-
-**** Schwartz et al.: *[[https://dl.acm.org/citation.cfm?id=332893][Smart packets: Applying active networks to network management]]*, /ACM TOCS/, 2000.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END: 
-This paper is situated in the context of Active Networks, and considers
-the application of active networks technology to network management
-and monitoring. The main idea of Smart Packets, which contain programs written in a safe language, is to move management decision points closer to the nodes being managed, as well as to target specific aspects of the node for information.
- 
+Dapper is a system which leverages emerging edge devices offering flexible
+and high-speed packet processing on commodity hardware, to diagnose cloud
+performance problems in a timely manner. In particular, Dapper analyzes TCP
+performance in real time near the end-hosts, i.e., at the hypervisor, NIC,
+or top-of-rack switch, by determining whether a connection is limited by
+the sender, the network, or the receiver. Dapper was prototyped in P4.
 
 * Miscellaneous Topics
 
 ** History
 
+**** Schwartz et al.: *[[https://dl.acm.org/citation.cfm?id=332893][Smart packets: Applying active networks to network management]]*, /ACM TOCS/, 2000.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END: 
+One intellectual precursor to programmable networks is the Active Networks
+concept. This paper surveys the application of active networks technology
+to network management and monitoring. The main idea of Smart Packets, which
+contain programs written in a safe language, is to move management decision
+points closer to the nodes being managed, as well as to target specific
+aspects of the node for information.
+ 
 **** Feamster et al.: *[[http://doi.acm.org/10.1145/2559899.2560327][The Road to SDN]]*, /ACM Queue/, 2013.
      :PROPERTIES:
      :RELEVANCE:   mustread
@@ -1365,37 +1332,7 @@ considers how we got here, why programmable forwarding planes are
 inevitable, why now is the right time, why they are a final frontier for
 SDN, and why they are here to stay.
 
-** Functionality of the Data Plane
-
-**** Curtis et al.: *[[https://conferences.sigcomm.org/sigcomm/2011/papers/sigcomm/p254.pdf][DevoFlow: scaling flow management for high-performance networks]]*, /SIGCOMM CCR/, 2011.
-     :PROPERTIES:
-     :RELEVANCE: mustread
-     :END:
-This paper is motivated by the observation that OpenFlow,
-in its original design, imposes great overheads, 
-involving the switch’s control-plane too often. 
-In order to meet the needs of high-performance
-networks, the authors propose and evaluate DevoFlow,
-which provides less fine-grained visibility, 
-at significantly lower costs. In a case study,
-the authors show that DevoFlow can load-balance data center traffic
-as well as fine-grained solutions, but with much fewer flow table entries and using much fewer control messages.
-
-
-**** Schiff et al.: *[[https://dl.acm.org/citation.cfm?id=2673874][Reclaiming the Brain: Useful OpenFlow Functions in the Data Plane]]*, /ACM HotNets/, 2014.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-Schiff et al.~show that standard OpenFlow can be exploited 
-to implement powerful functionality in the data plane,
-e.g., to reduce the number of interactions with the
-control plane or to render the network more robust.
-Example applications of such a SmartSouth include 
-topology snapshot, anycast, blackhole detection and 
-critical node detection.
-
-
-** Large-scale Deployments
+** Deployments
 
 **** Casado et al.: *[[http://doi.acm.org/10.1145/1282380.1282382][Ethane: Taking Control of the Enterprise]]*, /ACM SIGCOMM/, 2007.
      :PROPERTIES:
@@ -1409,6 +1346,19 @@ a centralized controller that manages the admittance and routing of
 flows. While radical, this design is backwards-compatible with existing
 hosts and switches.  Ethane was implemented in both hardware and software,
 supporting both wired and wireless hosts.
+
+**** Jin et al.: *[[https://conferences.sigcomm.org/co-next/2013/program/p163.pdf][Softcell: Scalable and flexible cellular core network architecture]]*, /ACM CoNEXT/, 2013.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+SoftCell aims to overcome today's expensive, inflexible and complex
+cellular core networks by supporting fine-grained policies for mobile
+devices, using commodity switches and servers.  In particular, SoftCell
+allows to flexibly route traffic through sequences of middleboxes based on
+subscriber attributes and applications.  Scalability is achieved by
+minimizing the size of the forwarding tables, using aggregation, and by
+performing packet classification at the access switches, next to the base
+stations.
 
 **** Jain et al.: *[[http://doi.acm.org/10.1145/2486001.2486019][B4: Experience with a Globally-deployed Software Defined Wan]]*, /ACM SIGCOMM/, 2013.
      :PROPERTIES:
