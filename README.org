@@ -786,7 +786,7 @@ high-performance reconfigurable-computing architectures based on
 field-programmable gate array (FPGA) technology, including components for
 packet parsing, editing, and table lookups.
 
-**** Kuzniar et al.: *[[https://infoscience.epfl.ch/record/199497/files/switches-tr-oct14_1.pdf][What you need to know about SDN control and data planes]]*, /EPFL Technical Report 199497/, 2014.
+**** Kuzniar et al.: *[[https://infoscience.epfl.ch/record/199497/files/switches-tr-oct14_1.pdf][What You Need to Know About SDN Control and Data Planes]]*, /EPFL Technical Report 199497/, 2014.
      :PROPERTIES:
      :RELEVANCE: mustread
      :END:
@@ -796,6 +796,21 @@ the control- and data-planes in three hardware OpenFlow switches. The
 results highlight differences between the OpenFlow specification and its
 implementations that, if ignored, pose a serious threat to network security
 and correctness.
+
+**** Han et al.: *[[https://ieeexplore.ieee.org/document/7110117/][BlueSwitch: Enabling Provably Consistent Configuration of Network Switches]]*, /ACM/IEEE ANCS/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The paper is motivated by the challenges involved in consistent updates of
+distributed network configurations, given the complexity of modern switch
+datapaths and the exposed opaque configuration mechanisms.  The authors
+demonstrate that even simple rule updates result in inconsistent packet
+switching in multi-table datapaths.  The main contribution of the paper is
+a hardware design that supports a transactional configuration mechanism,
+providing strong switch-level atomicity: all packets traversing the
+datapath will encounter either the old configuration or the new one, and
+never an inconsistent mix of the two. The approach is prototyped using the
+NetFPGA hardware platform.
 
 **** Li et al.: *[[http://doi.acm.org/10.1145/2934872.2934897][ClickNP: Highly Flexible and High Performance Network Processing with Reconfigurable Hardware]]*, /ACM SIGCOMM/, 2016.
      :PROPERTIES:
@@ -971,21 +986,6 @@ Connectivity (DDC) approach, which can handle arbitrary delays and losses,
 relies on simple state changes which can done at packet rates.  In
 particular, DCC relies on link reversal routing, adapted to suit the data
 plane, e.g., to handle message loss.
-
-**** Han et al.: *[[https://ieeexplore.ieee.org/document/7110117/][Blueswitch: enabling provably consistent configuration of network switches]]*, /ACM/IEEE ANCS/, 2015.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-The paper is motivated by the challenges involved in consistent updates of
-distributed network configurations, given the complexity of modern switch
-datapaths and the exposed opaque configuration mechanisms.  The authors
-demonstrate that even simple rule updates result in inconsistent packet
-switching in multi-table datapaths.  The main contribution of the paper is
-a hardware design that supports a transactional configuration mechanism,
-providing strong switch-level atomicity: all packets traversing the
-datapath will encounter either the old configuration or the new one, and
-never an inconsistent mix of the two. The approach is prototyped using the
-NetFPGA hardware platform.
 
 **** Borokhovich et al.: *[[https://www.sciencedirect.com/science/article/pii/S0140366416306478][The show must go on: Fundamental data plane connectivity services for dependable SDNs]]*, /Elsevier ComCom/, 2018.
      :PROPERTIES:
