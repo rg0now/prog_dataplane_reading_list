@@ -49,40 +49,32 @@ not prove overly stable over time.
 
 * Abstractions
 
-At the heart of programmable data planes 
-lies the question of which abstractions
-and programming interfaces to provide.
-We first review literature on low-level
-APIs, including OpenFlow and P4, and
-then discuss more high-level languages
-and compilers, including DevoFlow and the 
-Frenetic framework. One particular focus is put
-on stateful abstractions. 
-We then extend our review to literature
-on parser design as well as scheduling, 
-and in particular, the question whether there exist
-universal packet scheduling algorithms.
+At the heart of programmable data planes lies the question of which
+abstractions and programming interfaces to provide.  We first review
+literature on low-level APIs, including OpenFlow and P4, and then discuss
+more high-level languages and compilers, including DevoFlow and the
+Frenetic framework. Particular focus is put on stateful abstractions.  We
+then extend our review to literature on parser design as well as
+scheduling, and in particular, the question whether there exist universal
+packet scheduling algorithms.
 
 ** Languages and Compilers
 
-We start our survey with the seminal paper
-on OpenFlow, introducing a standardized interface
-to add and remove flow entries. We then 
-proceed by discussing P4 and its alternatives
-and use cases. We also review, among other, 
-high-performance packet processing 
-languages and make the case for
+We start our survey with the seminal paper on OpenFlow, introducing a
+standardized interface to manage flow table entries in data plane devices
+via a standard control-plane--data-plane API. We then proceed by discussing
+P4 and its alternatives and use cases. We also review, among other,
+high-performance packet processing languages and make the case for
 intermediate representations for programmable data planes.
 
-We then proceed to more high-level languages
-and abstractions, discuss programming languages
-such as Pyretic, systems such as Maple, or novel 
-switch designs like HARMLESS to seamlessly add
-SDN capability to legacy network gear.
+We then proceed to more high-level languages and abstractions, discuss
+programming languages such as Pyretic, systems such as Maple, or novel
+switch designs like HARMLESS to seamlessly add SDN capability to legacy
+network gear.
 
 *** Low-level APIs
 
-**** McKeown et al.: *[[http://doi.acm.org/10.1145/1355734.1355746][OpenFlow: Enabling Innovation in Campus Networks]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2008.
+**** McKeown et al.: *[[http://doi.acm.org/10.1145/1355734.1355746][OpenFlow: Enabling Innovation in Campus Networks]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2008. 
      :PROPERTIES:
      :RELEVANCE: mustread
      :END:
@@ -304,14 +296,13 @@ for smaller enterprises.
 
 ** Abstractions for Embedded State
 
-While OpenFlow match/action table abstractions are stateless,
-there are many efforts toward devising a stateful data plane programming
-abstraction, e.g. based on finite state machines, for supporting
-more dynamic applications.
-We discuss such approaches as well as first workload characterizations 
-of stateful networking applications. 
-We also review literature on the challenge of consistent state migration
-and elastic scaling, and discuss security implications.
+While OpenFlow match/action table abstractions are stateless, there are
+many efforts toward devising a stateful data plane programming abstraction,
+e.g., based on finite state machines, for supporting more dynamic
+applications.  We discuss such approaches as well as first workload
+characterizations of stateful networking applications.  We also review
+literature on the challenge of consistent state migration and elastic
+scaling, and discuss security implications.
 
 **** Verdú et al.: *[[http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=ED2CCB19D8967081D9DE927A7AB43614?doi=10.1.1.482.5955&rep=rep1&type=pdf][Workload Characterization of Stateful Networking Applications]]*, /IEEE HPC/, 2008.
      :PROPERTIES:
@@ -542,17 +533,16 @@ order.
 
 * Architecture
 
-We divide the discussion of switch architectures
-into software and hardware switch architectures.
+We divide the discussion of switch architectures into software and hardware
+switch architectures.
 
 ** Software Switch Architectures
 
-We first discuss the viability of software switching
-and then review dataflow graph abstractions,
-also discussing, e.g., Click, ClickOS, and software NICs. 
-We proceed by revisiting literature on match-action abstractions, 
-discussing OVS and PISCES. 
-We conclude with a review on packet I/O libraries.
+We first discuss the viability of software switching and then review
+dataflow graph abstractions, also discussing, e.g., Click, ClickOS, and
+software NICs.  We proceed by revisiting literature on match-action
+abstractions, discussing OVS and PISCES.  We conclude with a review on
+packet I/O libraries.
 
 *** Viability of Software Switching
 
@@ -789,15 +779,12 @@ and PowerPC) and deployment environments (bare metal, VM, container).
 
 ** Hardware Switch Architectures
 
-We start off by discussing a first incarnation of a
-programmable switch, PLUG, then discuss the
-SwitchBlade platform and the seminal paper on RMT
-(Reconfigurable Match Tables). We then review existing
-performance evaluation studies and literature dealing with
-performance monitoring and
-the issue of potential inconsistencies in reconfigurable
-networks. We conclude with a paper on  
-Azure SmartNICs based on FPGAs. 
+We start off by discussing a first incarnation of a programmable switch,
+PLUG, then discuss the SwitchBlade platform and the seminal paper on RMT
+(Reconfigurable Match Tables). We then review existing performance
+evaluation studies and literature dealing with performance monitoring and
+the issue of potential inconsistencies in reconfigurable networks. We
+conclude with a paper on Azure SmartNICs based on FPGAs.
 
 **** De Carli et al.: *[[http://doi.acm.org/10.1145/1592568.1592593][PLUG: Flexible Lookup Modules for Rapid Deployment of New Protocols in High-speed Routers]]*, /ACM SIGCOMM/, 2009.
      :PROPERTIES:
@@ -936,13 +923,12 @@ deploying AccelNet.
 
 ** Hybrid Hardware/Software Architectures
 
-It is often believed that the performance of 
-programmable network processors is lower
-than hard‐coded chips. There exists interesting literature
-questioning this assumption and exploring these overheads empirically.
-We also discuss opportunities coming from Graphics Processing Units (GPUs)
-acceleration, e.g., for packet processing, as well as from hybrid
-hardware/software architectures in general.
+It is often believed that the performance of programmable network
+processors is lower than hard‐coded chips. There exists interesting
+literature questioning this assumption and exploring these overheads
+empirically.  We also discuss opportunities coming from Graphics Processing
+Units (GPUs) acceleration, e.g., for packet processing, as well as from
+hybrid hardware/software architectures in general.
 
 **** Han et al.: *[[http://doi.acm.org/10.1145/1851182.1851207][PacketShader: A GPU-accelerated Software Router]]*, /ACM SIGCOMM/, 2010.
      :PROPERTIES:
@@ -1030,21 +1016,18 @@ than lack of capacity of GPU itself.
 
 * Applications
 
-A main motivation for programmable data planes 
-are the novel applications they enable.
-We identify and discuss five main categories:
-applications related to resilient and efficient
-forwarding, in-network computation, consensus,
-telemetry and load-balancing. 
+A main motivation for programmable data planes are the novel applications
+they enable.  We identify and discuss five main categories: applications
+related to resilient and efficient forwarding, in-network computation,
+consensus, telemetry and load-balancing.
 
 ** Resilient, Robust, and Efficient Forwarding
 
-Data planes often operate much faster than the control plane,
-which motivates to move functionality for maintaining
-connectivity and efficient routing  under failures to the 
-switches. At the same time, implementing such functionality
-is non-trivial, as discussed in the following research papers.
-
+Data planes often operate much faster than the control plane, which
+motivates to move functionality for maintaining connectivity and efficient
+routing under failures to the switches. At the same time, implementing such
+functionality is non-trivial, as discussed in the following research
+papers.
 
 **** Al-Fares et al.: *[[http://dl.acm.org/citation.cfm?id=1855711.1855730][Hedera: Dynamic Flow Scheduling for Data Center Networks]]*, /USENIX NSDI/, 2010.
      :PROPERTIES:
@@ -1088,11 +1071,10 @@ and mechanisms based on dynamic state at the switches.
 
 ** In-network Computation
 
-Offloading computation,  on‐path aggregation functionalities,
- caching, or even AI, to the network, has the potential to
-significantly improve the efficiency of distributed applications.
-Accordingly, the study of such mechanisms have recently received
-much attention.
+Offloading computation, on‐path aggregation functionalities, caching, or
+even AI, to the network, has the potential to significantly improve the
+efficiency of distributed applications.  Accordingly, the study of such
+mechanisms have recently received much attention.
 
 **** Mai et al.: *[[https://dl.acm.org/citation.cfm?id=2674996][Netagg: Using middleboxes for application-specific on-path aggregation in data centres]]*, /ACM CoNEXT/, 2014.
      :PROPERTIES:
@@ -1192,13 +1174,12 @@ chip's design are applied.
 
 ** Distributed Consensus
 
-Another interesting application for programmable data planes
-is related to consensus algorithms: the coordination among controllers
-or switches may be performed most efficiently directly on the network
-devices. Over the last years, several interesting first approaches
-have been reported in the literature, not only to compute consensus
-but also to provide different notions of consistency more generally. 
-
+Another interesting application for programmable data planes is related to
+consensus algorithms: the coordination among controllers or switches may be
+performed most efficiently directly on the network devices. Over the last
+years, several interesting first approaches have been reported in the
+literature, not only to compute consensus but also to provide different
+notions of consistency more generally.
 
 **** Dang et al.: *[[http://doi.acm.org/10.1145/2774993.2774999][NetPaxos: Consensus at Network Speed]]*, /ACM SOSR/, 2015.
      :PROPERTIES:
@@ -1273,11 +1254,10 @@ handles switch failures efficiently.
 
 ** Monitoring, Telemetry, and Measurement
 
-Perhaps the most interesting applications are related to
-network measuremen, monitoring and diagnosis. Indeed,
-programmable data planes can be a game changer, providing
-deep insights into the network, even to end-hosts, as we discuss
-in the following.
+Perhaps the most interesting applications are related to network
+measurement, monitoring and diagnosis. Indeed, programmable data planes can
+be a game changer, providing deep insights into the network, even to
+end-hosts, as we discuss in the following.
 
 **** Jeyakumar et al.: *[[https://dl.acm.org/citation.cfm?id=2626292][Millions of little minions: Using packets for low latency network programming and visibility]]*, /SIGCOMM CCR/, 2014.
      :PROPERTIES:
@@ -1347,9 +1327,9 @@ network measurement tasks.
 
 ** Load balancing
 
-Last but not least, and similarly to the above discussion on resilient routing,
-programmable data planes provide unprecedented flexibilities (and performance)
-in how traffic can be dynamically load-balanced.
+Last but not least, and similarly to the above discussion on resilient
+routing, programmable data planes provide unprecedented flexibilities (and
+performance) in how traffic can be dynamically load-balanced.
 
 **** Katta et al.: *[[https://conferences.sigcomm.org/sosr/2016/papers/sosr_paper67.pdf][Hula: Scalable load balancing using programmable data planes]]*, /ACM SOSR/, 2016.
      :PROPERTIES:
@@ -1402,15 +1382,14 @@ the sender, the network, or the receiver. Dapper was prototyped in P4.
 
 * Miscellaneous Topics
 
-There exists highly recommendable literature on the history
-of SDN and programmable data planes. We also report on
-two other important topics, deployment and algorithms of
-programmable data planes.
+There exists highly recommendable literature on the history of SDN and
+programmable data planes. We also report on two other important topics,
+deployment and algorithms of programmable data planes.
 
 ** History
 
 There are several interesting papers putting the technological trends
-around programmable networks into a historic perspective. 
+around programmable networks into a historic perspective.
 
 **** Schwartz et al.: *[[https://dl.acm.org/citation.cfm?id=332893][Smart packets: Applying active networks to network management]]*, /ACM TOCS/, 2000.
      :PROPERTIES:
@@ -1454,8 +1433,8 @@ SDN, and why they are here to stay.
 
 ** Deployments
 
-A very relevant question, which is also a research challenge, regards the deployment of 
-SDN and programmable data planes.
+A very relevant question, which is also a research challenge, regards the
+deployment of SDN and programmable data planes.
 
 **** Casado et al.: *[[http://doi.acm.org/10.1145/1282380.1282382][Ethane: Taking Control of the Enterprise]]*, /ACM SIGCOMM/, 2007.
      :PROPERTIES:
