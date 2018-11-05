@@ -1017,50 +1017,39 @@ than lack of capacity of GPU itself.
 * Applications
 
 A main motivation for programmable data planes are the novel applications
-they enable.  
-We identify and, in the following, will discuss five main categories: applications
-related to resilient and efficient forwarding, in-network computation,
-consensus, telemetry, and load-balancing.
+they enable.  We identify and, in the following, will discuss five main
+categories: applications related to resilient and efficient forwarding,
+in-network computation, consensus, telemetry, and load-balancing.
 
-One may wonder, what aspects of SDN and programmable data plane make
-this applications possible?
-There is probably no single perfect answer to this question.
-Applications related to in-network computation typically leverage
-new hardware-assisted primitive operations, supported in the data 
-plane, to provide novel functionality and improve 
-performance. 
-Resilient and efficient routing (and to some extent load-balancing)
-leverage the unique and unprecedented programmatic control over the way 
-traffic flows through the network, e.g., to implement advanced functionality
-in the data plane
-(while it was formerly handled, e.g., in the control plane).
-Measurement applications benefit from the improved traffic visibility 
-and/or from the improved latency and throughput at which high-volume
-and highly variable traffic can be
-handled, if offloaded to the data plane.
-Reduced latency and improved reaction time is arguably also a key
-reason for consensus applications.
-Furthermore, measurement applications benefit from the fact that
-they can be expressed in terms of simple 
-primitives (e.g., sketches). 
-We also note that such applications are not limited to be ``performed
-(only) in the network'': for example, telemetry can (and today often 
-does) occur outside the network. That said, telemetry applications also benefit
-from the new visibility into the network, e.g., 
-queues occupation levels of the switches along the path.
+One may wonder, what aspects of SDN and programmable data plane make this
+applications possible?  There is probably no single perfect answer to this
+question.  Applications related to in-network computation typically
+leverage new hardware-assisted primitive operations, supported in the data
+plane, to provide novel functionality and improve performance.  Resilient
+and efficient routing (and to some extent load-balancing) leverage the
+unique and unprecedented programmatic control over the way traffic flows
+through the network, e.g., to implement advanced functionality in the data
+plane (whereas it used to be handled, e.g., in the control plane).
+Measurement applications benefit from the improved traffic visibility
+and/or from the improved latency and throughput at which high-volume and
+highly variable traffic can be handled, if offloaded to the data plane.
+Reduced latency and improved reaction time is arguably also a key reason
+for consensus applications.  Furthermore, measurement applications benefit
+from the fact that they can be expressed in terms of simple primitives
+(e.g., sketches).  We also note that such applications are not limited to
+be ``performed (only) in the network'': for example, telemetry can (and
+today often does) occur outside the network. That said, telemetry
+applications also benefit from the new visibility into the network, e.g.,
+queues occupation levels of the switches along the path.  Many interesting
+applications also arise from offloading applications that were formerly
+handled in a separate middlebox to programmable switches.
 
-Many interesting applications also arise from offloading
-applications  that were formerly handled in a separate middlebox 
-to programmable switches.  
-
-In general, any application designed for a non-programmable 
-device may benefit from the flexibilities introduced 
-by a programmable counterpart (e.g., allowing to evolve the application).
-Also, applications with a strong networking component
-(e.g., request-response patterns) are more likely
-to benefit from in-network services, as much communication traffic
+In general, any application designed for a non-programmable device may
+benefit from the flexibilities introduced by a programmable counterpart
+(e.g., allowing to evolve the application).  Also, applications with a
+strong networking component (e.g., request-response patterns) are more
+likely to benefit from in-network services, as much communication traffic
 naturally traverses the network anyway.
-
 
 ** Resilient, Robust, and Efficient Forwarding
 
