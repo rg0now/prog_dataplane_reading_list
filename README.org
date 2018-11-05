@@ -1021,15 +1021,17 @@ they enable.  We identify and, in the following, will discuss five main
 categories: applications related to resilient and efficient forwarding,
 in-network computation, consensus, telemetry, and load-balancing.
 
-One may wonder, what aspects of SDN and programmable data plane make this
+One may wonder, what aspects of SDN and programmable data plane make these
 applications possible?  There is probably no single perfect answer to this
-question.  Applications related to in-network computation typically
-leverage new hardware-assisted primitive operations, supported in the data
-plane, to provide novel functionality and improve performance.  Resilient
-and efficient routing (and to some extent load-balancing) leverage the
-unique and unprecedented programmatic control over the way traffic flows
-through the network, e.g., to implement advanced functionality in the data
-plane (whereas it used to be handled, e.g., in the control plane).
+question.  
+
+Applications related to in-network computation typically leverage new
+hardware-assisted primitive operations, supported in the data plane, to
+provide novel functionality and improve performance.  Resilient and
+efficient routing (and to some extent load-balancing) leverage the unique
+and unprecedented programmatic control over the way traffic flows through
+the network, e.g., to implement advanced functionality in the data plane
+(whereas formerly it used to be handled, e.g., in the control plane).
 Measurement applications benefit from the improved traffic visibility
 and/or from the improved latency and throughput at which high-volume and
 highly variable traffic can be handled, if offloaded to the data plane.
