@@ -1412,7 +1412,7 @@ performance in real time near the end-hosts, i.e., at the hypervisor, NIC,
 or top-of-rack switch, by determining whether a connection is limited by
 the sender, the network, or the receiver. Dapper was prototyped in P4.
 
-* Algorithms and HW Realizations
+* Algorithms & HW Realizations
 
 Another very research relevant area regards the design of algorithms and
 data planes for this new technology.
