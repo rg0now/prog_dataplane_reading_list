@@ -5,12 +5,12 @@
 #+OPTIONS: num:nil author:t prop:t toc:t
 #+AUTHOR: Roberto Bifulco, Stefan Schmid, Gábor Rétvári
 #+TITLE: The Programmable Data Plane: Reading List
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/readtheorg.css"/>
 #+HTML_HEAD: <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 #+HTML_HEAD: <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-#+HTML_HEAD: <script type="text/javascript" src="https://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.js"></script>
-#+HTML_HEAD: <script type="text/javascript" src="https://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="js/jquery.stickytableheaders.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="js/readtheorg.js"></script>
 #+HTML_HEAD: <style>.example{border:0px solid; background:#ffffff; padding:0px; margin-top:0px;margin-bottom:0px;font-family:"Bitstream Vera Sans", Verdana, sans-serif;font-style: italic;}</style>
 # \bibliography{./prog_data_plane.bib}
 # \bibliographystyle{plain}
@@ -74,7 +74,7 @@ network gear.
 
 *** Low-level APIs
 
-**** McKeown et al.: *[[http://doi.acm.org/10.1145/1355734.1355746][OpenFlow: Enabling Innovation in Campus Networks]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2008. 
+**** McKeown et al.: *[[http://doi.acm.org/10.1145/1355734.1355746][OpenFlow: Enabling Innovation in Campus Networks]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2008.
      :PROPERTIES:
      :RELEVANCE: mustread
      :END:
@@ -97,7 +97,7 @@ thread management and it requires the host system to locate protocol
 headers in the packet before a parallel copy of the program executes.  The
 packetC language abstracts and encapsulates familiar packet processing data
 sets and operations into new aggregate data types and operators, e.g., for
-packets, databases and searchsets. 
+packets, databases and searchsets.
 
 **** Song et al.: *[[http://doi.acm.org/10.1145/2491185.2491190][Protocol-oblivious Forwarding: Unleash the Power of SDN Through a Future-proof Forwarding Plane]]*, /ACM HotSDN/, 2013.
      :PROPERTIES:
@@ -130,13 +130,13 @@ new hierarchical label.
      :PROPERTIES:
      :RELEVANCE: important
      :END:
-The paper presents a case study that uses P4 to express the forwarding behavior 
+The paper presents a case study that uses P4 to express the forwarding behavior
 of a datacenter switch's data plane. In the process, it identifies issues and
 strengths of P4. Some of the lessons learned had, and are having, an impact on
-the language evolution. For instance, and most notably, the 
-language-architecture separation that has been implemented in newer versions of 
+the language evolution. For instance, and most notably, the
+language-architecture separation that has been implemented in newer versions of
 P4.
-	 
+
 **** Shahbaz et al.: *[[http://doi.acm.org/10.1145/2774993.2775000][The Case for an Intermediate Representation for Programmable Data Planes]]*, /ACM SOSR/, 2015.
      :PROPERTIES:
      :RELEVANCE: important
@@ -167,7 +167,7 @@ PVPP is a data-plane program compiler from P4, a data plane DSL based on
 match-action tables, to the fd.io Vector Packet Processor (VPP) software
 switch, based on the packet processing node graph model. PVPP compiles a
 data plane program written in P4 to VPP's internal graph
-representation. 
+representation.
 
 *** High-level Languages and Compilers
 
@@ -214,7 +214,7 @@ scheduler, but more importantly a novel tracing runtime optimizer that can
 automatically record reusable policy decisions, offload work to switches
 when possible, and keep switch flow tables up-to-date by dynamically
 tracing the dependency of policy decisions on packet contents as well as
-the environment. 
+the environment.
 
 **** Foster et al.: *[[http://frenetic-lang.org/publications/overview-ieeecoms13.pdf][Languages for software-defined networks]]*, /IEEE Communications Magazine/, 2013.
      :PROPERTIES:
@@ -312,7 +312,7 @@ This paper presents the first workload characterization of stateful
 networking applications. The analysis emphasizes the study of data cache
 behavior, but discusses branch prediction, instruction distribution,
 etc. Another important contribution is the study of the state categories of
-different networking applications. 
+different networking applications.
 
 **** Bianchi et al.: *[[http://doi.acm.org/10.1145/2602204.2602211][OpenState: Programming Platform-independent Stateful Openflow Applications Inside the Switch]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2014.
      :PROPERTIES:
@@ -357,7 +357,7 @@ diagrams.
      :PROPERTIES:
      :RELEVANCE: important
      :END:
-Kinetic provides a formal way to program the network control plane using 
+Kinetic provides a formal way to program the network control plane using
 finite state machines. The use of a formal language allows the system to
 verify the correctness of the control program according to user-specified
 temporal properties. The paper also reports about a user survey among students
@@ -442,7 +442,7 @@ interface optimized based on the expected request patterns to efficiently
 access a RAMCloud-based data store. A network-wide orchestrator monitors
 the instances for load and failure, manages instances to scale and provide
 resilience, and leverages an OpenFlow-based network to direct traffic to
-instances. 
+instances.
 
 **** Shinae Woo et al.: *[[https://www.usenix.org/conference/nsdi18/presentation/woo][Elastic Scaling of Stateful Network Functions]]*, /USENIX NSDI 18/, 2018.
      :PROPERTIES:
@@ -461,7 +461,7 @@ and high-performance in NFV workloads.
 We start by reviewing design principles for packet parsers.
 We then revisit the concept of a universal scheduler that
 would handle all queuing strategies that may arise in a programmable
-switch, and ask whether such a scheduling algorithm can really exist. 
+switch, and ask whether such a scheduling algorithm can really exist.
 We conclude with a review of fair queuing on reconfigurable switches.
 
 **** Gibb et al.: *[[https://doi.org/10.1109/ANCS.2013.6665172][Design principles for packet parsers]]*, /IEEE/ACM ANCS/, 2013.
@@ -499,7 +499,7 @@ First (LSTF) scheduling algorithm comes closest to being universal and it
 can closely replay a wide range of scheduling algorithms. LSTF is evaluated
 as to whether in practice it can meet various network-wide objectives; the
 authors find that LSTF performs comparable to the state-of-the-art for each
-of performance metric. 
+of performance metric.
 
 **** Sivaraman et al.: *[[http://doi.acm.org/10.1145/2934872.2934899][Programmable Packet Scheduling at Line Rate]]*, /ACM SIGCOMM/, 2016.
      :PROPERTIES:
@@ -604,7 +604,7 @@ composed to build fully functional routers and switches. Snap is based on
 the Click modular router, which it extends by adding new architectural
 features that support batched packet processing, memory structures
 optimized for offloading to coprocessors, and asynchronous scheduling with
-in-order completion. 
+in-order completion.
 
 **** Sangjin Han et al.: *[[http://www.eecs.berkeley.edu/Pubs/TechRpts/2015/EECS-2015-155.pdf][SoftNIC: A Software NIC to Augment Hardware]]*, /unpublished manuscript/, 2015.
      :PROPERTIES:
@@ -640,7 +640,7 @@ dataflow (multi)graph that consists of modules, each of which implements a
 NIC feature, and ports that act as sources and sinks for this
 pipeline. Packets received at a port flow through the pipeline to another
 port, and each module in the pipeline performs module-specific operations
-on packets. 
+on packets.
 
 **** Honda et al.: *[[http://doi.acm.org/10.1145/2774993.2775065][mSwitch: A Highly-scalable, Modular Software Switch]]*, /ACM SOSR/, 2015.
      :PROPERTIES:
@@ -940,7 +940,7 @@ exploiting the massively-parallel processing power of GPU to address the
 CPU bottleneck in software routers, combined with a high-performance packet
 I/O engine. The paper presents implementations for IPv4 and IPv6
 forwarding, OpenFlow switching, and IPsec tunneling to demonstrate the
-flexibility and performance advantage of PacketShader. 
+flexibility and performance advantage of PacketShader.
 
 **** Pongrácz et al.: *[[http://doi.acm.org/10.1145/2491185.2491204][Cheap Silicon: A Myth or Reality Picking the Right Data Plane Hardware for Software Defined Networking]]*, /ACM HotSDN/, 2013.
      :PROPERTIES:
@@ -1023,7 +1023,7 @@ in-network computation, consensus, telemetry, and load-balancing.
 
 One may wonder, what aspects of SDN and programmable data plane make these
 applications possible?  There is probably no single perfect answer to this
-question.  
+question.
 
 Applications related to in-network computation typically leverage new
 hardware-assisted primitive operations, supported in the data plane, to
@@ -1226,7 +1226,7 @@ be implemented without changes to the OpenFlow API, but relies on
 assumptions about how the network orders messages. Although neither of
 these protocols can be fully implemented without changes to the underlying
 switch firmware, the authors argue that such changes are feasible in
-existing hardware. 
+existing hardware.
 
 **** Dang et al.: *[[http://doi.acm.org/10.1145/2935634.2935638][Paxos Made Switch-y]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2016.
      :PROPERTIES:
@@ -1243,7 +1243,7 @@ paper describes an implementation of Paxos in P4.
      :END:
 SwitchKV implements a key-value store system leveraging SDN network switches to
 balance the cache servers workload routing the traffic based on the content of
-the network packets. To identify the content of a packet, the key of a 
+the network packets. To identify the content of a packet, the key of a
 key-value entry is encoded in the packet header. A hybrid cache strategy keeps
 the cache and switch forwarding rules updated, finally achieving significant
 improvements in both system's throughput and latency.
@@ -1412,119 +1412,7 @@ performance in real time near the end-hosts, i.e., at the hypervisor, NIC,
 or top-of-rack switch, by determining whether a connection is limited by
 the sender, the network, or the receiver. Dapper was prototyped in P4.
 
-* Miscellaneous Topics
-
-There exists highly recommendable literature on the history of SDN and
-programmable data planes. We also report on two other important topics,
-deployment and algorithms of programmable data planes.
-
-** History
-
-There are several interesting papers putting the technological trends
-around programmable networks into a historic perspective.
-
-**** Schwartz et al.: *[[https://dl.acm.org/citation.cfm?id=332893][Smart packets: Applying active networks to network management]]*, /ACM TOCS/, 2000.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END: 
-One intellectual precursor to programmable networks is the Active Networks
-concept. This paper surveys the application of active networks technology
-to network management and monitoring. The main idea of Smart Packets, which
-contain programs written in a safe language, is to move management decision
-points closer to the nodes being managed, as well as to target specific
-aspects of the node for information.
- 
-**** Feamster et al.: *[[http://doi.acm.org/10.1145/2559899.2560327][The Road to SDN]]*, /ACM Queue/, 2013.
-     :PROPERTIES:
-     :RELEVANCE: mustread
-     :END:
-An intellectual history of programmable networks. A mustread.
-
-**** Zilberman et al.: *[[https://doi.org/10.1109/JPROC.2015.2435732][Reconfigurable Network Systems and Software-Defined Networking]]*, /Proceedings of the IEEE/, 2015.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-The paper reviews the state of the art in reconfigurable network systems,
-covering hardware reconfiguration, SDN, and the interplay between them. It
-starts with a tutorial on software-defined networks, then continues to
-discuss programming languages as the linking element between different
-levels of software and hardware in the network, reviews electronic
-switching systems, highlighting programmability and reconfiguration
-aspects, and describes the trends in reconfigurable network
-elements.
-
-**** Nick McKeown et al.: *[[https://conferences.sigcomm.org/sigcomm/2017/files/program-netpl/01-mckeown.pptx][Programmable Forwarding Planes are Here to Stay]]*, /ACM SIGCOMM NetPL/, 2017.
-     :PROPERTIES:
-     :RELEVANCE: mustread
-     :END:
-A keynote from Nick McKeown at NetPL'17 on the many great research ideas
-and new languages that have emerged for programmable forwarding. The talk
-considers how we got here, why programmable forwarding planes are
-inevitable, why now is the right time, why they are a final frontier for
-SDN, and why they are here to stay.
-
-** Deployments
-
-A very relevant question, which is also a research challenge, regards the
-deployment of SDN and programmable data planes.
-
-**** Casado et al.: *[[http://doi.acm.org/10.1145/1282380.1282382][Ethane: Taking Control of the Enterprise]]*, /ACM SIGCOMM/, 2007.
-     :PROPERTIES:
-     :RELEVANCE: mustread
-     :END:
-A seminal paper for deploying SDN in enterprise networks, this paper
-presents Ethane, a network architecture allowing managers to define a
-single network-wide fine-grain policy and then enforcing it
-directly. Ethane couples extremely simple flow-based Ethernet switches with
-a centralized controller that manages the admittance and routing of
-flows. While radical, this design is backwards-compatible with existing
-hosts and switches.  Ethane was implemented in both hardware and software,
-supporting both wired and wireless hosts.
-
-**** Jin et al.: *[[https://conferences.sigcomm.org/co-next/2013/program/p163.pdf][Softcell: Scalable and flexible cellular core network architecture]]*, /ACM CoNEXT/, 2013.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-SoftCell aims to overcome today's expensive, inflexible and complex
-cellular core networks by supporting fine-grained policies for mobile
-devices, using commodity switches and servers.  In particular, SoftCell
-allows to flexibly route traffic through sequences of middleboxes based on
-subscriber attributes and applications.  Scalability is achieved by
-minimizing the size of the forwarding tables, using aggregation, and by
-performing packet classification at the access switches, next to the base
-stations.
-
-**** Jain et al.: *[[http://doi.acm.org/10.1145/2486001.2486019][B4: Experience with a Globally-deployed Software Defined Wan]]*, /ACM SIGCOMM/, 2013.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-The paper presents the design, implementation, and evaluation of B4, a
-private WAN connecting Google's data centers across the planet. B4 has a
-number of unique characteristics: (1) massive bandwidth requirements
-deployed to a modest number of sites, (2) elastic traffic demand that seeks
-to maximize average bandwidth, and (3) full control over the edge servers
-and network, which enables rate limiting and demand measurement at the
-edge. These characteristics led to a Software Defined Networking architecture
-using OpenFlow to control relatively simple switches built from merchant
-silicon.
-
-**** Qazi et al.: *[[http://doi.acm.org/10.1145/3098822.3098848][A High Performance Packet Core for Next Generation Cellular Networks]]*, /ACM SIGCOMM/, 2017.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-To support deploying SDNs into the Evolved Packet Core (EPC), the paper
-presents the design and evaluation of a system architecture for a software
-EPC that achieves high and scalable performance. The authors postulate that
-the poor scaling of existing EPC systems stems from the manner in which the
-system is decomposed, which leads to device state being duplicated across
-multiple components, which in turn results in frequent interactions between
-the different components. An alternate approach is proposed in which state
-for a single device is consolidated in one location and EPC functions are
-reorganized for efficient access to this consolidated state. A prototype
-for PEPC is also presented, as a software EPC that implements the key
-components of the design.
-
-** Implementing the Match-action Abstraction: HW, Algorithms, and Data Structures
+* Algorithms and HW Realizations
 
 Another very research relevant area regards the design of algorithms and
 data planes for this new technology.
@@ -1542,7 +1430,7 @@ real databases typically use only a small number of distinct field lengths.
 Thus, by mapping rules to tuples even a simple linear search of the tuple
 space can provide significant speedup over naive linear search over the
 filters. Each tuple is maintained as a hash table that can be searched in
-one memory access. 
+one memory access.
 
 **** Pagiamtzis et al.: *[[https://www.pagiamtzis.com/pubs/pagiamtzis-jssc2006.pdf][Content-addressable memory (CAM) circuits and architectures: A tutorial and survey]]*, /IEEE Journal of Solid-State Circuits/, 2006.
      :PROPERTIES:
@@ -1657,8 +1545,119 @@ for control plane actions, in particular, inserting, modifying, or deleting
 rules. Hermes provides these guarantees by trading-off a nominal amount of
 TCAM space for assured performance.
 
+* Miscellaneous Topics
+
+There exists highly recommendable literature on the history of SDN and
+programmable data planes. We also report on two other important topics,
+deployment and algorithms of programmable data planes.
+
+** History
+
+There are several interesting papers putting the technological trends
+around programmable networks into a historic perspective.
+
+**** Schwartz et al.: *[[https://dl.acm.org/citation.cfm?id=332893][Smart packets: Applying active networks to network management]]*, /ACM TOCS/, 2000.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+One intellectual precursor to programmable networks is the Active Networks
+concept. This paper surveys the application of active networks technology
+to network management and monitoring. The main idea of Smart Packets, which
+contain programs written in a safe language, is to move management decision
+points closer to the nodes being managed, as well as to target specific
+aspects of the node for information.
+
+**** Feamster et al.: *[[http://doi.acm.org/10.1145/2559899.2560327][The Road to SDN]]*, /ACM Queue/, 2013.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+An intellectual history of programmable networks. A mustread.
+
+**** Zilberman et al.: *[[https://doi.org/10.1109/JPROC.2015.2435732][Reconfigurable Network Systems and Software-Defined Networking]]*, /Proceedings of the IEEE/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper reviews the state of the art in reconfigurable network systems,
+covering hardware reconfiguration, SDN, and the interplay between them. It
+starts with a tutorial on software-defined networks, then continues to
+discuss programming languages as the linking element between different
+levels of software and hardware in the network, reviews electronic
+switching systems, highlighting programmability and reconfiguration
+aspects, and describes the trends in reconfigurable network
+elements.
+
+**** Nick McKeown et al.: *[[https://conferences.sigcomm.org/sigcomm/2017/files/program-netpl/01-mckeown.pptx][Programmable Forwarding Planes are Here to Stay]]*, /ACM SIGCOMM NetPL/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+A keynote from Nick McKeown at NetPL'17 on the many great research ideas
+and new languages that have emerged for programmable forwarding. The talk
+considers how we got here, why programmable forwarding planes are
+inevitable, why now is the right time, why they are a final frontier for
+SDN, and why they are here to stay.
+
+** Deployments
+
+A very relevant question, which is also a research challenge, regards the
+deployment of SDN and programmable data planes.
+
+**** Casado et al.: *[[http://doi.acm.org/10.1145/1282380.1282382][Ethane: Taking Control of the Enterprise]]*, /ACM SIGCOMM/, 2007.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+A seminal paper for deploying SDN in enterprise networks, this paper
+presents Ethane, a network architecture allowing managers to define a
+single network-wide fine-grain policy and then enforcing it
+directly. Ethane couples extremely simple flow-based Ethernet switches with
+a centralized controller that manages the admittance and routing of
+flows. While radical, this design is backwards-compatible with existing
+hosts and switches.  Ethane was implemented in both hardware and software,
+supporting both wired and wireless hosts.
+
+**** Jin et al.: *[[https://conferences.sigcomm.org/co-next/2013/program/p163.pdf][Softcell: Scalable and flexible cellular core network architecture]]*, /ACM CoNEXT/, 2013.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+SoftCell aims to overcome today's expensive, inflexible and complex
+cellular core networks by supporting fine-grained policies for mobile
+devices, using commodity switches and servers.  In particular, SoftCell
+allows to flexibly route traffic through sequences of middleboxes based on
+subscriber attributes and applications.  Scalability is achieved by
+minimizing the size of the forwarding tables, using aggregation, and by
+performing packet classification at the access switches, next to the base
+stations.
+
+**** Jain et al.: *[[http://doi.acm.org/10.1145/2486001.2486019][B4: Experience with a Globally-deployed Software Defined Wan]]*, /ACM SIGCOMM/, 2013.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The paper presents the design, implementation, and evaluation of B4, a
+private WAN connecting Google's data centers across the planet. B4 has a
+number of unique characteristics: (1) massive bandwidth requirements
+deployed to a modest number of sites, (2) elastic traffic demand that seeks
+to maximize average bandwidth, and (3) full control over the edge servers
+and network, which enables rate limiting and demand measurement at the
+edge. These characteristics led to a Software Defined Networking architecture
+using OpenFlow to control relatively simple switches built from merchant
+silicon.
+
+**** Qazi et al.: *[[http://doi.acm.org/10.1145/3098822.3098848][A High Performance Packet Core for Next Generation Cellular Networks]]*, /ACM SIGCOMM/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+To support deploying SDNs into the Evolved Packet Core (EPC), the paper
+presents the design and evaluation of a system architecture for a software
+EPC that achieves high and scalable performance. The authors postulate that
+the poor scaling of existing EPC systems stems from the manner in which the
+system is decomposed, which leads to device state being duplicated across
+multiple components, which in turn results in frequent interactions between
+the different components. An alternate approach is proposed in which state
+for a single device is consolidated in one location and EPC functions are
+reorganized for efficient access to this consolidated state. A prototype
+for PEPC is also presented, as a software EPC that implements the key
+components of the design.
+
 * COMMENT Local variables
 # Local variables:
 # eval: (setq reftex-cite-format "%A et al.: *[[%U][%t]]*, /%h/, %y.\n")
 # End:
-
