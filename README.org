@@ -1014,6 +1014,139 @@ relative performance advantage of CPU over GPU in most applications is due
 to data transfer bottleneck in PCIe communication of discrete GPU rather
 than lack of capacity of GPU itself.
 
+* Algorithms & HW Realizations
+
+Another very relevant research area regards the design of algorithms and data planes
+for this new technology.
+
+**** Srinivasan et al.: *[[http://doi.acm.org/10.1145/316188.316216][Packet Classification Using Tuple Space Search]]*, /ACM SIGCOMM/, 1999.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+This paper presents the packet classifier algorithm that underlies the Open
+vSwitch fast-path. Packet classification requires matching each packet
+against a database of flow rules and forwarding the packet according to the
+highest priority rule. The paper introduces a generic packet classification
+algorithm, called Tuple Space Search (TSS), based on the observation that
+real databases typically use only a small number of distinct field lengths.
+Thus, by mapping rules to tuples even a simple linear search of the tuple
+space can provide significant speedup over naive linear search over the
+filters. Each tuple is maintained as a hash table that can be searched in
+one memory access.
+
+**** Pagiamtzis et al.: *[[https://www.pagiamtzis.com/pubs/pagiamtzis-jssc2006.pdf][Content-addressable memory (CAM) circuits and architectures: A tutorial and survey]]*, /IEEE Journal of Solid-State Circuits/, 2006.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+Content-addressable memory (CAM) and Ternary CAM (TCAM) chips are the most
+important component in programmable switch ASICs, performing packet
+classification according to configurable header fields, matching rules, and
+priority, in a single clock cycle using dedicated comparison circuitry. The
+paper surveys recent developments in the design of large-capacity CAMs. The
+main CAM-design challenge is to reduce power consumption associated with
+the large amount of parallel active circuitry, without sacrificing speed or
+memory density. The paper reviews CAM-design techniques at the circuit
+level and at the architectural level.
+
+**** Fu et al.: *[[http://doi.acm.org/10.1145/1544012.1544033][Efficient IP-address Lookup with a Shared Forwarding Table for Multiple Virtual Routers]]*, /ACM CoNEXT/, 2008.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+Programmable routers often need to support a separate forwarding
+information base (FIB) for each virtual router provisioned by the
+controller, which leads to memory scaling challenges. In this paper, a
+small, shared FIB data structure is presented and a fast lookup algorithm
+that capitalize on the commonality of IP prefixes between each
+FIB. Experiments with real packet traces and routing tables show that the
+approach achieves much lower memory requirements and considerably faster
+lookup times.
+
+**** Ma et al.: *[[http://doi.acm.org/10.1145/2377677.2377749][A Smart Pre-classifier to Reduce Power Consumption of TCAMs for Multi-dimensional Packet Classification]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2012.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+Ternary Content-Addressable Memories (TCAMs) have become the industrial
+standard for high-throughput packet classification, and as such, for
+programmable switch ASICs. However, one major drawback of TCAMs is their
+high power consumption. In this paper, a practical and efficient solution
+is proposed which introduces a smart pre-classifier to reduce power
+consumption of TCAMs for multi-dimensional packet classification. The
+classifier dimension is reduced by pre-classifying a packet on two header
+fields, source and destination IP addresses. Then, the high dimensional
+problem can use only a small portion of a TCAM for a given packet. The
+pre-classifier is built such that a given packet matches at most one entry
+in the pre-classifier, and each rule is stored only once in one of the TCAM
+blocks, which avoids rule replication. The presented solution uses
+commodity TCAMs.
+
+**** Zhou et al.: *[[http://doi.acm.org/10.1145/2535372.2535379][Scalable, High Performance Ethernet Forwarding with CuckooSwitch]]*, /ACM CoNEXT/, 2013.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+Programmable switches usually need to implement some or more match-action
+tables in the fast-path.  This paper presents CuckooSwitch, a
+software-based switch design built around a memory-efficient,
+high-performance, and highly-concurrent hash table for compact and fast FIB
+lookup. The authors show that CuckooSwitch can process the maximum packets
+per second rate achievable across the underlying hardware's PCI buses while
+maintaining a forwarding table of one billion forwarding entries.
+
+**** Rétvári et al.: *[[http://doi.acm.org/10.1145/2486001.2486009][Compressing IP Forwarding Tables: Towards Entropy Bounds and Beyond]]*, /ACM SIGCOMM/, 2013.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+The main goal of this paper is to demonstrate how data compression can
+benefit the networking community, by showing how to squeeze the
+longest-prefix-matching lookup table, consulted by switches for IP lookup,
+into information-theoretical entropy bounds with essentially zero cost on
+lookup performance and FIB update. The state-of-the-art in compressed data
+structures yields a static entropy-compressed FIB representation with
+asymptotically optimal lookup. Since this data structure results too slow
+for practical uses, the authors redesign the venerable prefix tree to also
+admit entropy bounds and support lookup in optimal time and update in
+nearly optimal time.
+
+**** Kogan et al.: *[[http://doi.acm.org/10.1145/2619239.2626294][SAX-PAC (Scalable And eXpressive PAcket Classification)]]*, /ACM SIGCOMM/, 2014.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+Efficient packet classification is a core concern for programmable network
+devices, but it is also very difficult to implement
+efficiently. Traditional multi-field classification approaches, in both
+software and ternary content-addressable memory (TCAMs), entail trade-offs
+between (memory) space and (lookup) time. In this work, a novel approach is
+presented, which identifies properties of many classifiers that can be
+implemented in linear space and with worst-case guaranteed logarithmic time
+and allows the addition of more fields including range constraints without
+impacting space and time complexities.
+
+**** Bifulco et al.: *[[http://doi.acm.org/10.1145/2785956.2790008][Towards Scalable SDN Switches: Enabling Faster Flow Table Entries Installation]]*, /ACM SIGCOMM/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The authors argue that a hybrid software-hardware switch may help in
+lowering the flow-table entries installation time, and present ShadowSwitch
+(sSw), an OpenFlow switch prototype that implements such a design. sSw
+builds on two key observations. First, software tables are very fast to be
+updated, hence, forwarding tables updates always happen in software first
+and, eventually, entries are moved to the TCAM to achieve higher overall
+throughput and offload the software forwarder. Lookup in software is
+performed only in case there are no entries matching a packet in
+hardware. Second, since deleting entries from TCAM is much faster than
+adding them, ShadowSwitch may translate an entry installation in a mix of
+installation in software tables and deletion from hardware tables.
+
+**** Chen et al.: *[[http://doi.acm.org/10.1145/3143361.3143391][Hermes: Providing Tight Control over High-Performance SDN Switches]]*, /ACM CoNEXT/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper presents the design and evaluation of Hermes, a practical and
+immediately deployable framework that offers a novel method for
+partitioning and optimizing switch TCAM to enable performance guarantees
+for control plane actions, in particular, inserting, modifying, or deleting
+rules. Hermes provides these guarantees by trading-off a nominal amount of
+TCAM space for assured performance.
+
 * Applications
 
 A main motivation for programmable data planes are the novel applications
@@ -1411,139 +1544,6 @@ performance problems in a timely manner. In particular, Dapper analyzes TCP
 performance in real time near the end-hosts, i.e., at the hypervisor, NIC,
 or top-of-rack switch, by determining whether a connection is limited by
 the sender, the network, or the receiver. Dapper was prototyped in P4.
-
-* Algorithms & HW Realizations
-
-Another very research relevant area regards the design of algorithms and
-data planes for this new technology.
-
-**** Srinivasan et al.: *[[http://doi.acm.org/10.1145/316188.316216][Packet Classification Using Tuple Space Search]]*, /ACM SIGCOMM/, 1999.
-     :PROPERTIES:
-     :RELEVANCE: mustread
-     :END:
-This paper presents the packet classifier algorithm that underlies the Open
-vSwitch fast-path. Packet classification requires matching each packet
-against a database of flow rules and forwarding the packet according to the
-highest priority rule. The paper introduces a generic packet classification
-algorithm, called Tuple Space Search (TSS), based on the observation that
-real databases typically use only a small number of distinct field lengths.
-Thus, by mapping rules to tuples even a simple linear search of the tuple
-space can provide significant speedup over naive linear search over the
-filters. Each tuple is maintained as a hash table that can be searched in
-one memory access.
-
-**** Pagiamtzis et al.: *[[https://www.pagiamtzis.com/pubs/pagiamtzis-jssc2006.pdf][Content-addressable memory (CAM) circuits and architectures: A tutorial and survey]]*, /IEEE Journal of Solid-State Circuits/, 2006.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-Content-addressable memory (CAM) and Ternary CAM (TCAM) chips are the most
-important component in programmable switch ASICs, performing packet
-classification according to configurable header fields, matching rules, and
-priority, in a single clock cycle using dedicated comparison circuitry. The
-paper surveys recent developments in the design of large-capacity CAMs. The
-main CAM-design challenge is to reduce power consumption associated with
-the large amount of parallel active circuitry, without sacrificing speed or
-memory density. The paper reviews CAM-design techniques at the circuit
-level and at the architectural level.
-
-**** Fu et al.: *[[http://doi.acm.org/10.1145/1544012.1544033][Efficient IP-address Lookup with a Shared Forwarding Table for Multiple Virtual Routers]]*, /ACM CoNEXT/, 2008.
-     :PROPERTIES:
-     :RELEVANCE: mustread
-     :END:
-Programmable routers often need to support a separate forwarding
-information base (FIB) for each virtual router provisioned by the
-controller, which leads to memory scaling challenges. In this paper, a
-small, shared FIB data structure is presented and a fast lookup algorithm
-that capitalize on the commonality of IP prefixes between each
-FIB. Experiments with real packet traces and routing tables show that the
-approach achieves much lower memory requirements and considerably faster
-lookup times.
-
-**** Ma et al.: *[[http://doi.acm.org/10.1145/2377677.2377749][A Smart Pre-classifier to Reduce Power Consumption of TCAMs for Multi-dimensional Packet Classification]]*, /ACM SIGCOMM Comput. Commun. Rev./, 2012.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-Ternary Content-Addressable Memories (TCAMs) have become the industrial
-standard for high-throughput packet classification, and as such, for
-programmable switch ASICs. However, one major drawback of TCAMs is their
-high power consumption. In this paper, a practical and efficient solution
-is proposed which introduces a smart pre-classifier to reduce power
-consumption of TCAMs for multi-dimensional packet classification. The
-classifier dimension is reduced by pre-classifying a packet on two header
-fields, source and destination IP addresses. Then, the high dimensional
-problem can use only a small portion of a TCAM for a given packet. The
-pre-classifier is built such that a given packet matches at most one entry
-in the pre-classifier, and each rule is stored only once in one of the TCAM
-blocks, which avoids rule replication. The presented solution uses
-commodity TCAMs.
-
-**** Zhou et al.: *[[http://doi.acm.org/10.1145/2535372.2535379][Scalable, High Performance Ethernet Forwarding with CuckooSwitch]]*, /ACM CoNEXT/, 2013.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-Programmable switches usually need to implement some or more match-action
-tables in the fast-path.  This paper presents CuckooSwitch, a
-software-based switch design built around a memory-efficient,
-high-performance, and highly-concurrent hash table for compact and fast FIB
-lookup. The authors show that CuckooSwitch can process the maximum packets
-per second rate achievable across the underlying hardware's PCI buses while
-maintaining a forwarding table of one billion forwarding entries.
-
-**** Rétvári et al.: *[[http://doi.acm.org/10.1145/2486001.2486009][Compressing IP Forwarding Tables: Towards Entropy Bounds and Beyond]]*, /ACM SIGCOMM/, 2013.
-     :PROPERTIES:
-     :RELEVANCE: mustread
-     :END:
-The main goal of this paper is to demonstrate how data compression can
-benefit the networking community, by showing how to squeeze the
-longest-prefix-matching lookup table, consulted by switches for IP lookup,
-into information-theoretical entropy bounds with essentially zero cost on
-lookup performance and FIB update. The state-of-the-art in compressed data
-structures yields a static entropy-compressed FIB representation with
-asymptotically optimal lookup. Since this data structure results too slow
-for practical uses, the authors redesign the venerable prefix tree to also
-admit entropy bounds and support lookup in optimal time and update in
-nearly optimal time.
-
-**** Kogan et al.: *[[http://doi.acm.org/10.1145/2619239.2626294][SAX-PAC (Scalable And eXpressive PAcket Classification)]]*, /ACM SIGCOMM/, 2014.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-Efficient packet classification is a core concern for programmable network
-devices, but it is also very difficult to implement
-efficiently. Traditional multi-field classification approaches, in both
-software and ternary content-addressable memory (TCAMs), entail trade-offs
-between (memory) space and (lookup) time. In this work, a novel approach is
-presented, which identifies properties of many classifiers that can be
-implemented in linear space and with worst-case guaranteed logarithmic time
-and allows the addition of more fields including range constraints without
-impacting space and time complexities.
-
-**** Bifulco et al.: *[[http://doi.acm.org/10.1145/2785956.2790008][Towards Scalable SDN Switches: Enabling Faster Flow Table Entries Installation]]*, /ACM SIGCOMM/, 2015.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-The authors argue that a hybrid software-hardware switch may help in
-lowering the flow-table entries installation time, and present ShadowSwitch
-(sSw), an OpenFlow switch prototype that implements such a design. sSw
-builds on two key observations. First, software tables are very fast to be
-updated, hence, forwarding tables updates always happen in software first
-and, eventually, entries are moved to the TCAM to achieve higher overall
-throughput and offload the software forwarder. Lookup in software is
-performed only in case there are no entries matching a packet in
-hardware. Second, since deleting entries from TCAM is much faster than
-adding them, ShadowSwitch may translate an entry installation in a mix of
-installation in software tables and deletion from hardware tables.
-
-**** Chen et al.: *[[http://doi.acm.org/10.1145/3143361.3143391][Hermes: Providing Tight Control over High-Performance SDN Switches]]*, /ACM CoNEXT/, 2017.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-The paper presents the design and evaluation of Hermes, a practical and
-immediately deployable framework that offers a novel method for
-partitioning and optimizing switch TCAM to enable performance guarantees
-for control plane actions, in particular, inserting, modifying, or deleting
-rules. Hermes provides these guarantees by trading-off a nominal amount of
-TCAM space for assured performance.
 
 * Miscellaneous Topics
 
