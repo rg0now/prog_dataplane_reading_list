@@ -1493,6 +1493,17 @@ which retain counters for heavy flows while evicting lighter flows over
 time. HashPipe is prototyped in P4 and evaluated with packet traces from an
 ISP backbone link and a data center.
 
+**** Ghasemi et al.: *[[https://dl.acm.org/citation.cfm?id=3050228][Dapper: Data plane performance diagnosis of TCP]]*, /ACM SOSR/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+Dapper is a system which leverages emerging edge devices offering flexible
+and high-speed packet processing on commodity hardware, to diagnose cloud
+performance problems in a timely manner. In particular, Dapper analyzes TCP
+performance in real time near the end-hosts, i.e., at the hypervisor, NIC,
+or top-of-rack switch, by determining whether a connection is limited by
+the sender, the network, or the receiver. Dapper was prototyped in P4.
+
 **** Huang et al.: *[[http://doi.acm.org/10.1145/3098822.3098831][SketchVisor: Robust Network Measurement for Software Packet Processing]]*, /ACM SIGCOMM/, 2017.
      :PROPERTIES:
      :RELEVANCE: interesting
@@ -1549,17 +1560,6 @@ duplicates these hot keys to many (or all) Memcached servers, and adjusts
 the switches' forwarding tables accordingly. Experiences with an
 implementation of MBalancer on a hardware-based OpenFlow switch indicate
 significant throughput boost and latency reduction.
-
-**** Ghasemi et al.: *[[https://dl.acm.org/citation.cfm?id=3050228][Dapper: Data plane performance diagnosis of TCP]]*, /ACM SOSR/, 2017.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-Dapper is a system which leverages emerging edge devices offering flexible
-and high-speed packet processing on commodity hardware, to diagnose cloud
-performance problems in a timely manner. In particular, Dapper analyzes TCP
-performance in real time near the end-hosts, i.e., at the hypervisor, NIC,
-or top-of-rack switch, by determining whether a connection is limited by
-the sender, the network, or the receiver. Dapper was prototyped in P4.
 
 * Miscellaneous Topics
 
