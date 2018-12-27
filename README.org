@@ -1241,6 +1241,22 @@ even AI, to the network, has the potential to significantly improve the
 efficiency of distributed applications.  Accordingly, the study of such
 mechanisms have recently received much attention.
 
+**** Paolo Costa et al.: *[[https://www.usenix.org/conference/nsdi12/technical-sessions/presentation/costa][Camdoop: Exploiting In-network Aggregation for Big Data Applications]]*, /USENIX NSDI/, 2012.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+This paper makes the case that many massive-scale information processing
+and real-time applications may benefit from pushing data-aggregation load
+from the network edge into the network.  This is because in many of these
+applications data is aggregated during the computation process and the
+output size is a fraction of the input size. The authors explore a
+different point in the design space, whereby instead of increasing the
+network bandwidth they rather implement a MapReduce-like system on a
+cluster design that uses a direct-connect network topology, with servers
+directly linked to other servers, and letting servers to perform in-network
+aggregation of data during the shuffle phase. Camdoop was shown to
+significantly reduce network traffic and provide high performance increase.
+
 **** Mai et al.: *[[https://dl.acm.org/citation.cfm?id=2674996][Netagg: Using middleboxes for application-specific on-path aggregation in data centres]]*, /ACM CoNEXT/, 2014.
      :PROPERTIES:
      :RELEVANCE: mustread
