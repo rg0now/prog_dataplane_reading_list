@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-12-27 Thu 19:19 -->
+<!-- 2019-04-09 Tue 16:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Programmable Data Plane: Reading List</title>
@@ -244,46 +244,46 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org77efec0">Abstractions</a>
+<li><a href="#org238ebb0">Abstractions</a>
 <ul>
-<li><a href="#orgf82ef38">Languages and Compilers</a>
+<li><a href="#org27c6537">Languages and Compilers</a>
 <ul>
-<li><a href="#orgc63be38">Low-level APIs</a></li>
-<li><a href="#org23c5c34">High-level Languages and Compilers</a></li>
+<li><a href="#orgd12bdc2">Low-level APIs</a></li>
+<li><a href="#org9ebe5e7">High-level Languages and Compilers</a></li>
 </ul>
 </li>
-<li><a href="#org9be7ded">Abstractions for Embedded State</a></li>
-<li><a href="#org9285e8d">Programmable Parsing and Scheduling</a></li>
+<li><a href="#org70ae7db">Abstractions for Embedded State</a></li>
+<li><a href="#org4ef2b3a">Programmable Parsing and Scheduling</a></li>
 </ul>
 </li>
-<li><a href="#orgd2fc438">Architecture</a>
+<li><a href="#org361c78f">Architecture</a>
 <ul>
-<li><a href="#org1d8ae68">Software Switch Architectures</a>
+<li><a href="#org374e382">Software Switch Architectures</a>
 <ul>
-<li><a href="#org88ff54d">Viability of Software Switching</a></li>
-<li><a href="#org04a1e0b">The Dataflow Graph Abstraction</a></li>
-<li><a href="#orgdf62100">The Match-action Abstraction</a></li>
-<li><a href="#org064b1c1">Packet I/O Libraries</a></li>
+<li><a href="#orge59e988">Viability of Software Switching</a></li>
+<li><a href="#org6ddf313">The Dataflow Graph Abstraction</a></li>
+<li><a href="#orga767ac0">The Match-action Abstraction</a></li>
+<li><a href="#org3a856f3">Packet I/O Libraries</a></li>
 </ul>
 </li>
-<li><a href="#org317b83f">Hardware Switch Architectures</a></li>
-<li><a href="#orgc8409d5">Hybrid Hardware/Software Architectures</a></li>
+<li><a href="#orgb4a022c">Hardware Switch Architectures</a></li>
+<li><a href="#org4895fd3">Hybrid Hardware/Software Architectures</a></li>
 </ul>
 </li>
-<li><a href="#orgfd2a6c0">Algorithms &amp; HW Realizations</a></li>
-<li><a href="#org5e37f5d">Applications</a>
+<li><a href="#org74faa5a">Algorithms &amp; HW Realizations</a></li>
+<li><a href="#org487e8de">Applications</a>
 <ul>
-<li><a href="#org2b78f7e">Resilient, Robust, and Efficient Forwarding</a></li>
-<li><a href="#org388b240">In-network Computation</a></li>
-<li><a href="#org6d6af80">Distributed Consensus</a></li>
-<li><a href="#org281e182">Monitoring, Telemetry, and Measurement</a></li>
-<li><a href="#org0addc59">Load balancing</a></li>
+<li><a href="#orgf16ace5">Resilient, Robust, and Efficient Forwarding</a></li>
+<li><a href="#orgeb918ce">In-network Computation</a></li>
+<li><a href="#orgc773a67">Distributed Consensus</a></li>
+<li><a href="#orgc3a0f6b">Monitoring, Telemetry, and Measurement</a></li>
+<li><a href="#org3917786">Load balancing</a></li>
 </ul>
 </li>
-<li><a href="#org7271782">Miscellaneous Topics</a>
+<li><a href="#org96a8c75">Miscellaneous Topics</a>
 <ul>
-<li><a href="#org705c48d">History</a></li>
-<li><a href="#org8b3f71f">Deployments</a></li>
+<li><a href="#org5d2c4bc">History</a></li>
+<li><a href="#orgc64b865">Deployments</a></li>
 </ul>
 </li>
 </ul>
@@ -333,9 +333,9 @@ googling; we still provide the paywall links as user-provided PDFs often do
 not prove overly stable over time.
 </p>
 
-<div id="outline-container-org77efec0" class="outline-2">
-<h2 id="org77efec0">Abstractions</h2>
-<div class="outline-text-2" id="text-org77efec0">
+<div id="outline-container-org238ebb0" class="outline-2">
+<h2 id="org238ebb0">Abstractions</h2>
+<div class="outline-text-2" id="text-org238ebb0">
 <p>
 At the heart of programmable data planes lies the question of which
 abstractions and programming interfaces to provide.  We first review
@@ -348,9 +348,9 @@ packet scheduling algorithms.
 </p>
 </div>
 
-<div id="outline-container-orgf82ef38" class="outline-3">
-<h3 id="orgf82ef38">Languages and Compilers</h3>
-<div class="outline-text-3" id="text-orgf82ef38">
+<div id="outline-container-org27c6537" class="outline-3">
+<h3 id="org27c6537">Languages and Compilers</h3>
+<div class="outline-text-3" id="text-org27c6537">
 <p>
 We start our survey with the seminal paper on OpenFlow, introducing a
 standardized interface to manage flow table entries in data plane devices
@@ -368,13 +368,13 @@ network gear.
 </p>
 </div>
 
-<div id="outline-container-orgc63be38" class="outline-4">
-<h4 id="orgc63be38">Low-level APIs</h4>
-<div class="outline-text-4" id="text-orgc63be38">
+<div id="outline-container-orgd12bdc2" class="outline-4">
+<h4 id="orgd12bdc2">Low-level APIs</h4>
+<div class="outline-text-4" id="text-orgd12bdc2">
 </div>
 <ul class="org-ul">
-<li><a id="orgb62f3f6"></a>McKeown et al.: <b><a href="http://doi.acm.org/10.1145/1355734.1355746">OpenFlow: Enabling Innovation in Campus Networks</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2008.<br />
-<div class="outline-text-5" id="text-orgb62f3f6">
+<li><a id="orgb84f7cc"></a>McKeown et al.: <b><a href="http://doi.acm.org/10.1145/1355734.1355746">OpenFlow: Enabling Innovation in Campus Networks</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2008.<br />
+<div class="outline-text-5" id="text-orgb84f7cc">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -390,8 +390,8 @@ component in large-scale testbeds.
 </div>
 </li>
 
-<li><a id="org473173f"></a>Duncan et al.: <b><a href="https://ieeexplore.ieee.org/iel5/5166953/5166954/05167027.pdf">packetC: Language for High Performance Packet Processing</a></b>, <i>IEEE HPCC</i>, 2009.<br />
-<div class="outline-text-5" id="text-org473173f">
+<li><a id="org7c443b4"></a>Duncan et al.: <b><a href="https://ieeexplore.ieee.org/iel5/5166953/5166954/05167027.pdf">packetC: Language for High Performance Packet Processing</a></b>, <i>IEEE HPCC</i>, 2009.<br />
+<div class="outline-text-5" id="text-org7c443b4">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -408,8 +408,8 @@ packets, databases and searchsets.
 </div>
 </li>
 
-<li><a id="org815dd79"></a>Song et al.: <b><a href="http://doi.acm.org/10.1145/2491185.2491190">Protocol-oblivious Forwarding: Unleash the Power of SDN Through a Future-proof Forwarding Plane</a></b>, <i>ACM HotSDN</i>, 2013.<br />
-<div class="outline-text-5" id="text-org815dd79">
+<li><a id="org4ac5ee8"></a>Song et al.: <b><a href="http://doi.acm.org/10.1145/2491185.2491190">Protocol-oblivious Forwarding: Unleash the Power of SDN Through a Future-proof Forwarding Plane</a></b>, <i>ACM HotSDN</i>, 2013.<br />
+<div class="outline-text-5" id="text-org4ac5ee8">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -426,8 +426,8 @@ prototypes are shown to demonstrate the feasibility and advantages of POF.
 </div>
 </li>
 
-<li><a id="org731f4e6"></a>Bosshart et al.: <b><a href="http://www.sigcomm.org/sites/default/files/ccr/papers/2014/July/0000000-0000004.pdf">P4: Programming protocol-independent packet processors</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2014.<br />
-<div class="outline-text-5" id="text-org731f4e6">
+<li><a id="org40cc9cd"></a>Bosshart et al.: <b><a href="http://www.sigcomm.org/sites/default/files/ccr/papers/2014/July/0000000-0000004.pdf">P4: Programming protocol-independent packet processors</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2014.<br />
+<div class="outline-text-5" id="text-org40cc9cd">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -445,8 +445,8 @@ new hierarchical label.
 </div>
 </li>
 
-<li><a id="orga20dc45"></a>Sivaraman et al.: <b><a href="http://doi.acm.org/10.1145/2774993.2775007">DC.P4: Programming the Forwarding Plane of a Data-center Switch</a></b>, <i>ACM SOSR</i>, 2015.<br />
-<div class="outline-text-5" id="text-orga20dc45">
+<li><a id="org26ad44d"></a>Sivaraman et al.: <b><a href="http://doi.acm.org/10.1145/2774993.2775007">DC.P4: Programming the Forwarding Plane of a Data-center Switch</a></b>, <i>ACM SOSR</i>, 2015.<br />
+<div class="outline-text-5" id="text-org26ad44d">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -461,8 +461,8 @@ P4.
 </div>
 </li>
 
-<li><a id="org44ee15e"></a>Shahbaz et al.: <b><a href="http://doi.acm.org/10.1145/2774993.2775000">The Case for an Intermediate Representation for Programmable Data Planes</a></b>, <i>ACM SOSR</i>, 2015.<br />
-<div class="outline-text-5" id="text-org44ee15e">
+<li><a id="orgbf69e58"></a>Shahbaz et al.: <b><a href="http://doi.acm.org/10.1145/2774993.2775000">The Case for an Intermediate Representation for Programmable Data Planes</a></b>, <i>ACM SOSR</i>, 2015.<br />
+<div class="outline-text-5" id="text-orgbf69e58">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -478,8 +478,8 @@ utilization of custom packet-processing pipelines on a variety of targets.
 </div>
 </li>
 
-<li><a id="org9b21533"></a>Bifulco et al.: <b><a href="http://doi.acm.org/10.1145/2890955.2890962">Improving SDN with InSPired Switches</a></b>, <i>ACM SOSR</i>, 2016.<br />
-<div class="outline-text-5" id="text-org9b21533">
+<li><a id="org8473db9"></a>Bifulco et al.: <b><a href="http://doi.acm.org/10.1145/2890955.2890962">Improving SDN with InSPired Switches</a></b>, <i>ACM SOSR</i>, 2016.<br />
+<div class="outline-text-5" id="text-org8473db9">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -493,8 +493,8 @@ conditions, packet's content and forwarding actions.
 </div>
 </li>
 
-<li><a id="org3363f1c"></a>Choi et al.: <b><a href="https://www.cs.princeton.edu/~mshahbaz/papers/sosr17demos-pvpp.pdf">PVPP: A Programmable Vector Packet Processor</a></b>, <i>ACM SOSR</i>, 2017.<br />
-<div class="outline-text-5" id="text-org3363f1c">
+<li><a id="org94eeefb"></a>Choi et al.: <b><a href="https://www.cs.princeton.edu/~mshahbaz/papers/sosr17demos-pvpp.pdf">PVPP: A Programmable Vector Packet Processor</a></b>, <i>ACM SOSR</i>, 2017.<br />
+<div class="outline-text-5" id="text-org94eeefb">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -510,13 +510,13 @@ representation.
 </ul>
 </div>
 
-<div id="outline-container-org23c5c34" class="outline-4">
-<h4 id="org23c5c34">High-level Languages and Compilers</h4>
-<div class="outline-text-4" id="text-org23c5c34">
+<div id="outline-container-org9ebe5e7" class="outline-4">
+<h4 id="org9ebe5e7">High-level Languages and Compilers</h4>
+<div class="outline-text-4" id="text-org9ebe5e7">
 </div>
 <ul class="org-ul">
-<li><a id="org0ba9586"></a>Curtis et al.: <b><a href="https://conferences.sigcomm.org/sigcomm/2011/papers/sigcomm/p254.pdf">DevoFlow: scaling flow management for high-performance networks</a></b>, <i>SIGCOMM CCR</i>, 2011.<br />
-<div class="outline-text-5" id="text-org0ba9586">
+<li><a id="orga5e665b"></a>Curtis et al.: <b><a href="https://conferences.sigcomm.org/sigcomm/2011/papers/sigcomm/p254.pdf">DevoFlow: scaling flow management for high-performance networks</a></b>, <i>SIGCOMM CCR</i>, 2011.<br />
+<div class="outline-text-5" id="text-orga5e665b">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -533,8 +533,8 @@ control messages.
 </div>
 </li>
 
-<li><a id="org95a2250"></a>Christopher Monsanto et al.: <b><a href="https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final232.pdf">Composing Software Defined Networks</a></b>, <i>USENIX NSDI</i>, 2013.<br />
-<div class="outline-text-5" id="text-org95a2250">
+<li><a id="org2f8f5b8"></a>Christopher Monsanto et al.: <b><a href="https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final232.pdf">Composing Software Defined Networks</a></b>, <i>USENIX NSDI</i>, 2013.<br />
+<div class="outline-text-5" id="text-org2f8f5b8">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -552,8 +552,8 @@ matching predicates, query policies, and policies.
 </div>
 </li>
 
-<li><a id="org597866d"></a>Voellmy et al.: <b><a href="https://conferences.sigcomm.org/sigcomm/2013/papers/sigcomm/p87.pdf">Maple: simplifying SDN programming using algorithmic policies</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2013.<br />
-<div class="outline-text-5" id="text-org597866d">
+<li><a id="org63a98ab"></a>Voellmy et al.: <b><a href="https://conferences.sigcomm.org/sigcomm/2013/papers/sigcomm/p87.pdf">Maple: simplifying SDN programming using algorithmic policies</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2013.<br />
+<div class="outline-text-5" id="text-org63a98ab">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -575,8 +575,8 @@ the environment.
 </div>
 </li>
 
-<li><a id="orgcc6a5fd"></a>Foster et al.: <b><a href="http://frenetic-lang.org/publications/overview-ieeecoms13.pdf">Languages for software-defined networks</a></b>, <i>IEEE Communications Magazine</i>, 2013.<br />
-<div class="outline-text-5" id="text-orgcc6a5fd">
+<li><a id="org914ede2"></a>Foster et al.: <b><a href="http://frenetic-lang.org/publications/overview-ieeecoms13.pdf">Languages for software-defined networks</a></b>, <i>IEEE Communications Magazine</i>, 2013.<br />
+<div class="outline-text-5" id="text-org914ede2">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -587,8 +587,28 @@ composing packet processing applications using the Frenetic framework.
 </div>
 </li>
 
-<li><a id="orga0b82f9"></a>Bonelli et al.: <b><a href="http://doi.acm.org/10.1145/2658260.2658269">A Purely Functional Approach to Packet Processing</a></b>, <i>IEEE/ACM ANCS</i>, 2014.<br />
-<div class="outline-text-5" id="text-orga0b82f9">
+<li><a id="orgdd13f69"></a>Anderson et al.: <b><a href="http://hdl.handle.net/1813/34445">NetKAT: Semantic Foundations for Networks</a></b>, <i>ACM POPL</i>, 2014.<br />
+<div class="outline-text-5" id="text-orgdd13f69">
+<pre class="example">
+RELEVANCE: mustread
+</pre>
+<p>
+The paper contributes just what is stated in the title, a new network
+programming language called NetKAT that is based on a solid
+mathematical foundation. Formerly, the design of network dataplane
+programming languages was largely ad hoc, driven more by the needs of
+applications and the capabilities of network hardware than by
+foundational principles.  NetKAT solves this problem by (1) proposing
+primitives for filtering, modifying, and transmitting packets,
+operators for combining programs in parallel and in sequence, and a
+Kleene star operator for iteration, and (2) presenting a series of
+proofs that the language is sound and complete.
+</p>
+</div>
+</li>
+
+<li><a id="org61fbed2"></a>Bonelli et al.: <b><a href="http://doi.acm.org/10.1145/2658260.2658269">A Purely Functional Approach to Packet Processing</a></b>, <i>IEEE/ACM ANCS</i>, 2014.<br />
+<div class="outline-text-5" id="text-org61fbed2">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -601,8 +621,8 @@ and multi-core architectures.
 </div>
 </li>
 
-<li><a id="orga923863"></a>Schiff et al.: <b><a href="https://dl.acm.org/citation.cfm?id=2673874">Reclaiming the Brain: Useful OpenFlow Functions in the Data Plane</a></b>, <i>ACM HotNets</i>, 2014.<br />
-<div class="outline-text-5" id="text-orga923863">
+<li><a id="org99dad98"></a>Schiff et al.: <b><a href="https://dl.acm.org/citation.cfm?id=2673874">Reclaiming the Brain: Useful OpenFlow Functions in the Data Plane</a></b>, <i>ACM HotNets</i>, 2014.<br />
+<div class="outline-text-5" id="text-org99dad98">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -616,8 +636,8 @@ anycast, blackhole detection and critical node detection.
 </div>
 </li>
 
-<li><a id="org0dea0eb"></a>Lavanya Jose et al.: <b><a href="https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/jose">Compiling Packet Programs to Reconfigurable Switches</a></b>, <i>USENIX NSDI</i>, 2015.<br />
-<div class="outline-text-5" id="text-org0dea0eb">
+<li><a id="org6999e0f"></a>Lavanya Jose et al.: <b><a href="https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/jose">Compiling Packet Programs to Reconfigurable Switches</a></b>, <i>USENIX NSDI</i>, 2015.<br />
+<div class="outline-text-5" id="text-org6999e0f">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -633,8 +653,8 @@ two different programmable switch architectures: RMT and Intel’s FlexPipe.
 </div>
 </li>
 
-<li><a id="orgc03ab79"></a>Firestone et al.: <b><a href="https://www.usenix.org/system/files/conference/nsdi17/nsdi17-firestone.pdf">VFP: A Virtual Switch Platform for Host SDN in the Public Cloud</a></b>, <i>USENIX NSDI</i>, 2017.<br />
-<div class="outline-text-5" id="text-orgc03ab79">
+<li><a id="org6a4da0e"></a>Firestone et al.: <b><a href="https://www.usenix.org/system/files/conference/nsdi17/nsdi17-firestone.pdf">VFP: A Virtual Switch Platform for Host SDN in the Public Cloud</a></b>, <i>USENIX NSDI</i>, 2017.<br />
+<div class="outline-text-5" id="text-org6a4da0e">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -652,8 +672,8 @@ years.
 </div>
 </li>
 
-<li><a id="org9c71059"></a>Wang et al.: <b><a href="https://www.cs.cornell.edu/~jnfoster/papers/p4fpga.pdf">P4FPGA: A Rapid Prototyping Framework for P4</a></b>, <i>ACM SOSR</i>, 2017.<br />
-<div class="outline-text-5" id="text-org9c71059">
+<li><a id="org1c44fa1"></a>Wang et al.: <b><a href="https://www.cs.cornell.edu/~jnfoster/papers/p4fpga.pdf">P4FPGA: A Rapid Prototyping Framework for P4</a></b>, <i>ACM SOSR</i>, 2017.<br />
+<div class="outline-text-5" id="text-org1c44fa1">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -668,8 +688,8 @@ rapidly prototype and deploy new data plane applications.
 </div>
 </li>
 
-<li><a id="org6a7870a"></a>Csikor et al.: <b><a href="http://lendulet.tmit.bme.hu/lendulet_website/wp-content/papercite-data/pdf/csikor2018networking.pdf">HARMLESS: Cost-Effective Transitioning to SDN for Small Enterprises</a></b>, <i>IFIP Netwoking</i>, 2018.<br />
-<div class="outline-text-5" id="text-org6a7870a">
+<li><a id="org710301f"></a>Csikor et al.: <b><a href="http://lendulet.tmit.bme.hu/lendulet_website/wp-content/papercite-data/pdf/csikor2018networking.pdf">HARMLESS: Cost-Effective Transitioning to SDN for Small Enterprises</a></b>, <i>IFIP Netwoking</i>, 2018.<br />
+<div class="outline-text-5" id="text-org710301f">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -691,9 +711,9 @@ for smaller enterprises.
 </div>
 </div>
 
-<div id="outline-container-org9be7ded" class="outline-3">
-<h3 id="org9be7ded">Abstractions for Embedded State</h3>
-<div class="outline-text-3" id="text-org9be7ded">
+<div id="outline-container-org70ae7db" class="outline-3">
+<h3 id="org70ae7db">Abstractions for Embedded State</h3>
+<div class="outline-text-3" id="text-org70ae7db">
 <p>
 While OpenFlow match/action table abstractions are stateless, there are
 many efforts toward devising a stateful data plane programming abstraction,
@@ -706,8 +726,8 @@ scaling, and discuss security implications.
 </div>
 
 <ul class="org-ul">
-<li><a id="org879733e"></a>Verdú et al.: <b><a href="http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=ED2CCB19D8967081D9DE927A7AB43614?doi=10.1.1.482.5955&amp;rep=rep1&amp;type=pdf">Workload Characterization of Stateful Networking Applications</a></b>, <i>IEEE HPC</i>, 2008.<br />
-<div class="outline-text-5" id="text-org879733e">
+<li><a id="orgfbc3011"></a>Verdú et al.: <b><a href="http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=ED2CCB19D8967081D9DE927A7AB43614?doi=10.1.1.482.5955&amp;rep=rep1&amp;type=pdf">Workload Characterization of Stateful Networking Applications</a></b>, <i>IEEE HPC</i>, 2008.<br />
+<div class="outline-text-5" id="text-orgfbc3011">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -721,8 +741,8 @@ different networking applications.
 </div>
 </li>
 
-<li><a id="org0325182"></a>Bianchi et al.: <b><a href="http://doi.acm.org/10.1145/2602204.2602211">OpenState: Programming Platform-independent Stateful Openflow Applications Inside the Switch</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2014.<br />
-<div class="outline-text-5" id="text-org0325182">
+<li><a id="orge37823d"></a>Bianchi et al.: <b><a href="http://doi.acm.org/10.1145/2602204.2602211">OpenState: Programming Platform-independent Stateful Openflow Applications Inside the Switch</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2014.<br />
+<div class="outline-text-5" id="text-orge37823d">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -740,8 +760,8 @@ OpenFlow devices.
 </div>
 </li>
 
-<li><a id="org5467d1e"></a>Moshref et al.: <b><a href="http://doi.acm.org/10.1145/2620728.2620729">Flow-level State Transition As a New Switch Primitive for SDN</a></b>, <i>ACM HotSDN</i>, 2014.<br />
-<div class="outline-text-5" id="text-org5467d1e">
+<li><a id="org10db6cd"></a>Moshref et al.: <b><a href="http://doi.acm.org/10.1145/2620728.2620729">Flow-level State Transition As a New Switch Primitive for SDN</a></b>, <i>ACM HotSDN</i>, 2014.<br />
+<div class="outline-text-5" id="text-org10db6cd">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -756,8 +776,8 @@ implemented with commodity switch components and software switches.
 </div>
 </li>
 
-<li><a id="org92e4ed6"></a>Arashloo et al.: <b><a href="http://doi.acm.org/10.1145/2934872.2934892">SNAP: Stateful Network-Wide Abstractions for Packet Processing</a></b>, <i>ACM SIGCOMM</i>, 2016.<br />
-<div class="outline-text-5" id="text-org92e4ed6">
+<li><a id="org6ace835"></a>Arashloo et al.: <b><a href="http://doi.acm.org/10.1145/2934872.2934892">SNAP: Stateful Network-Wide Abstractions for Packet Processing</a></b>, <i>ACM SIGCOMM</i>, 2016.<br />
+<div class="outline-text-5" id="text-org6ace835">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -775,8 +795,8 @@ diagrams.
 </div>
 </li>
 
-<li><a id="org9f21334"></a>Kim et al.: <b><a href="http://dl.acm.org/citation.cfm?id=2789770.2789775">Kinetic: Verifiable Dynamic Network Control</a></b>, <i>USENIX NSDI</i>, 2015.<br />
-<div class="outline-text-5" id="text-org9f21334">
+<li><a id="org8a4d355"></a>Kim et al.: <b><a href="http://dl.acm.org/citation.cfm?id=2789770.2789775">Kinetic: Verifiable Dynamic Network Control</a></b>, <i>USENIX NSDI</i>, 2015.<br />
+<div class="outline-text-5" id="text-org8a4d355">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -792,8 +812,8 @@ languages, such as Pyretic.
 </div>
 </li>
 
-<li><a id="orgdb3df52"></a>Sivaraman et al.: <b><a href="http://doi.acm.org/10.1145/2934872.2934900">Packet Transactions: High-Level Programming for Line-Rate Switches</a></b>, <i>ACM SIGCOMM</i>, 2016.<br />
-<div class="outline-text-5" id="text-orgdb3df52">
+<li><a id="org3dd3b5c"></a>Sivaraman et al.: <b><a href="http://doi.acm.org/10.1145/2934872.2934900">Packet Transactions: High-Level Programming for Line-Rate Switches</a></b>, <i>ACM SIGCOMM</i>, 2016.<br />
+<div class="outline-text-5" id="text-org3dd3b5c">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -812,8 +832,8 @@ modest estimated chip-area overhead.
 </div>
 </li>
 
-<li><a id="org2f91219"></a>Giuseppe Bianchi et al.: <b><a href="http://arxiv.org/abs/1605.01977">Open Packet Processor: a programmable architecture for wire speed platform-independent stateful in-network processing</a></b>, <i>unpublished manuscript</i>, 2016.<br />
-<div class="outline-text-5" id="text-org2f91219">
+<li><a id="orgb496ddf"></a>Giuseppe Bianchi et al.: <b><a href="http://arxiv.org/abs/1605.01977">Open Packet Processor: a programmable architecture for wire speed platform-independent stateful in-network processing</a></b>, <i>unpublished manuscript</i>, 2016.<br />
+<div class="outline-text-5" id="text-orgb496ddf">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -830,8 +850,8 @@ formally described via an abstract XFSM.
 </div>
 </li>
 
-<li><a id="orgd2dbdd6"></a>Junaid Khalid et al.: <b><a href="https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/khalid">Paving the Way for NFV: Simplifying Middlebox Modifications Using StateAlyzr</a></b>, <i>USENIX NSDI 16</i>, 2016.<br />
-<div class="outline-text-5" id="text-orgd2dbdd6">
+<li><a id="org8b5ec39"></a>Junaid Khalid et al.: <b><a href="https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/khalid">Paving the Way for NFV: Simplifying Middlebox Modifications Using StateAlyzr</a></b>, <i>USENIX NSDI 16</i>, 2016.<br />
+<div class="outline-text-5" id="text-org8b5ec39">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -848,8 +868,8 @@ by nearly 20x.
 </div>
 </li>
 
-<li><a id="orgb456be7"></a>Luo et al.: <b><a href="http://doi.acm.org/10.1145/3050220.3050233">Swing State: Consistent Updates for Stateful and Programmable Data Planes</a></b>, <i>ACM SOSR</i>, 2017.<br />
-<div class="outline-text-5" id="text-orgb456be7">
+<li><a id="orgbfcd63a"></a>Luo et al.: <b><a href="http://doi.acm.org/10.1145/3050220.3050233">Swing State: Consistent Updates for Stateful and Programmable Data Planes</a></b>, <i>ACM SOSR</i>, 2017.<br />
+<div class="outline-text-5" id="text-orgbfcd63a">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -865,8 +885,8 @@ is also described.
 </div>
 </li>
 
-<li><a id="org95ac2ec"></a>Dargahi et al.: <b><a href="https://doi.org/10.1109/COMST.2017.2689819">A Survey on the Security of Stateful SDN Data Planes</a></b>, <i>IEEE Communications Surveys Tutorials</i>, 2017.<br />
-<div class="outline-text-5" id="text-org95ac2ec">
+<li><a id="org49593e3"></a>Dargahi et al.: <b><a href="https://doi.org/10.1109/COMST.2017.2689819">A Survey on the Security of Stateful SDN Data Planes</a></b>, <i>IEEE Communications Surveys Tutorials</i>, 2017.<br />
+<div class="outline-text-5" id="text-org49593e3">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -880,8 +900,8 @@ processing, including denial of service and saturation attacks.
 </div>
 </li>
 
-<li><a id="orgd263a06"></a>Murad Kablan et al.: <b><a href="https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/kablan">Stateless Network Functions: Breaking the Tight Coupling of State and Processing</a></b>, <i>USENIX NSDI 17</i>, 2017.<br />
-<div class="outline-text-5" id="text-orgd263a06">
+<li><a id="org221a4ac"></a>Murad Kablan et al.: <b><a href="https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/kablan">Stateless Network Functions: Breaking the Tight Coupling of State and Processing</a></b>, <i>USENIX NSDI 17</i>, 2017.<br />
+<div class="outline-text-5" id="text-org221a4ac">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -901,8 +921,8 @@ instances.
 </div>
 </li>
 
-<li><a id="org2791179"></a>Shinae Woo et al.: <b><a href="https://www.usenix.org/conference/nsdi18/presentation/woo">Elastic Scaling of Stateful Network Functions</a></b>, <i>USENIX NSDI 18</i>, 2018.<br />
-<div class="outline-text-5" id="text-org2791179">
+<li><a id="org5fc4866"></a>Shinae Woo et al.: <b><a href="https://www.usenix.org/conference/nsdi18/presentation/woo">Elastic Scaling of Stateful Network Functions</a></b>, <i>USENIX NSDI 18</i>, 2018.<br />
+<div class="outline-text-5" id="text-org5fc4866">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -920,9 +940,9 @@ and high-performance in NFV workloads.
 </ul>
 </div>
 
-<div id="outline-container-org9285e8d" class="outline-3">
-<h3 id="org9285e8d">Programmable Parsing and Scheduling</h3>
-<div class="outline-text-3" id="text-org9285e8d">
+<div id="outline-container-org4ef2b3a" class="outline-3">
+<h3 id="org4ef2b3a">Programmable Parsing and Scheduling</h3>
+<div class="outline-text-3" id="text-org4ef2b3a">
 <p>
 We start by reviewing design principles for packet parsers.
 We then revisit the concept of a universal scheduler that
@@ -933,8 +953,8 @@ We conclude with a review of fair queuing on reconfigurable switches.
 </div>
 
 <ul class="org-ul">
-<li><a id="org4c9c6ed"></a>Gibb et al.: <b><a href="https://doi.org/10.1109/ANCS.2013.6665172">Design principles for packet parsers</a></b>, <i>IEEE/ACM ANCS</i>, 2013.<br />
-<div class="outline-text-5" id="text-org4c9c6ed">
+<li><a id="org301af29"></a>Gibb et al.: <b><a href="https://doi.org/10.1109/ANCS.2013.6665172">Design principles for packet parsers</a></b>, <i>IEEE/ACM ANCS</i>, 2013.<br />
+<div class="outline-text-5" id="text-org301af29">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -951,8 +971,8 @@ download.
 </div>
 </li>
 
-<li><a id="org0b7d951"></a>Sivaraman et al.: <b><a href="http://doi.acm.org/10.1145/2535771.2535796">No Silver Bullet: Extending SDN to the Data Plane</a></b>, <i>ACM HotNets</i>, 2013.<br />
-<div class="outline-text-5" id="text-org0b7d951">
+<li><a id="org3c2b615"></a>Sivaraman et al.: <b><a href="http://doi.acm.org/10.1145/2535771.2535796">No Silver Bullet: Extending SDN to the Data Plane</a></b>, <i>ACM HotNets</i>, 2013.<br />
+<div class="outline-text-5" id="text-org3c2b615">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -967,8 +987,8 @@ hardware implementations for CoDel and RED.
 </div>
 </li>
 
-<li><a id="org0afb77d"></a>Radhika Mittal et al.: <b><a href="https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/mittal">Universal Packet Scheduling</a></b>, <i>USENIX NSDI</i>, 2016.<br />
-<div class="outline-text-5" id="text-org0afb77d">
+<li><a id="org4b0e1a9"></a>Radhika Mittal et al.: <b><a href="https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/mittal">Universal Packet Scheduling</a></b>, <i>USENIX NSDI</i>, 2016.<br />
+<div class="outline-text-5" id="text-org4b0e1a9">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -985,8 +1005,8 @@ of performance metric.
 </div>
 </li>
 
-<li><a id="org855ad06"></a>Sivaraman et al.: <b><a href="http://doi.acm.org/10.1145/2934872.2934899">Programmable Packet Scheduling at Line Rate</a></b>, <i>ACM SIGCOMM</i>, 2016.<br />
-<div class="outline-text-5" id="text-org855ad06">
+<li><a id="org25a6fc4"></a>Sivaraman et al.: <b><a href="http://doi.acm.org/10.1145/2934872.2934899">Programmable Packet Scheduling at Line Rate</a></b>, <i>ACM SIGCOMM</i>, 2016.<br />
+<div class="outline-text-5" id="text-org25a6fc4">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1005,8 +1025,8 @@ maintains the scheduling order or time.
 </div>
 </li>
 
-<li><a id="org65d8a2d"></a>Naveen Sharma et al.: <b><a href="https://www.usenix.org/conference/nsdi18/presentation/sharma">Approximating Fair Queueing on Reconfigurable Switches</a></b>, <i>USENIX NSDI</i>, 2018.<br />
-<div class="outline-text-5" id="text-org65d8a2d">
+<li><a id="org08dd3f4"></a>Naveen Sharma et al.: <b><a href="https://www.usenix.org/conference/nsdi18/presentation/sharma">Approximating Fair Queueing on Reconfigurable Switches</a></b>, <i>USENIX NSDI</i>, 2018.<br />
+<div class="outline-text-5" id="text-org08dd3f4">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1028,18 +1048,18 @@ order.
 </div>
 </div>
 
-<div id="outline-container-orgd2fc438" class="outline-2">
-<h2 id="orgd2fc438">Architecture</h2>
-<div class="outline-text-2" id="text-orgd2fc438">
+<div id="outline-container-org361c78f" class="outline-2">
+<h2 id="org361c78f">Architecture</h2>
+<div class="outline-text-2" id="text-org361c78f">
 <p>
 We divide the discussion of switch architectures into software and hardware
 switch architectures.
 </p>
 </div>
 
-<div id="outline-container-org1d8ae68" class="outline-3">
-<h3 id="org1d8ae68">Software Switch Architectures</h3>
-<div class="outline-text-3" id="text-org1d8ae68">
+<div id="outline-container-org374e382" class="outline-3">
+<h3 id="org374e382">Software Switch Architectures</h3>
+<div class="outline-text-3" id="text-org374e382">
 <p>
 We first discuss the viability of software switching and then review
 dataflow graph abstractions, also discussing, e.g., Click, ClickOS, and
@@ -1049,13 +1069,13 @@ packet I/O libraries.
 </p>
 </div>
 
-<div id="outline-container-org88ff54d" class="outline-4">
-<h4 id="org88ff54d">Viability of Software Switching</h4>
-<div class="outline-text-4" id="text-org88ff54d">
+<div id="outline-container-orge59e988" class="outline-4">
+<h4 id="orge59e988">Viability of Software Switching</h4>
+<div class="outline-text-4" id="text-orge59e988">
 </div>
 <ul class="org-ul">
-<li><a id="orgb4536bb"></a>Egi et al.: <b><a href="http://doi.acm.org/10.1145/1544012.1544032">Towards High Performance Virtual Routers on Commodity Hardware</a></b>, <i>ACM CoNEXT</i>, 2008.<br />
-<div class="outline-text-5" id="text-orgb4536bb">
+<li><a id="org29c894b"></a>Egi et al.: <b><a href="http://doi.acm.org/10.1145/1544012.1544032">Towards High Performance Virtual Routers on Commodity Hardware</a></b>, <i>ACM CoNEXT</i>, 2008.<br />
+<div class="outline-text-5" id="text-org29c894b">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1071,8 +1091,8 @@ on commodity hardware.
 </div>
 </li>
 
-<li><a id="orgfaee5dc"></a>Greenhalgh et al.: <b><a href="http://www.sigcomm.org/sites/default/files/ccr/papers/2009/April/1517480-1517484.pdf">Flow Processing and the Rise of Commodity Network Hardware</a></b>, <i>SIGCOMM Comput. Commun. Rev.</i>, 2009.<br />
-<div class="outline-text-5" id="text-orgfaee5dc">
+<li><a id="orgb3cdf06"></a>Greenhalgh et al.: <b><a href="http://www.sigcomm.org/sites/default/files/ccr/papers/2009/April/1517480-1517484.pdf">Flow Processing and the Rise of Commodity Network Hardware</a></b>, <i>SIGCOMM Comput. Commun. Rev.</i>, 2009.<br />
+<div class="outline-text-5" id="text-orgb3cdf06">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -1088,8 +1108,8 @@ hardware.
 </div>
 </li>
 
-<li><a id="orgce221d0"></a>Dobrescu et al.: <b><a href="http://kfall.net/ucbpage/papers/sosp09.pdf">RouteBricks: exploiting parallelism to scale software routers</a></b>, <i>ACM SOSP</i>, 2009.<br />
-<div class="outline-text-5" id="text-orgce221d0">
+<li><a id="orge0bbcd3"></a>Dobrescu et al.: <b><a href="http://kfall.net/ucbpage/papers/sosp09.pdf">RouteBricks: exploiting parallelism to scale software routers</a></b>, <i>ACM SOSP</i>, 2009.<br />
+<div class="outline-text-5" id="text-orge0bbcd3">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1106,13 +1126,13 @@ server hardware.
 </ul>
 </div>
 
-<div id="outline-container-org04a1e0b" class="outline-4">
-<h4 id="org04a1e0b">The Dataflow Graph Abstraction</h4>
-<div class="outline-text-4" id="text-org04a1e0b">
+<div id="outline-container-org6ddf313" class="outline-4">
+<h4 id="org6ddf313">The Dataflow Graph Abstraction</h4>
+<div class="outline-text-4" id="text-org6ddf313">
 </div>
 <ul class="org-ul">
-<li><a id="orgf1f0c2c"></a>Morris et al.: <b><a href="https://pdos.csail.mit.edu/papers/click:tocs00/paper.pdf">The Click modular router</a></b>, <i>ACM Trans. on Computer Systems</i>, 2000.<br />
-<div class="outline-text-5" id="text-orgf1f0c2c">
+<li><a id="org0a34655"></a>Morris et al.: <b><a href="https://pdos.csail.mit.edu/papers/click:tocs00/paper.pdf">The Click modular router</a></b>, <i>ACM Trans. on Computer Systems</i>, 2000.<br />
+<div class="outline-text-5" id="text-org0a34655">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -1126,8 +1146,8 @@ packets flow along the edges of the graph.
 </div>
 </li>
 
-<li><a id="org1871214"></a>Sun et al.: <b><a href="https://dl.acm.org/citation.cfm?id=2537861">Fast and Flexible: Parallel Packet Processing with GPUs and Click</a></b>, <i>IEEE/ACM ANCS</i>, 2013.<br />
-<div class="outline-text-5" id="text-org1871214">
+<li><a id="orgb378f48"></a>Sun et al.: <b><a href="https://dl.acm.org/citation.cfm?id=2537861">Fast and Flexible: Parallel Packet Processing with GPUs and Click</a></b>, <i>IEEE/ACM ANCS</i>, 2013.<br />
+<div class="outline-text-5" id="text-orgb378f48">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1144,8 +1164,8 @@ in-order completion.
 </div>
 </li>
 
-<li><a id="org3596fec"></a>Sangjin Han et al.: <b><a href="http://www.eecs.berkeley.edu/Pubs/TechRpts/2015/EECS-2015-155.pdf">SoftNIC: A Software NIC to Augment Hardware</a></b>, <i>unpublished manuscript</i>, 2015.<br />
-<div class="outline-text-5" id="text-org3596fec">
+<li><a id="org0f51e5f"></a>Sangjin Han et al.: <b><a href="http://www.eecs.berkeley.edu/Pubs/TechRpts/2015/EECS-2015-155.pdf">SoftNIC: A Software NIC to Augment Hardware</a></b>, <i>unpublished manuscript</i>, 2015.<br />
+<div class="outline-text-5" id="text-org0f51e5f">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1160,8 +1180,8 @@ software switch.
 </div>
 </li>
 
-<li><a id="orgd7401d3"></a>Martins et al.: <b><a href="https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-martins.pdf">ClickOS and the Art of Network Function Virtualization</a></b>, <i>USENIX NSDI</i>, 2014.<br />
-<div class="outline-text-5" id="text-orgd7401d3">
+<li><a id="org6224204"></a>Martins et al.: <b><a href="https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-martins.pdf">ClickOS and the Art of Network Function Virtualization</a></b>, <i>USENIX NSDI</i>, 2014.<br />
+<div class="outline-text-5" id="text-org6224204">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -1177,8 +1197,8 @@ suggest that ClickOS can handle packets in the millions per second.
 </div>
 </li>
 
-<li><a id="org8c8915a"></a>Sangjin Han et al.: <b><a href="http://span.cs.berkeley.edu/bess.html">Berkeley Extensible Software Switch</a></b>, <i>project website</i>, 2015.<br />
-<div class="outline-text-5" id="text-org8c8915a">
+<li><a id="orgc5f2f06"></a>Sangjin Han et al.: <b><a href="http://span.cs.berkeley.edu/bess.html">Berkeley Extensible Software Switch</a></b>, <i>project website</i>, 2015.<br />
+<div class="outline-text-5" id="text-orgc5f2f06">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1195,8 +1215,8 @@ on packets.
 </div>
 </li>
 
-<li><a id="org12c097d"></a>Honda et al.: <b><a href="http://doi.acm.org/10.1145/2774993.2775065">mSwitch: A Highly-scalable, Modular Software Switch</a></b>, <i>ACM SOSR</i>, 2015.<br />
-<div class="outline-text-5" id="text-org12c097d">
+<li><a id="org0fd40f8"></a>Honda et al.: <b><a href="http://doi.acm.org/10.1145/2774993.2775065">mSwitch: A Highly-scalable, Modular Software Switch</a></b>, <i>ACM SOSR</i>, 2015.<br />
+<div class="outline-text-5" id="text-org0fd40f8">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1212,8 +1232,8 @@ module that can direct packets to virtualized middleboxes.
 </div>
 </li>
 
-<li><a id="org635a1e6"></a>Aurojit Panda et al.: <b><a href="https://www.usenix.org/system/files/conference/osdi16/osdi16-panda.pdf">NetBricks: Taking the V out of NFV</a></b>, <i>USENIX OSDI</i>, 2016.<br />
-<div class="outline-text-5" id="text-org635a1e6">
+<li><a id="org92bfd2b"></a>Aurojit Panda et al.: <b><a href="https://www.usenix.org/system/files/conference/osdi16/osdi16-panda.pdf">NetBricks: Taking the V out of NFV</a></b>, <i>USENIX OSDI</i>, 2016.<br />
+<div class="outline-text-5" id="text-org92bfd2b">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1229,13 +1249,13 @@ new isolation technique is called zero-copy software isolation.
 </ul>
 </div>
 
-<div id="outline-container-orgdf62100" class="outline-4">
-<h4 id="orgdf62100">The Match-action Abstraction</h4>
-<div class="outline-text-4" id="text-orgdf62100">
+<div id="outline-container-orga767ac0" class="outline-4">
+<h4 id="orga767ac0">The Match-action Abstraction</h4>
+<div class="outline-text-4" id="text-orga767ac0">
 </div>
 <ul class="org-ul">
-<li><a id="org2cb08fc"></a>Ben Pfaff et al.: <b><a href="https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/pfaff">The Design and Implementation of Open vSwitch</a></b>, <i>USENIX NSDI</i>, 2015.<br />
-<div class="outline-text-5" id="text-org2cb08fc">
+<li><a id="orgfd20460"></a>Ben Pfaff et al.: <b><a href="https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/pfaff">The Design and Implementation of Open vSwitch</a></b>, <i>USENIX NSDI</i>, 2015.<br />
+<div class="outline-text-5" id="text-orgfd20460">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -1248,8 +1268,8 @@ to optimize its operations and conserve hypervisor resources.
 </div>
 </li>
 
-<li><a id="orgbbf3a55"></a>Shahbaz et al.: <b><a href="http://doi.acm.org/10.1145/2934872.2934886">PISCES: A Programmable, Protocol-Independent Software Switch</a></b>, <i>ACM SIGCOMM</i>, 2016.<br />
-<div class="outline-text-5" id="text-orgbbf3a55">
+<li><a id="org7e6a935"></a>Shahbaz et al.: <b><a href="http://doi.acm.org/10.1145/2934872.2934886">PISCES: A Programmable, Protocol-Independent Software Switch</a></b>, <i>ACM SIGCOMM</i>, 2016.<br />
+<div class="outline-text-5" id="text-org7e6a935">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1265,8 +1285,8 @@ times shorter than equivalent OVS source code.
 </div>
 </li>
 
-<li><a id="org5474534"></a>Ethan Jackson et al.: <b><a href="https://www.usenix.org/conference/atc16/technical-sessions/presentation/jackson">SoftFlow: A Middlebox Architecture for Open vSwitch</a></b>, <i>USENIX ATC</i>, 2016.<br />
-<div class="outline-text-5" id="text-org5474534">
+<li><a id="orgc209543"></a>Ethan Jackson et al.: <b><a href="https://www.usenix.org/conference/atc16/technical-sessions/presentation/jackson">SoftFlow: A Middlebox Architecture for Open vSwitch</a></b>, <i>USENIX ATC</i>, 2016.<br />
+<div class="outline-text-5" id="text-orgc209543">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1279,8 +1299,8 @@ techniques for middlebox integration.
 </div>
 </li>
 
-<li><a id="org566afb9"></a>Molnár et al.: <b><a href="http://doi.acm.org/10.1145/2934872.2934887">Dataplane Specialization for High-performance OpenFlow Software Switching</a></b>, <i>ACM SIGCOMM</i>, 2016.<br />
-<div class="outline-text-5" id="text-org566afb9">
+<li><a id="org0543095"></a>Molnár et al.: <b><a href="http://doi.acm.org/10.1145/2934872.2934887">Dataplane Specialization for High-performance OpenFlow Software Switching</a></b>, <i>ACM SIGCOMM</i>, 2016.<br />
+<div class="outline-text-5" id="text-org0543095">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -1298,8 +1318,8 @@ latency and CPU scalability, and predictable performance.
 </div>
 </li>
 
-<li><a id="orgda9fc6c"></a>Rétvári et al.: <b><a href="https://conferences.sigcomm.org/sigcomm/2017/files/program-netpl/sigcomm17netpl-paper4.pdf">Dynamic Compilation and Optimization of Packet Processing Programs</a></b>, <i>ACM SIGCOMM NetPL</i>, 2017.<br />
-<div class="outline-text-5" id="text-orgda9fc6c">
+<li><a id="orga31875d"></a>Rétvári et al.: <b><a href="https://conferences.sigcomm.org/sigcomm/2017/files/program-netpl/sigcomm17netpl-paper4.pdf">Dynamic Compilation and Optimization of Packet Processing Programs</a></b>, <i>ACM SIGCOMM NetPL</i>, 2017.<br />
+<div class="outline-text-5" id="text-orga31875d">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1317,8 +1337,8 @@ of custom-compiled datapaths beyond what is possible in a static setting.
 </div>
 </li>
 
-<li><a id="org47e3611"></a>Michael Dalton et al.: <b><a href="https://www.usenix.org/conference/nsdi18/presentation/dalton">Andromeda: Performance, Isolation, and Velocity at Scale in Cloud Network Virtualization</a></b>, <i>USENIX NSDI</i>, 2018.<br />
-<div class="outline-text-5" id="text-org47e3611">
+<li><a id="org833593a"></a>Michael Dalton et al.: <b><a href="https://www.usenix.org/conference/nsdi18/presentation/dalton">Andromeda: Performance, Isolation, and Velocity at Scale in Cloud Network Virtualization</a></b>, <i>USENIX NSDI</i>, 2018.<br />
+<div class="outline-text-5" id="text-org833593a">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -1340,13 +1360,13 @@ implemented on coprocessor threads.
 </ul>
 </div>
 
-<div id="outline-container-org064b1c1" class="outline-4">
-<h4 id="org064b1c1">Packet I/O Libraries</h4>
-<div class="outline-text-4" id="text-org064b1c1">
+<div id="outline-container-org3a856f3" class="outline-4">
+<h4 id="org3a856f3">Packet I/O Libraries</h4>
+<div class="outline-text-4" id="text-org3a856f3">
 </div>
 <ul class="org-ul">
-<li><a id="orgcf08490"></a>Rizzo et al.: <b><a href="https://www.usenix.org/system/files/conference/atc12/atc12-final186.pdf">Netmap: a novel framework for fast packet I/O</a></b>, <i>USENIX ATC</i>, 2012.<br />
-<div class="outline-text-5" id="text-orgcf08490">
+<li><a id="org0dd8563"></a>Rizzo et al.: <b><a href="https://www.usenix.org/system/files/conference/atc12/atc12-final186.pdf">Netmap: a novel framework for fast packet I/O</a></b>, <i>USENIX ATC</i>, 2012.<br />
+<div class="outline-text-5" id="text-org0dd8563">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1364,8 +1384,8 @@ areas.
 </div>
 </li>
 
-<li><a id="orgdfcb3cd"></a>Intel et al.: <b><a href="http://dpdk.org">Intel DPDK: Data Plane Development Kit</a></b>, <i>project website</i>, 2016.<br />
-<div class="outline-text-5" id="text-orgdfcb3cd">
+<li><a id="org87919cb"></a>Intel et al.: <b><a href="http://dpdk.org">Intel DPDK: Data Plane Development Kit</a></b>, <i>project website</i>, 2016.<br />
+<div class="outline-text-5" id="text-org87919cb">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1380,8 +1400,8 @@ less than 80 cycles), develop fast packet capture algorithms (like
 </div>
 </li>
 
-<li><a id="org2ee655b"></a>fd.io: <b><a href="https://fd.io">The Fast Data Project</a></b>, <i>project website</i>, 2016.<br />
-<div class="outline-text-5" id="text-org2ee655b">
+<li><a id="orgdff0347"></a>fd.io: <b><a href="https://fd.io">The Fast Data Project</a></b>, <i>project website</i>, 2016.<br />
+<div class="outline-text-5" id="text-orgdff0347">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1398,9 +1418,9 @@ and PowerPC) and deployment environments (bare metal, VM, container).
 </div>
 </div>
 
-<div id="outline-container-org317b83f" class="outline-3">
-<h3 id="org317b83f">Hardware Switch Architectures</h3>
-<div class="outline-text-3" id="text-org317b83f">
+<div id="outline-container-orgb4a022c" class="outline-3">
+<h3 id="orgb4a022c">Hardware Switch Architectures</h3>
+<div class="outline-text-3" id="text-orgb4a022c">
 <p>
 We start off by discussing a first incarnation of a programmable switch,
 PLUG, then discuss the SwitchBlade platform and the seminal paper on RMT
@@ -1412,8 +1432,8 @@ conclude with a paper on Azure SmartNICs based on FPGAs.
 </div>
 
 <ul class="org-ul">
-<li><a id="orgcf8e261"></a>De Carli et al.: <b><a href="http://doi.acm.org/10.1145/1592568.1592593">PLUG: Flexible Lookup Modules for Rapid Deployment of New Protocols in High-speed Routers</a></b>, <i>ACM SIGCOMM</i>, 2009.<br />
-<div class="outline-text-5" id="text-orgcf8e261">
+<li><a id="org00f2ad4"></a>De Carli et al.: <b><a href="http://doi.acm.org/10.1145/1592568.1592593">PLUG: Flexible Lookup Modules for Rapid Deployment of New Protocols in High-speed Routers</a></b>, <i>ACM SIGCOMM</i>, 2009.<br />
+<div class="outline-text-5" id="text-org00f2ad4">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -1431,8 +1451,8 @@ specialized lookup modules.
 </div>
 </li>
 
-<li><a id="org101cb1f"></a>Anwer et al.: <b><a href="http://doi.acm.org/10.1145/1851182.1851206">SwitchBlade: A Platform for Rapid Deployment of Network Protocols on Programmable Hardware</a></b>, <i>ACM SIGCOMM</i>, 2010.<br />
-<div class="outline-text-5" id="text-org101cb1f">
+<li><a id="org3557a29"></a>Anwer et al.: <b><a href="http://doi.acm.org/10.1145/1851182.1851206">SwitchBlade: A Platform for Rapid Deployment of Network Protocols on Programmable Hardware</a></b>, <i>ACM SIGCOMM</i>, 2010.<br />
+<div class="outline-text-5" id="text-org3557a29">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1451,8 +1471,8 @@ for protocols running in parallel.
 </div>
 </li>
 
-<li><a id="org1ea09bc"></a>Bosshart et al.: <b><a href="http://doi.acm.org/10.1145/2486001.2486011">Forwarding Metamorphosis: Fast Programmable Match-action Processing in Hardware for SDN</a></b>, <i>ACM SIGCOMM</i>, 2013.<br />
-<div class="outline-text-5" id="text-org1ea09bc">
+<li><a id="orgb532065"></a>Bosshart et al.: <b><a href="http://doi.acm.org/10.1145/2486001.2486011">Forwarding Metamorphosis: Fast Programmable Match-action Processing in Hardware for SDN</a></b>, <i>ACM SIGCOMM</i>, 2013.<br />
+<div class="outline-text-5" id="text-orgb532065">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -1470,8 +1490,8 @@ field without modifying hardware.
 </div>
 </li>
 
-<li><a id="orgbcc191a"></a>Brebner et al.: <b><a href="https://doi.org/10.1109/MM.2014.19">High-Speed Packet Processing using Reconfigurable Computing</a></b>, <i>IEEE Micro</i>, 2014.<br />
-<div class="outline-text-5" id="text-orgbcc191a">
+<li><a id="org4ad3535"></a>Brebner et al.: <b><a href="https://doi.org/10.1109/MM.2014.19">High-Speed Packet Processing using Reconfigurable Computing</a></b>, <i>IEEE Micro</i>, 2014.<br />
+<div class="outline-text-5" id="text-org4ad3535">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1485,8 +1505,8 @@ packet parsing, editing, and table lookups.
 </div>
 </li>
 
-<li><a id="org1dbbb03"></a>Kuzniar et al.: <b><a href="https://infoscience.epfl.ch/record/199497/files/switches-tr-oct14_1.pdf">What You Need to Know About SDN Control and Data Planes</a></b>, <i>EPFL Technical Report 199497</i>, 2014.<br />
-<div class="outline-text-5" id="text-org1dbbb03">
+<li><a id="org9d8355b"></a>Kuzniar et al.: <b><a href="https://infoscience.epfl.ch/record/199497/files/switches-tr-oct14_1.pdf">What You Need to Know About SDN Control and Data Planes</a></b>, <i>EPFL Technical Report 199497</i>, 2014.<br />
+<div class="outline-text-5" id="text-org9d8355b">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -1501,8 +1521,8 @@ and correctness.
 </div>
 </li>
 
-<li><a id="orga9fbc04"></a>Han et al.: <b><a href="https://ieeexplore.ieee.org/document/7110117/">BlueSwitch: Enabling Provably Consistent Configuration of Network Switches</a></b>, <i>ACM/IEEE ANCS</i>, 2015.<br />
-<div class="outline-text-5" id="text-orga9fbc04">
+<li><a id="orgc16666a"></a>Han et al.: <b><a href="https://ieeexplore.ieee.org/document/7110117/">BlueSwitch: Enabling Provably Consistent Configuration of Network Switches</a></b>, <i>ACM/IEEE ANCS</i>, 2015.<br />
+<div class="outline-text-5" id="text-orgc16666a">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1521,8 +1541,8 @@ NetFPGA hardware platform.
 </div>
 </li>
 
-<li><a id="org942c309"></a>Li et al.: <b><a href="http://doi.acm.org/10.1145/2934872.2934897">ClickNP: Highly Flexible and High Performance Network Processing with Reconfigurable Hardware</a></b>, <i>ACM SIGCOMM</i>, 2016.<br />
-<div class="outline-text-5" id="text-org942c309">
+<li><a id="org43a42b9"></a>Li et al.: <b><a href="http://doi.acm.org/10.1145/2934872.2934897">ClickNP: Highly Flexible and High Performance Network Processing with Reconfigurable Hardware</a></b>, <i>ACM SIGCOMM</i>, 2016.<br />
+<div class="outline-text-5" id="text-org43a42b9">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1539,8 +1559,8 @@ also high performance.
 </div>
 </li>
 
-<li><a id="org6ae7071"></a>Chole et al.: <b><a href="http://doi.acm.org/10.1145/3098822.3098823">dRMT: Disaggregated Programmable Switching</a></b>, <i>ACM SIGCOMM</i>, 2017.<br />
-<div class="outline-text-5" id="text-org6ae7071">
+<li><a id="org29dc177"></a>Chole et al.: <b><a href="http://doi.acm.org/10.1145/3098822.3098823">dRMT: Disaggregated Programmable Switching</a></b>, <i>ACM SIGCOMM</i>, 2017.<br />
+<div class="outline-text-5" id="text-org29dc177">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1560,8 +1580,8 @@ of processors that can execute match and action operations in any order.
 </div>
 </li>
 
-<li><a id="orgffcb2a2"></a>Narayana et al.: <b><a href="http://doi.acm.org/10.1145/3098822.3098829">Language-Directed Hardware Design for Network Performance Monitoring</a></b>, <i>ACM SIGCOMM</i>, 2017.<br />
-<div class="outline-text-5" id="text-orgffcb2a2">
+<li><a id="orgefed488"></a>Narayana et al.: <b><a href="http://doi.acm.org/10.1145/3098822.3098829">Language-Directed Hardware Design for Network Performance Monitoring</a></b>, <i>ACM SIGCOMM</i>, 2017.<br />
+<div class="outline-text-5" id="text-orgefed488">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1578,8 +1598,8 @@ fraction of a switch's hardware resources.
 </div>
 </li>
 
-<li><a id="org5d477b0"></a>Daniel Firestone et al.: <b><a href="https://www.usenix.org/conference/nsdi18/presentation/firestone">Azure Accelerated Networking: SmartNICs in the Public Cloud</a></b>, <i>USENIX NSDI</i>, 2018.<br />
-<div class="outline-text-5" id="text-org5d477b0">
+<li><a id="org202feab"></a>Daniel Firestone et al.: <b><a href="https://www.usenix.org/conference/nsdi18/presentation/firestone">Azure Accelerated Networking: SmartNICs in the Public Cloud</a></b>, <i>USENIX NSDI</i>, 2018.<br />
+<div class="outline-text-5" id="text-org202feab">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -1599,9 +1619,9 @@ deploying AccelNet.
 </ul>
 </div>
 
-<div id="outline-container-orgc8409d5" class="outline-3">
-<h3 id="orgc8409d5">Hybrid Hardware/Software Architectures</h3>
-<div class="outline-text-3" id="text-orgc8409d5">
+<div id="outline-container-org4895fd3" class="outline-3">
+<h3 id="org4895fd3">Hybrid Hardware/Software Architectures</h3>
+<div class="outline-text-3" id="text-org4895fd3">
 <p>
 It is often believed that the performance of programmable network
 processors is lower than hard‐coded chips. There exists interesting
@@ -1613,8 +1633,8 @@ hybrid hardware/software architectures in general.
 </div>
 
 <ul class="org-ul">
-<li><a id="org8b3307f"></a>Han et al.: <b><a href="http://doi.acm.org/10.1145/1851182.1851207">PacketShader: A GPU-accelerated Software Router</a></b>, <i>ACM SIGCOMM</i>, 2010.<br />
-<div class="outline-text-5" id="text-org8b3307f">
+<li><a id="org0a0e85c"></a>Han et al.: <b><a href="http://doi.acm.org/10.1145/1851182.1851207">PacketShader: A GPU-accelerated Software Router</a></b>, <i>ACM SIGCOMM</i>, 2010.<br />
+<div class="outline-text-5" id="text-org0a0e85c">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1630,8 +1650,8 @@ flexibility and performance advantage of PacketShader.
 </div>
 </li>
 
-<li><a id="orgd125a86"></a>Pongrácz et al.: <b><a href="http://doi.acm.org/10.1145/2491185.2491204">Cheap Silicon: A Myth or Reality Picking the Right Data Plane Hardware for Software Defined Networking</a></b>, <i>ACM HotSDN</i>, 2013.<br />
-<div class="outline-text-5" id="text-orgd125a86">
+<li><a id="org5c85bf8"></a>Pongrácz et al.: <b><a href="http://doi.acm.org/10.1145/2491185.2491204">Cheap Silicon: A Myth or Reality Picking the Right Data Plane Hardware for Software Defined Networking</a></b>, <i>ACM HotSDN</i>, 2013.<br />
+<div class="outline-text-5" id="text-org5c85bf8">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1647,8 +1667,8 @@ is tuned to more complex use cases.
 </div>
 </li>
 
-<li><a id="orgb3cc054"></a>Kalia et al.: <b><a href="https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-kalia.pdf">Raising the Bar for Using GPUs in Software Packet Processing</a></b>, <i>USENIX NSDI</i>, 2015.<br />
-<div class="outline-text-5" id="text-orgb3cc054">
+<li><a id="org576f92b"></a>Kalia et al.: <b><a href="https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-kalia.pdf">Raising the Bar for Using GPUs in Software Packet Processing</a></b>, <i>USENIX NSDI</i>, 2015.<br />
+<div class="outline-text-5" id="text-org576f92b">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1666,8 +1686,8 @@ the version running on the GPU.
 </div>
 </li>
 
-<li><a id="orgb351a6b"></a>Katta et al.: <b><a href="http://doi.acm.org/10.1145/2890955.2890969">CacheFlow: Dependency-Aware Rule-Caching for Software-Defined Networks</a></b>, <i>ACM SOSR</i>, 2016.<br />
-<div class="outline-text-5" id="text-orgb351a6b">
+<li><a id="org879f975"></a>Katta et al.: <b><a href="http://doi.acm.org/10.1145/2890955.2890969">CacheFlow: Dependency-Aware Rule-Caching for Software-Defined Networks</a></b>, <i>ACM SOSR</i>, 2016.<br />
+<div class="outline-text-5" id="text-org879f975">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1685,8 +1705,8 @@ the policy.
 </div>
 </li>
 
-<li><a id="org3b24b32"></a>Kaufmann et al.: <b><a href="http://doi.acm.org/10.1145/2954679.2872367">High Performance Packet Processing with FlexNIC</a></b>, <i>ACM SIGPLAN Not.</i>, 2016.<br />
-<div class="outline-text-5" id="text-org3b24b32">
+<li><a id="orgbed7115"></a>Kaufmann et al.: <b><a href="http://doi.acm.org/10.1145/2954679.2872367">High Performance Packet Processing with FlexNIC</a></b>, <i>ACM SIGPLAN Not.</i>, 2016.<br />
+<div class="outline-text-5" id="text-orgbed7115">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1704,8 +1724,8 @@ where it can be done flexibly and at high speed.
 </div>
 </li>
 
-<li><a id="org841394d"></a>Younghwan Go et al.: <b><a href="https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/go">APUNet: Revitalizing GPU as Packet Processing Accelerator</a></b>, <i>USENIX NSDI</i>, 2017.<br />
-<div class="outline-text-5" id="text-org841394d">
+<li><a id="org85b147a"></a>Younghwan Go et al.: <b><a href="https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/go">APUNet: Revitalizing GPU as Packet Processing Accelerator</a></b>, <i>USENIX NSDI</i>, 2017.<br />
+<div class="outline-text-5" id="text-org85b147a">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1730,9 +1750,9 @@ than lack of capacity of GPU itself.
 </div>
 </div>
 
-<div id="outline-container-orgfd2a6c0" class="outline-2">
-<h2 id="orgfd2a6c0">Algorithms &amp; HW Realizations</h2>
-<div class="outline-text-2" id="text-orgfd2a6c0">
+<div id="outline-container-org74faa5a" class="outline-2">
+<h2 id="org74faa5a">Algorithms &amp; HW Realizations</h2>
+<div class="outline-text-2" id="text-org74faa5a">
 <p>
 Another very relevant research area regards the design of algorithms and data planes
 for this new technology.
@@ -1740,8 +1760,8 @@ for this new technology.
 </div>
 
 <ul class="org-ul">
-<li><a id="org15bc37f"></a>Srinivasan et al.: <b><a href="http://doi.acm.org/10.1145/316188.316216">Packet Classification Using Tuple Space Search</a></b>, <i>ACM SIGCOMM</i>, 1999.<br />
-<div class="outline-text-5" id="text-org15bc37f">
+<li><a id="orgb607070"></a>Srinivasan et al.: <b><a href="http://doi.acm.org/10.1145/316188.316216">Packet Classification Using Tuple Space Search</a></b>, <i>ACM SIGCOMM</i>, 1999.<br />
+<div class="outline-text-5" id="text-orgb607070">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -1760,8 +1780,8 @@ one memory access.
 </div>
 </li>
 
-<li><a id="org4f6e2b1"></a>Pagiamtzis et al.: <b><a href="https://www.pagiamtzis.com/pubs/pagiamtzis-jssc2006.pdf">Content-addressable memory (CAM) circuits and architectures: A tutorial and survey</a></b>, <i>IEEE Journal of Solid-State Circuits</i>, 2006.<br />
-<div class="outline-text-5" id="text-org4f6e2b1">
+<li><a id="org3c5db24"></a>Pagiamtzis et al.: <b><a href="https://www.pagiamtzis.com/pubs/pagiamtzis-jssc2006.pdf">Content-addressable memory (CAM) circuits and architectures: A tutorial and survey</a></b>, <i>IEEE Journal of Solid-State Circuits</i>, 2006.<br />
+<div class="outline-text-5" id="text-org3c5db24">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1779,8 +1799,8 @@ level and at the architectural level.
 </div>
 </li>
 
-<li><a id="org3b0af46"></a>Fu et al.: <b><a href="http://doi.acm.org/10.1145/1544012.1544033">Efficient IP-address Lookup with a Shared Forwarding Table for Multiple Virtual Routers</a></b>, <i>ACM CoNEXT</i>, 2008.<br />
-<div class="outline-text-5" id="text-org3b0af46">
+<li><a id="org9f0952f"></a>Fu et al.: <b><a href="http://doi.acm.org/10.1145/1544012.1544033">Efficient IP-address Lookup with a Shared Forwarding Table for Multiple Virtual Routers</a></b>, <i>ACM CoNEXT</i>, 2008.<br />
+<div class="outline-text-5" id="text-org9f0952f">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -1797,8 +1817,8 @@ lookup times.
 </div>
 </li>
 
-<li><a id="org023d01d"></a>Ma et al.: <b><a href="http://doi.acm.org/10.1145/2377677.2377749">A Smart Pre-classifier to Reduce Power Consumption of TCAMs for Multi-dimensional Packet Classification</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2012.<br />
-<div class="outline-text-5" id="text-org023d01d">
+<li><a id="org2304ffc"></a>Ma et al.: <b><a href="http://doi.acm.org/10.1145/2377677.2377749">A Smart Pre-classifier to Reduce Power Consumption of TCAMs for Multi-dimensional Packet Classification</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2012.<br />
+<div class="outline-text-5" id="text-org2304ffc">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1820,8 +1840,8 @@ commodity TCAMs.
 </div>
 </li>
 
-<li><a id="org62f9a7e"></a>Zhou et al.: <b><a href="http://doi.acm.org/10.1145/2535372.2535379">Scalable, High Performance Ethernet Forwarding with CuckooSwitch</a></b>, <i>ACM CoNEXT</i>, 2013.<br />
-<div class="outline-text-5" id="text-org62f9a7e">
+<li><a id="orgb1ef23c"></a>Zhou et al.: <b><a href="http://doi.acm.org/10.1145/2535372.2535379">Scalable, High Performance Ethernet Forwarding with CuckooSwitch</a></b>, <i>ACM CoNEXT</i>, 2013.<br />
+<div class="outline-text-5" id="text-orgb1ef23c">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1837,8 +1857,8 @@ maintaining a forwarding table of one billion forwarding entries.
 </div>
 </li>
 
-<li><a id="orgbbcd539"></a>Rétvári et al.: <b><a href="http://doi.acm.org/10.1145/2486001.2486009">Compressing IP Forwarding Tables: Towards Entropy Bounds and Beyond</a></b>, <i>ACM SIGCOMM</i>, 2013.<br />
-<div class="outline-text-5" id="text-orgbbcd539">
+<li><a id="orga35973b"></a>Rétvári et al.: <b><a href="http://doi.acm.org/10.1145/2486001.2486009">Compressing IP Forwarding Tables: Towards Entropy Bounds and Beyond</a></b>, <i>ACM SIGCOMM</i>, 2013.<br />
+<div class="outline-text-5" id="text-orga35973b">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -1857,8 +1877,8 @@ nearly optimal time.
 </div>
 </li>
 
-<li><a id="org10ea6fd"></a>Kogan et al.: <b><a href="http://doi.acm.org/10.1145/2619239.2626294">SAX-PAC (Scalable And eXpressive PAcket Classification)</a></b>, <i>ACM SIGCOMM</i>, 2014.<br />
-<div class="outline-text-5" id="text-org10ea6fd">
+<li><a id="org3392699"></a>Kogan et al.: <b><a href="http://doi.acm.org/10.1145/2619239.2626294">SAX-PAC (Scalable And eXpressive PAcket Classification)</a></b>, <i>ACM SIGCOMM</i>, 2014.<br />
+<div class="outline-text-5" id="text-org3392699">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1876,8 +1896,8 @@ impacting space and time complexities.
 </div>
 </li>
 
-<li><a id="org43f4696"></a>Bifulco et al.: <b><a href="http://doi.acm.org/10.1145/2785956.2790008">Towards Scalable SDN Switches: Enabling Faster Flow Table Entries Installation</a></b>, <i>ACM SIGCOMM</i>, 2015.<br />
-<div class="outline-text-5" id="text-org43f4696">
+<li><a id="org383d25d"></a>Bifulco et al.: <b><a href="http://doi.acm.org/10.1145/2785956.2790008">Towards Scalable SDN Switches: Enabling Faster Flow Table Entries Installation</a></b>, <i>ACM SIGCOMM</i>, 2015.<br />
+<div class="outline-text-5" id="text-org383d25d">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1897,8 +1917,8 @@ installation in software tables and deletion from hardware tables.
 </div>
 </li>
 
-<li><a id="org8fee0c8"></a>Chen et al.: <b><a href="http://doi.acm.org/10.1145/3143361.3143391">Hermes: Providing Tight Control over High-Performance SDN Switches</a></b>, <i>ACM CoNEXT</i>, 2017.<br />
-<div class="outline-text-5" id="text-org8fee0c8">
+<li><a id="orga2c5f66"></a>Chen et al.: <b><a href="http://doi.acm.org/10.1145/3143361.3143391">Hermes: Providing Tight Control over High-Performance SDN Switches</a></b>, <i>ACM CoNEXT</i>, 2017.<br />
+<div class="outline-text-5" id="text-orga2c5f66">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -1915,9 +1935,9 @@ TCAM space for assured performance.
 </ul>
 </div>
 
-<div id="outline-container-org5e37f5d" class="outline-2">
-<h2 id="org5e37f5d">Applications</h2>
-<div class="outline-text-2" id="text-org5e37f5d">
+<div id="outline-container-org487e8de" class="outline-2">
+<h2 id="org487e8de">Applications</h2>
+<div class="outline-text-2" id="text-org487e8de">
 <p>
 A main motivation for programmable data planes are the novel applications
 they enable.  We identify and, in the following, will discuss five main
@@ -1964,9 +1984,9 @@ naturally traverses the network anyway.
 </p>
 </div>
 
-<div id="outline-container-org2b78f7e" class="outline-3">
-<h3 id="org2b78f7e">Resilient, Robust, and Efficient Forwarding</h3>
-<div class="outline-text-3" id="text-org2b78f7e">
+<div id="outline-container-orgf16ace5" class="outline-3">
+<h3 id="orgf16ace5">Resilient, Robust, and Efficient Forwarding</h3>
+<div class="outline-text-3" id="text-orgf16ace5">
 <p>
 Data planes often operate much faster than the control plane, which
 motivates to move functionality for maintaining connectivity and efficient
@@ -1977,8 +1997,8 @@ papers.
 </div>
 
 <ul class="org-ul">
-<li><a id="org29b4f2d"></a>Al-Fares et al.: <b><a href="http://dl.acm.org/citation.cfm?id=1855711.1855730">Hedera: Dynamic Flow Scheduling for Data Center Networks</a></b>, <i>USENIX NSDI</i>, 2010.<br />
-<div class="outline-text-5" id="text-org29b4f2d">
+<li><a id="orgd3cd042"></a>Al-Fares et al.: <b><a href="http://dl.acm.org/citation.cfm?id=1855711.1855730">Hedera: Dynamic Flow Scheduling for Data Center Networks</a></b>, <i>USENIX NSDI</i>, 2010.<br />
+<div class="outline-text-5" id="text-orgd3cd042">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -1998,8 +2018,8 @@ with minimal overheads.
 </div>
 </li>
 
-<li><a id="orgd85c120"></a>Liu et al.: <b><a href="https://dblp.org/rec/bib/conf/nsdi/LiuPSGSS13">Ensuring Connectivity via Data Plane Mechanisms</a></b>, <i>USENIX NSDI</i>, 2013.<br />
-<div class="outline-text-5" id="text-orgd85c120">
+<li><a id="orgd254799"></a>Liu et al.: <b><a href="https://dblp.org/rec/bib/conf/nsdi/LiuPSGSS13">Ensuring Connectivity via Data Plane Mechanisms</a></b>, <i>USENIX NSDI</i>, 2013.<br />
+<div class="outline-text-5" id="text-orgd254799">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2016,8 +2036,8 @@ plane, e.g., to handle message loss.
 </div>
 </li>
 
-<li><a id="org94c0cf4"></a>Borokhovich et al.: <b><a href="https://www.sciencedirect.com/science/article/pii/S0140366416306478">The show must go on: Fundamental data plane connectivity services for dependable SDNs</a></b>, <i>Elsevier ComCom</i>, 2018.<br />
-<div class="outline-text-5" id="text-org94c0cf4">
+<li><a id="org9d99c82"></a>Borokhovich et al.: <b><a href="https://www.sciencedirect.com/science/article/pii/S0140366416306478">The show must go on: Fundamental data plane connectivity services for dependable SDNs</a></b>, <i>Elsevier ComCom</i>, 2018.<br />
+<div class="outline-text-5" id="text-org9d99c82">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -2034,9 +2054,9 @@ and mechanisms based on dynamic state at the switches.
 </ul>
 </div>
 
-<div id="outline-container-org388b240" class="outline-3">
-<h3 id="org388b240">In-network Computation</h3>
-<div class="outline-text-3" id="text-org388b240">
+<div id="outline-container-orgeb918ce" class="outline-3">
+<h3 id="orgeb918ce">In-network Computation</h3>
+<div class="outline-text-3" id="text-orgeb918ce">
 <p>
 Offloading computation, on‐path aggregation functionalities, caching, or
 even AI, to the network, has the potential to significantly improve the
@@ -2046,8 +2066,8 @@ mechanisms have recently received much attention.
 </div>
 
 <ul class="org-ul">
-<li><a id="org76b6702"></a>Paolo Costa et al.: <b><a href="https://www.usenix.org/conference/nsdi12/technical-sessions/presentation/costa">Camdoop: Exploiting In-network Aggregation for Big Data Applications</a></b>, <i>USENIX NSDI</i>, 2012.<br />
-<div class="outline-text-5" id="text-org76b6702">
+<li><a id="orgeab9426"></a>Paolo Costa et al.: <b><a href="https://www.usenix.org/conference/nsdi12/technical-sessions/presentation/costa">Camdoop: Exploiting In-network Aggregation for Big Data Applications</a></b>, <i>USENIX NSDI</i>, 2012.<br />
+<div class="outline-text-5" id="text-orgeab9426">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2067,8 +2087,8 @@ significantly reduce network traffic and provide high performance increase.
 </div>
 </li>
 
-<li><a id="orgd755e5d"></a>Mai et al.: <b><a href="https://dl.acm.org/citation.cfm?id=2674996">Netagg: Using middleboxes for application-specific on-path aggregation in data centres</a></b>, <i>ACM CoNEXT</i>, 2014.<br />
-<div class="outline-text-5" id="text-orgd755e5d">
+<li><a id="org05524d8"></a>Mai et al.: <b><a href="https://dl.acm.org/citation.cfm?id=2674996">Netagg: Using middleboxes for application-specific on-path aggregation in data centres</a></b>, <i>ACM CoNEXT</i>, 2014.<br />
+<div class="outline-text-5" id="text-org05524d8">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -2088,8 +2108,8 @@ substantially.
 </div>
 </li>
 
-<li><a id="orgba2dfb3"></a>Graham et al.: <b><a href="https://ieeexplore.ieee.org/document/7830486/">Scalable hierarchical aggregation protocol (SHArP): a hardware architecture for efficient data reduction</a></b>, <i>IEEE COMHPC</i>, 2016.<br />
-<div class="outline-text-5" id="text-orgba2dfb3">
+<li><a id="org1603768"></a>Graham et al.: <b><a href="https://ieeexplore.ieee.org/document/7830486/">Scalable hierarchical aggregation protocol (SHArP): a hardware architecture for efficient data reduction</a></b>, <i>IEEE COMHPC</i>, 2016.<br />
+<div class="outline-text-5" id="text-org1603768">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2104,8 +2124,8 @@ groups are supported, and pipelining is used for improving latency further.
 </div>
 </li>
 
-<li><a id="orgaa51ebe"></a>Sapio et al.: <b><a href="http://doi.acm.org/10.1145/3152434.3152461">In-Network Computation is a Dumb Idea Whose Time Has Come</a></b>, <i>ACM HotNets</i>, 2017.<br />
-<div class="outline-text-5" id="text-orgaa51ebe">
+<li><a id="org720e043"></a>Sapio et al.: <b><a href="http://doi.acm.org/10.1145/3152434.3152461">In-Network Computation is a Dumb Idea Whose Time Has Come</a></b>, <i>ACM HotNets</i>, 2017.<br />
+<div class="outline-text-5" id="text-org720e043">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2124,8 +2144,8 @@ performance.
 </div>
 </li>
 
-<li><a id="org356c3d8"></a>Liu et al.: <b><a href="http://doi.acm.org/10.1145/3093315.3037731">IncBricks: Toward In-Network Computation with an In-Network Cache</a></b>, <i>SIGOPS Oper. Syst. Rev.</i>, 2017.<br />
-<div class="outline-text-5" id="text-org356c3d8">
+<li><a id="org729cd7c"></a>Liu et al.: <b><a href="http://doi.acm.org/10.1145/3093315.3037731">IncBricks: Toward In-Network Computation with an In-Network Cache</a></b>, <i>SIGOPS Oper. Syst. Rev.</i>, 2017.<br />
+<div class="outline-text-5" id="text-org729cd7c">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -2143,8 +2163,8 @@ programmable switches, network accelerators, and end hosts.
 </div>
 </li>
 
-<li><a id="orgd5aaff8"></a>Naveen Sharma et al.: <b><a href="https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/sharma">Evaluating the Power of Flexible Packet Processing for Network Resource Allocation</a></b>, <i>USENIX NSDI</i>, 2017.<br />
-<div class="outline-text-5" id="text-orgd5aaff8">
+<li><a id="orge740707"></a>Naveen Sharma et al.: <b><a href="https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/sharma">Evaluating the Power of Flexible Packet Processing for Network Resource Allocation</a></b>, <i>USENIX NSDI</i>, 2017.<br />
+<div class="outline-text-5" id="text-orge740707">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2164,8 +2184,8 @@ flexible switches.
 </div>
 </li>
 
-<li><a id="org1126b9c"></a>Sanvito et al.: <b><a href="https://dl.acm.org/citation.cfm?id=3229594">Can the Network Be the AI Accelerator</a></b>, <i>SIGCOMM NetCompute</i>, 2018.<br />
-<div class="outline-text-5" id="text-org1126b9c">
+<li><a id="orgd93d107"></a>Sanvito et al.: <b><a href="https://dl.acm.org/citation.cfm?id=3229594">Can the Network Be the AI Accelerator</a></b>, <i>SIGCOMM NetCompute</i>, 2018.<br />
+<div class="outline-text-5" id="text-orgd93d107">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -2180,8 +2200,8 @@ implementing a CPU’s NN co-processor.
 </div>
 </li>
 
-<li><a id="org1a0c849"></a>Giuseppe Siracusano et al.: <b><a href="http://arxiv.org/abs/1801.05731">In-network Neural Networks</a></b>, <i>unpublished manuscript</i>, 2018.<br />
-<div class="outline-text-5" id="text-org1a0c849">
+<li><a id="orgfc0f39c"></a>Giuseppe Siracusano et al.: <b><a href="http://arxiv.org/abs/1801.05731">In-network Neural Networks</a></b>, <i>unpublished manuscript</i>, 2018.<br />
+<div class="outline-text-5" id="text-orgfc0f39c">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2200,9 +2220,9 @@ chip's design are applied.
 </ul>
 </div>
 
-<div id="outline-container-org6d6af80" class="outline-3">
-<h3 id="org6d6af80">Distributed Consensus</h3>
-<div class="outline-text-3" id="text-org6d6af80">
+<div id="outline-container-orgc773a67" class="outline-3">
+<h3 id="orgc773a67">Distributed Consensus</h3>
+<div class="outline-text-3" id="text-orgc773a67">
 <p>
 Another interesting application for programmable data planes is related to
 consensus algorithms: the coordination among controllers or switches may be
@@ -2214,8 +2234,8 @@ notions of consistency more generally.
 </div>
 
 <ul class="org-ul">
-<li><a id="org0ce0eeb"></a>Dang et al.: <b><a href="http://doi.acm.org/10.1145/2774993.2774999">NetPaxos: Consensus at Network Speed</a></b>, <i>ACM SOSR</i>, 2015.<br />
-<div class="outline-text-5" id="text-org0ce0eeb">
+<li><a id="org6103df3"></a>Dang et al.: <b><a href="http://doi.acm.org/10.1145/2774993.2774999">NetPaxos: Consensus at Network Speed</a></b>, <i>ACM SOSR</i>, 2015.<br />
+<div class="outline-text-5" id="text-org6103df3">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2234,8 +2254,8 @@ existing hardware.
 </div>
 </li>
 
-<li><a id="org61f62ef"></a>Dang et al.: <b><a href="http://doi.acm.org/10.1145/2935634.2935638">Paxos Made Switch-y</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2016.<br />
-<div class="outline-text-5" id="text-org61f62ef">
+<li><a id="org571dc71"></a>Dang et al.: <b><a href="http://doi.acm.org/10.1145/2935634.2935638">Paxos Made Switch-y</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2016.<br />
+<div class="outline-text-5" id="text-org571dc71">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -2248,8 +2268,8 @@ paper describes an implementation of Paxos in P4.
 </div>
 </li>
 
-<li><a id="org62cb942"></a>Li et al.: <b><a href="https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/li-xiaozhou">Be Fast, Cheap and in Control with SwitchKV</a></b>, <i>USENIX NSDI</i>, 2016.<br />
-<div class="outline-text-5" id="text-org62cb942">
+<li><a id="org2ace2e3"></a>Li et al.: <b><a href="https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/li-xiaozhou">Be Fast, Cheap and in Control with SwitchKV</a></b>, <i>USENIX NSDI</i>, 2016.<br />
+<div class="outline-text-5" id="text-org2ace2e3">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -2264,8 +2284,8 @@ improvements in both system's throughput and latency.
 </div>
 </li>
 
-<li><a id="orgfca7279"></a>Schiff et al.: <b><a href="https://dl.acm.org/citation.cfm?id=2875957">In-band synchronization for distributed SDN control planes</a></b>, <i>SIGCOMM CCR</i>, 2016.<br />
-<div class="outline-text-5" id="text-orgfca7279">
+<li><a id="org06c9c18"></a>Schiff et al.: <b><a href="https://dl.acm.org/citation.cfm?id=2875957">In-band synchronization for distributed SDN control planes</a></b>, <i>SIGCOMM CCR</i>, 2016.<br />
+<div class="outline-text-5" id="text-org06c9c18">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2283,8 +2303,8 @@ OpenFlow protocol.
 </div>
 </li>
 
-<li><a id="orga9ae6bf"></a>Xin et al.: <b><a href="https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/li-xiaozhou">NetCache: Balancing Key-Value Stores with Fast In-Network Caching</a></b>, <i>ACM SOSP</i>, 2017.<br />
-<div class="outline-text-5" id="text-orga9ae6bf">
+<li><a id="org516a5ac"></a>Xin et al.: <b><a href="https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/li-xiaozhou">NetCache: Balancing Key-Value Stores with Fast In-Network Caching</a></b>, <i>ACM SOSP</i>, 2017.<br />
+<div class="outline-text-5" id="text-org516a5ac">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -2298,8 +2318,8 @@ the constraints of hardware to provide throughput and latency improvements.
 </div>
 </li>
 
-<li><a id="org1b91fd5"></a>Xin Jin et al.: <b><a href="https://www.usenix.org/conference/nsdi18/presentation/jin">NetChain: Scale-Free Sub-RTT Coordination</a></b>, <i>USENIX NSDI</i>, 2018.<br />
-<div class="outline-text-5" id="text-org1b91fd5">
+<li><a id="org078670b"></a>Xin Jin et al.: <b><a href="https://www.usenix.org/conference/nsdi18/presentation/jin">NetChain: Scale-Free Sub-RTT Coordination</a></b>, <i>USENIX NSDI</i>, 2018.<br />
+<div class="outline-text-5" id="text-org078670b">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2317,9 +2337,9 @@ handles switch failures efficiently.
 </ul>
 </div>
 
-<div id="outline-container-org281e182" class="outline-3">
-<h3 id="org281e182">Monitoring, Telemetry, and Measurement</h3>
-<div class="outline-text-3" id="text-org281e182">
+<div id="outline-container-orgc3a0f6b" class="outline-3">
+<h3 id="orgc3a0f6b">Monitoring, Telemetry, and Measurement</h3>
+<div class="outline-text-3" id="text-orgc3a0f6b">
 <p>
 Perhaps the most interesting applications are related to network
 measurement, monitoring and diagnosis. Indeed, programmable data planes can
@@ -2329,8 +2349,8 @@ end-hosts, as we discuss in the following.
 </div>
 
 <ul class="org-ul">
-<li><a id="org3d287c3"></a>Jeyakumar et al.: <b><a href="https://dl.acm.org/citation.cfm?id=2626292">Millions of little minions: Using packets for low latency network programming and visibility</a></b>, <i>SIGCOMM CCR</i>, 2014.<br />
-<div class="outline-text-5" id="text-org3d287c3">
+<li><a id="org4814e13"></a>Jeyakumar et al.: <b><a href="https://dl.acm.org/citation.cfm?id=2626292">Millions of little minions: Using packets for low latency network programming and visibility</a></b>, <i>SIGCOMM CCR</i>, 2014.<br />
+<div class="outline-text-5" id="text-org4814e13">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2347,8 +2367,8 @@ of use case descriptions motivating In‐band Network Telemetry (INT).
 </div>
 </li>
 
-<li><a id="org7cc2d0e"></a>Kim et al.: <b><a href="http://web.mit.edu/anirudh/www/int-demo.pdf">In-band Network Telemetry via Programmable Dataplanes</a></b>, <i>ACM SIGCOMM</i>, 2015.<br />
-<div class="outline-text-5" id="text-org7cc2d0e">
+<li><a id="org4ba3a1d"></a>Kim et al.: <b><a href="http://web.mit.edu/anirudh/www/int-demo.pdf">In-band Network Telemetry via Programmable Dataplanes</a></b>, <i>ACM SIGCOMM</i>, 2015.<br />
+<div class="outline-text-5" id="text-org4ba3a1d">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2363,8 +2383,8 @@ hence supporting various different programmable network devices.
 </div>
 </li>
 
-<li><a id="orgd2f961e"></a>Gong et al.: <b><a href="http://doi.acm.org/10.1145/2774993.2775068">Towards Accurate Online Traffic Matrix Estimation in Software-defined Networks</a></b>, <i>ACM SOSR</i>, 2015.<br />
-<div class="outline-text-5" id="text-orgd2f961e">
+<li><a id="orgffdc56b"></a>Gong et al.: <b><a href="http://doi.acm.org/10.1145/2774993.2775068">Towards Accurate Online Traffic Matrix Estimation in Software-defined Networks</a></b>, <i>ACM SOSR</i>, 2015.<br />
+<div class="outline-text-5" id="text-orgffdc56b">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -2381,8 +2401,8 @@ have low-complexity.
 </div>
 </li>
 
-<li><a id="orga574614"></a>Kim et al.: <b><a href="https://p4.org/assets/INT-current-spec.pdf">In-band Network Telemetry (INT)</a></b>, <i>P4 Consortium</i>, 2015.<br />
-<div class="outline-text-5" id="text-orga574614">
+<li><a id="orgad3a2ee"></a>Kim et al.: <b><a href="https://p4.org/assets/INT-current-spec.pdf">In-band Network Telemetry (INT)</a></b>, <i>P4 Consortium</i>, 2015.<br />
+<div class="outline-text-5" id="text-orgad3a2ee">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -2392,8 +2412,8 @@ A specification of In-band Network Telemetry (INT) using P4.
 </div>
 </li>
 
-<li><a id="org4ac6e03"></a>Sivaraman et al.: <b><a href="http://doi.acm.org/10.1145/3050220.3063772">Heavy-Hitter Detection Entirely in the Data Plane</a></b>, <i>ACM SOSR</i>, 2017.<br />
-<div class="outline-text-5" id="text-org4ac6e03">
+<li><a id="orgb12a7d5"></a>Sivaraman et al.: <b><a href="http://doi.acm.org/10.1145/3050220.3063772">Heavy-Hitter Detection Entirely in the Data Plane</a></b>, <i>ACM SOSR</i>, 2017.<br />
+<div class="outline-text-5" id="text-orgb12a7d5">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -2407,8 +2427,24 @@ ISP backbone link and a data center.
 </div>
 </li>
 
-<li><a id="orgf244867"></a>Huang et al.: <b><a href="http://doi.acm.org/10.1145/3098822.3098831">SketchVisor: Robust Network Measurement for Software Packet Processing</a></b>, <i>ACM SIGCOMM</i>, 2017.<br />
-<div class="outline-text-5" id="text-orgf244867">
+<li><a id="org55bc834"></a>Ghasemi et al.: <b><a href="https://dl.acm.org/citation.cfm?id=3050228">Dapper: Data plane performance diagnosis of TCP</a></b>, <i>ACM SOSR</i>, 2017.<br />
+<div class="outline-text-5" id="text-org55bc834">
+<pre class="example">
+RELEVANCE: important
+</pre>
+<p>
+Dapper is a system which leverages emerging edge devices offering flexible
+and high-speed packet processing on commodity hardware, to diagnose cloud
+performance problems in a timely manner. In particular, Dapper analyzes TCP
+performance in real time near the end-hosts, i.e., at the hypervisor, NIC,
+or top-of-rack switch, by determining whether a connection is limited by
+the sender, the network, or the receiver. Dapper was prototyped in P4.
+</p>
+</div>
+</li>
+
+<li><a id="org00287c2"></a>Huang et al.: <b><a href="http://doi.acm.org/10.1145/3098822.3098831">SketchVisor: Robust Network Measurement for Software Packet Processing</a></b>, <i>ACM SIGCOMM</i>, 2017.<br />
+<div class="outline-text-5" id="text-org00287c2">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -2427,9 +2463,9 @@ network measurement tasks.
 </ul>
 </div>
 
-<div id="outline-container-org0addc59" class="outline-3">
-<h3 id="org0addc59">Load balancing</h3>
-<div class="outline-text-3" id="text-org0addc59">
+<div id="outline-container-org3917786" class="outline-3">
+<h3 id="org3917786">Load balancing</h3>
+<div class="outline-text-3" id="text-org3917786">
 <p>
 Last but not least, and similarly to the above discussion on resilient
 routing, programmable data planes provide unprecedented flexibilities (and
@@ -2438,8 +2474,8 @@ performance) in how traffic can be dynamically load-balanced.
 </div>
 
 <ul class="org-ul">
-<li><a id="orgf824270"></a>Katta et al.: <b><a href="https://conferences.sigcomm.org/sosr/2016/papers/sosr_paper67.pdf">Hula: Scalable load balancing using programmable data planes</a></b>, <i>ACM SOSR</i>, 2016.<br />
-<div class="outline-text-5" id="text-orgf824270">
+<li><a id="orgf5f9cfd"></a>Katta et al.: <b><a href="https://conferences.sigcomm.org/sosr/2016/papers/sosr_paper67.pdf">Hula: Scalable load balancing using programmable data planes</a></b>, <i>ACM SOSR</i>, 2016.<br />
+<div class="outline-text-5" id="text-orgf5f9cfd">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -2456,8 +2492,8 @@ programmable switches and is programmed in P4.
 </div>
 </li>
 
-<li><a id="orgcd28972"></a>Miao et al.: <b><a href="http://doi.acm.org/10.1145/3098822.3098824">SilkRoad: Making Stateful Layer-4 Load Balancing Fast and Cheap Using Switching ASICs</a></b>, <i>ACM SIGCOMM</i>, 2017.<br />
-<div class="outline-text-5" id="text-orgcd28972">
+<li><a id="org4ba45d1"></a>Miao et al.: <b><a href="http://doi.acm.org/10.1145/3098822.3098824">SilkRoad: Making Stateful Layer-4 Load Balancing Fast and Cheap Using Switching ASICs</a></b>, <i>ACM SIGCOMM</i>, 2017.<br />
+<div class="outline-text-5" id="text-org4ba45d1">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -2471,8 +2507,8 @@ connections simultaneously at line rate.
 </div>
 </li>
 
-<li><a id="org7683e12"></a>Bremler-Barr et al.: <b><a href="https://ieeexplore.ieee.org/document/8264855/">Load Balancing Memcached Traffic Using Software Defined Networking</a></b>, <i>IFIP Networking</i>, 2017.<br />
-<div class="outline-text-5" id="text-org7683e12">
+<li><a id="orge8faa84"></a>Bremler-Barr et al.: <b><a href="https://ieeexplore.ieee.org/document/8264855/">Load Balancing Memcached Traffic Using Software Defined Networking</a></b>, <i>IFIP Networking</i>, 2017.<br />
+<div class="outline-text-5" id="text-orge8faa84">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -2490,29 +2526,13 @@ significant throughput boost and latency reduction.
 </p>
 </div>
 </li>
-
-<li><a id="orgc84df83"></a>Ghasemi et al.: <b><a href="https://dl.acm.org/citation.cfm?id=3050228">Dapper: Data plane performance diagnosis of TCP</a></b>, <i>ACM SOSR</i>, 2017.<br />
-<div class="outline-text-5" id="text-orgc84df83">
-<pre class="example">
-RELEVANCE: important
-</pre>
-<p>
-Dapper is a system which leverages emerging edge devices offering flexible
-and high-speed packet processing on commodity hardware, to diagnose cloud
-performance problems in a timely manner. In particular, Dapper analyzes TCP
-performance in real time near the end-hosts, i.e., at the hypervisor, NIC,
-or top-of-rack switch, by determining whether a connection is limited by
-the sender, the network, or the receiver. Dapper was prototyped in P4.
-</p>
-</div>
-</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7271782" class="outline-2">
-<h2 id="org7271782">Miscellaneous Topics</h2>
-<div class="outline-text-2" id="text-org7271782">
+<div id="outline-container-org96a8c75" class="outline-2">
+<h2 id="org96a8c75">Miscellaneous Topics</h2>
+<div class="outline-text-2" id="text-org96a8c75">
 <p>
 There exists highly recommendable literature on the history of SDN and
 programmable data planes. We also report on two other important topics,
@@ -2520,9 +2540,9 @@ deployment and algorithms of programmable data planes.
 </p>
 </div>
 
-<div id="outline-container-org705c48d" class="outline-3">
-<h3 id="org705c48d">History</h3>
-<div class="outline-text-3" id="text-org705c48d">
+<div id="outline-container-org5d2c4bc" class="outline-3">
+<h3 id="org5d2c4bc">History</h3>
+<div class="outline-text-3" id="text-org5d2c4bc">
 <p>
 There are several interesting papers putting the technological trends
 around programmable networks into a historic perspective.
@@ -2530,8 +2550,8 @@ around programmable networks into a historic perspective.
 </div>
 
 <ul class="org-ul">
-<li><a id="org5cde3d9"></a>Schwartz et al.: <b><a href="https://dl.acm.org/citation.cfm?id=332893">Smart packets: Applying active networks to network management</a></b>, <i>ACM TOCS</i>, 2000.<br />
-<div class="outline-text-5" id="text-org5cde3d9">
+<li><a id="org40cca1f"></a>Schwartz et al.: <b><a href="https://dl.acm.org/citation.cfm?id=332893">Smart packets: Applying active networks to network management</a></b>, <i>ACM TOCS</i>, 2000.<br />
+<div class="outline-text-5" id="text-org40cca1f">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -2546,8 +2566,8 @@ aspects of the node for information.
 </div>
 </li>
 
-<li><a id="org4b5c73b"></a>Feamster et al.: <b><a href="http://doi.acm.org/10.1145/2559899.2560327">The Road to SDN</a></b>, <i>ACM Queue</i>, 2013.<br />
-<div class="outline-text-5" id="text-org4b5c73b">
+<li><a id="org48e5bbb"></a>Feamster et al.: <b><a href="http://doi.acm.org/10.1145/2559899.2560327">The Road to SDN</a></b>, <i>ACM Queue</i>, 2013.<br />
+<div class="outline-text-5" id="text-org48e5bbb">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -2557,8 +2577,8 @@ An intellectual history of programmable networks. A mustread.
 </div>
 </li>
 
-<li><a id="org2f05e11"></a>Zilberman et al.: <b><a href="https://doi.org/10.1109/JPROC.2015.2435732">Reconfigurable Network Systems and Software-Defined Networking</a></b>, <i>Proceedings of the IEEE</i>, 2015.<br />
-<div class="outline-text-5" id="text-org2f05e11">
+<li><a id="org84d8b8c"></a>Zilberman et al.: <b><a href="https://doi.org/10.1109/JPROC.2015.2435732">Reconfigurable Network Systems and Software-Defined Networking</a></b>, <i>Proceedings of the IEEE</i>, 2015.<br />
+<div class="outline-text-5" id="text-org84d8b8c">
 <pre class="example">
 RELEVANCE: interesting
 </pre>
@@ -2575,8 +2595,8 @@ elements.
 </div>
 </li>
 
-<li><a id="orgcd67f96"></a>Nick McKeown et al.: <b><a href="https://conferences.sigcomm.org/sigcomm/2017/files/program-netpl/01-mckeown.pptx">Programmable Forwarding Planes are Here to Stay</a></b>, <i>ACM SIGCOMM NetPL</i>, 2017.<br />
-<div class="outline-text-5" id="text-orgcd67f96">
+<li><a id="org4ee93e0"></a>Nick McKeown et al.: <b><a href="https://conferences.sigcomm.org/sigcomm/2017/files/program-netpl/01-mckeown.pptx">Programmable Forwarding Planes are Here to Stay</a></b>, <i>ACM SIGCOMM NetPL</i>, 2017.<br />
+<div class="outline-text-5" id="text-org4ee93e0">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -2592,9 +2612,9 @@ SDN, and why they are here to stay.
 </ul>
 </div>
 
-<div id="outline-container-org8b3f71f" class="outline-3">
-<h3 id="org8b3f71f">Deployments</h3>
-<div class="outline-text-3" id="text-org8b3f71f">
+<div id="outline-container-orgc64b865" class="outline-3">
+<h3 id="orgc64b865">Deployments</h3>
+<div class="outline-text-3" id="text-orgc64b865">
 <p>
 A very relevant question, which is also a research challenge, regards the
 deployment of SDN and programmable data planes.
@@ -2602,8 +2622,8 @@ deployment of SDN and programmable data planes.
 </div>
 
 <ul class="org-ul">
-<li><a id="org1b79aac"></a>Casado et al.: <b><a href="http://doi.acm.org/10.1145/1282380.1282382">Ethane: Taking Control of the Enterprise</a></b>, <i>ACM SIGCOMM</i>, 2007.<br />
-<div class="outline-text-5" id="text-org1b79aac">
+<li><a id="orgef7892e"></a>Casado et al.: <b><a href="http://doi.acm.org/10.1145/1282380.1282382">Ethane: Taking Control of the Enterprise</a></b>, <i>ACM SIGCOMM</i>, 2007.<br />
+<div class="outline-text-5" id="text-orgef7892e">
 <pre class="example">
 RELEVANCE: mustread
 </pre>
@@ -2620,8 +2640,8 @@ supporting both wired and wireless hosts.
 </div>
 </li>
 
-<li><a id="org5d0484c"></a>Jin et al.: <b><a href="https://conferences.sigcomm.org/co-next/2013/program/p163.pdf">Softcell: Scalable and flexible cellular core network architecture</a></b>, <i>ACM CoNEXT</i>, 2013.<br />
-<div class="outline-text-5" id="text-org5d0484c">
+<li><a id="orgeda54bd"></a>Jin et al.: <b><a href="https://conferences.sigcomm.org/co-next/2013/program/p163.pdf">Softcell: Scalable and flexible cellular core network architecture</a></b>, <i>ACM CoNEXT</i>, 2013.<br />
+<div class="outline-text-5" id="text-orgeda54bd">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2638,8 +2658,8 @@ stations.
 </div>
 </li>
 
-<li><a id="org81d7169"></a>Jain et al.: <b><a href="http://doi.acm.org/10.1145/2486001.2486019">B4: Experience with a Globally-deployed Software Defined Wan</a></b>, <i>ACM SIGCOMM</i>, 2013.<br />
-<div class="outline-text-5" id="text-org81d7169">
+<li><a id="org8b3c9bd"></a>Jain et al.: <b><a href="http://doi.acm.org/10.1145/2486001.2486019">B4: Experience with a Globally-deployed Software Defined Wan</a></b>, <i>ACM SIGCOMM</i>, 2013.<br />
+<div class="outline-text-5" id="text-org8b3c9bd">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2657,8 +2677,8 @@ silicon.
 </div>
 </li>
 
-<li><a id="orgfaca716"></a>Qazi et al.: <b><a href="http://doi.acm.org/10.1145/3098822.3098848">A High Performance Packet Core for Next Generation Cellular Networks</a></b>, <i>ACM SIGCOMM</i>, 2017.<br />
-<div class="outline-text-5" id="text-orgfaca716">
+<li><a id="orgba40771"></a>Qazi et al.: <b><a href="http://doi.acm.org/10.1145/3098822.3098848">A High Performance Packet Core for Next Generation Cellular Networks</a></b>, <i>ACM SIGCOMM</i>, 2017.<br />
+<div class="outline-text-5" id="text-orgba40771">
 <pre class="example">
 RELEVANCE: important
 </pre>
@@ -2683,7 +2703,7 @@ components of the design.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Roberto Bifulco, Stefan Schmid, Gábor Rétvári</p>
-<p class="date">Created: 2018-12-27 Thu 19:19</p>
+<p class="date">Created: 2019-04-09 Tue 16:36</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

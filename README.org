@@ -223,6 +223,21 @@ the environment.
 An easily approachable survey on higher-level abstractions for creating and
 composing packet processing applications using the Frenetic framework.
 
+**** Anderson et al.: *[[http://hdl.handle.net/1813/34445][NetKAT: Semantic Foundations for Networks]]*, /ACM POPL/, 2014.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+The paper contributes just what is stated in the title, a new network
+programming language called NetKAT that is based on a solid
+mathematical foundation. Formerly, the design of network dataplane
+programming languages was largely ad hoc, driven more by the needs of
+applications and the capabilities of network hardware than by
+foundational principles.  NetKAT solves this problem by (1) proposing
+primitives for filtering, modifying, and transmitting packets,
+operators for combining programs in parallel and in sequence, and a
+Kleene star operator for iteration, and (2) presenting a series of
+proofs that the language is sound and complete.
+
 **** Bonelli et al.: *[[http://doi.acm.org/10.1145/2658260.2658269][A Purely Functional Approach to Packet Processing]]*, /IEEE/ACM ANCS/, 2014.
      :PROPERTIES:
      :RELEVANCE: interesting
