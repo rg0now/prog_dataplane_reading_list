@@ -1274,6 +1274,22 @@ link failures. Three fundamentally different mechanisms are described:
 simple stateless mechanisms, efficient mechanisms based on packet tagging,
 and mechanisms based on dynamic state at the switches.
 
+**** Thomas Holterbach et al.: *[[https://www.usenix.org/conference/nsdi19/presentation/holterbach][Blink: Fast Connectivity Recovery Entirely in the Data Plane]]*, /USENIX NSDI/, 2019.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The paper explores new possibilities, created by programmable
+switches, for fast dataplane-driven rerouting upon signals triggered
+by traffic disruptions. The proposed method, Blink, uses exploits
+TCP-induced signals to detect failures; when compounded over multiple
+flows, TCP behavior creates a strong and characteristic failure
+signal. Blink analyzes TCP flows, at line rate, to reliably and
+quickly detect major traffic disruptions and recover data-plane
+connectivity.  Evaluation results on a P4 implementation of Blink
+running on real Tofino switch indicate that it can achieve sub-second
+rerouting for realistic Internet traffic and scales to protect large
+fractions of realistic traffic.
+
 ** In-network Computation
 
 Offloading computation, on‐path aggregation functionalities, caching, or
