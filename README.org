@@ -1187,6 +1187,18 @@ for control plane actions, in particular, inserting, modifying, or deleting
 rules. Hermes provides these guarantees by trading-off a nominal amount of
 TCAM space for assured performance.
 
+**** Jepsen et al.: *[[http://doi.acm.org/10.1145/3314148.3314356][Fast String Searching on PISA]]*, /ACM SOSR/, 2019.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper presents PPS, an algorithm for locating occurrences of
+string keywords in the payload of packets using programmable network
+ASICs. PPS converts the string search problem into a Deterministic
+Finite Automata (DFA) representation and then maps the DFA into a
+sequence of forwarding tables implemented in the switch pipeline. The
+evaluations show that PPS demonstrates significantly higher throughput
+and lower latency than CPUs, GPUs, or FPGAs.
+
 * Applications
 
 A main motivation for programmable data planes are the novel applications
