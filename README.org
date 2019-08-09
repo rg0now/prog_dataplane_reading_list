@@ -1741,6 +1741,18 @@ reorganized for efficient access to this consolidated state. A prototype
 for PEPC is also presented, as a software EPC that implements the key
 components of the design.
 
+** Simulators and evaluation platforms
+
+**** Bai et al.: *[[http://doi.acm.org/10.1145/3185467.3185470][NS4: Enabling Programmable Data Plane Simulation]]*, /ACM SOSR/, 2018.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper presents a new simulator platform on top of ns-3
+specifically tailored to programmable dataplanes and P4 in
+particular. Evaluations show tht NS4 can effectively simulate
+representative P4 programs and scales to large-scale P4-enabled
+networks at a low cost.
+
 * COMMENT Local variables
 # Local variables:
 # eval: (setq reftex-cite-format "%A et al.: *[[%U][%t]]*, /%h/, %y.\n")
