@@ -483,6 +483,19 @@ the NFV context. State is organized as a distributed shared object (DSO)
 space, extended with techniques designed to meet the need for elasticity
 and high-performance in NFV workloads.
 
+**** Salvatore Pontarelli et al.: *[[https://www.usenix.org/conference/nsdi19/presentation/pontarelli][FlowBlaze: Stateful Packet Processing in Hardware]]*, /USENIX NSDI/, 2019.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+FlowBlaze is an open abstraction for building stateful packet
+processing functions in hardware. The abstraction is based on Extended
+Finite State Machines and introduces the explicit definition of flow
+state, allowing FlowBlaze to leverage flow-level parallelism.  The
+paper presents an implementation of FlowBlaze on a NetFPGA SmartNIC
+that achieves latency on the order of a few microseconds, consumes
+relatively little power, can hold per-flow state for hundreds of
+thousands of flows, and yields speeds of 40 Gbps.
+
 ** Programmable Parsing and Scheduling
 
 We start by reviewing design principles for packet parsers.
@@ -1448,7 +1461,7 @@ rack level, handling requests directed to the rack's server. The
 implementation deals with consistency problems and shows how to overcome
 the constraints of hardware to provide throughput and latency improvements.
 
-**** Li et al.: *[[http://doi.acm.org/10.1145/3132747.3132756][{KV-Direct}: High-Performance In-Memory Key-Value Store with Programmable {NIC}]]*, /ACM SOSP/, 2017.
+**** Li et al.: *[[http://doi.acm.org/10.1145/3132747.3132756][KV-Direct: High-Performance In-Memory Key-Value Store with Programmable NIC]]*, /ACM SOSP/, 2017.
      :PROPERTIES:
      :RELEVANCE: interesting
      :END:
