@@ -1629,6 +1629,39 @@ the switches' forwarding tables accordingly. Experiences with an
 implementation of MBalancer on a hardware-based OpenFlow switch indicate
 significant throughput boost and latency reduction.
 
+** Control plane acceleration
+
+**** Molero et al.: *[[http://doi.acm.org/10.1145/3286062.3286080][Hardware-Accelerated Network Control Planes]]*, /ACM HotNets/, 2018.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+This seminal paper challenges a fundamental design principle of modern
+network architecture that the control plane software-based. With the
+advent of programmable switch ASICs, which can run complex logic at
+line rate, the paper revisits this principle, by accelerating the
+control plane offloading some of its tasks directly to the network
+hardware. Some simple control plane functionality can already be
+successfully offloaded to P4 hardware, including failure detection and
+notification, connectivity retrieval, and even policy-based routing
+protocols, but complex cases involve several tradeoffs and
+limitations; the paper outlines these and sketches interesting future
+research directions towards hardware-software co-design of network
+control planes.
+
+**** Kannan et al.: *[[http://doi.acm.org/10.1145/3314148.3314353][Precise Time-synchronization in the Data-Plane Using Programmable Switching ASICs]]*, /ACM SOSR/, 2019.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+Current implementations of time synchronization protocols, like PTP,
+handle the protocol stack in the control-plane. The paper explores the
+possibility of using programmable switching ASICs to design and
+implement a time synchronization protocol, DPTP, with the core logic
+running in the data-plane. Comprehensive measurement studies running a
+a dataplane-accelerated DPTP implemented in P4 running on a Barefoot
+Tofino switch shows that DPTP can achieve median and 99th percentile
+synchronization error of 19 ns and 47 ns, even under heavy network
+load.
+
 * Miscellaneous Topics
 
 There exists highly recommendable literature on the history of SDN and
