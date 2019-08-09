@@ -1436,6 +1436,18 @@ rack level, handling requests directed to the rack's server. The
 implementation deals with consistency problems and shows how to overcome
 the constraints of hardware to provide throughput and latency improvements.
 
+**** Li et al.: *[[http://doi.acm.org/10.1145/3132747.3132756][{KV-Direct}: High-Performance In-Memory Key-Value Store with Programmable {NIC}]]*, /ACM SOSP/, 2017.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper presents an interesting alternative of NetCache: instead of
+using in-network programmable switches to cache key-value pairs it
+leverages programmable NIC to accelerate key-value stores in an
+"end-to-end" fashion. In particular, KV-Direct extends RDMA using
+programmable NICs to enable remote direct key-value access to the main
+host memory, yielding more than 1.2 billion operations per second
+using 10 parallel NICs.
+
 **** Xin Jin et al.: *[[https://www.usenix.org/conference/nsdi18/presentation/jin][NetChain: Scale-Free Sub-RTT Coordination]]*, /USENIX NSDI/, 2018.
      :PROPERTIES:
      :RELEVANCE: important
