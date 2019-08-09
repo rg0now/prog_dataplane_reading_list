@@ -309,6 +309,18 @@ initial expenditure for an SDN deployment than existing turnkey vendor SDN
 solutions while it yields matching, or even better data plane performance
 for smaller enterprises.
 
+**** Dragos Dumitrescu et al.: *[[https://www.usenix.org/conference/nsdi19/presentation/dumitrescu][Dataplane equivalence and its applications]]*, /USENIX NSDI/, 2019.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The paper presents netdiff, an algorithm to check the equivalence of
+two network dataplanes.  Such an algorithm can be useful to verify and
+compare the output of different dataplane compilers, to find new bugs
+existing network dataplanes, or to check the equivalence of FIB
+updates in a production network. The evaluation shows that equivalence
+is an easy way to find bugs, scales well to relatively large programs
+and uncovers subtle issues otherwise difficult to find.
+
 ** Abstractions for Embedded State
 
 While OpenFlow match/action table abstractions are stateless, there are
@@ -408,7 +420,7 @@ abstraction. Platform independence is accomplished by decoupling the
 implementation of hardware primitives from their usage by an application
 formally described via an abstract XFSM.
 
-**** Junaid Khalid et al.: *[[https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/khalid][Paving the Way for NFV: Simplifying Middlebox Modifications Using StateAlyzr]]*, /USENIX NSDI 16/, 2016.
+**** Junaid Khalid et al.: *[[https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/khalid][Paving the Way for NFV: Simplifying Middlebox Modifications Using StateAlyzr]]*, /USENIX NSDI/, 2016.
      :PROPERTIES:
      :RELEVANCE: interesting
      :END:
@@ -443,7 +455,7 @@ programmability brings about, identifies potential attack scenarios, and
 highlights possible vulnerabilities specific to stateful in-switch
 processing, including denial of service and saturation attacks.
 
-**** Murad Kablan et al.: *[[https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/kablan][Stateless Network Functions: Breaking the Tight Coupling of State and Processing]]*, /USENIX NSDI 17/, 2017.
+**** Murad Kablan et al.: *[[https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/kablan][Stateless Network Functions: Breaking the Tight Coupling of State and Processing]]*, /USENIX NSDI/, 2017.
      :PROPERTIES:
      :RELEVANCE: mustread
      :END:
@@ -459,7 +471,7 @@ the instances for load and failure, manages instances to scale and provide
 resilience, and leverages an OpenFlow-based network to direct traffic to
 instances.
 
-**** Shinae Woo et al.: *[[https://www.usenix.org/conference/nsdi18/presentation/woo][Elastic Scaling of Stateful Network Functions]]*, /USENIX NSDI 18/, 2018.
+**** Shinae Woo et al.: *[[https://www.usenix.org/conference/nsdi18/presentation/woo][Elastic Scaling of Stateful Network Functions]]*, /USENIX NSDI/, 2018.
      :PROPERTIES:
      :RELEVANCE: mustread
      :END:
@@ -1187,7 +1199,7 @@ Reduced latency and improved reaction time is arguably also a key reason
 for consensus applications.  Furthermore, measurement applications benefit
 from the fact that they can be expressed in terms of simple primitives
 (e.g., sketches).  We also note that such applications are not limited to
-be ``performed (only) in the network'': for example, telemetry can (and
+be "performed (only) in the network": for example, telemetry can (and
 today often does) occur outside the network. That said, telemetry
 applications also benefit from the new visibility into the network, e.g.,
 queues occupation levels of the switches along the path.  Many interesting
