@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-08-09 Fri 21:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Programmable Data Plane: Reading List</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Roberto Bifulco, Stefan Schmid, Gábor Rétvári" />
+<meta name="description" content="The Programmable Data Plane Reading List"
+ />
+<meta name="keywords" content="programmable switch,software-defined networks,SDN,OpenFlow,P4" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="js/readtheorg.js"></script>
+<style>.example{border:0px solid; background:#ffffff; padding:0px; margin-top:0px;margin-bottom:0px;font-family:"Bitstream Vera Sans", Verdana, sans-serif;font-style: italic;}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">The Programmable Data Plane: Reading List</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga6c6e11">Abstractions</a>
+<ul>
+<li><a href="#orge31e9ef">Languages and Compilers</a>
+<ul>
+<li><a href="#orgeec1fc1">Low-level APIs</a></li>
+<li><a href="#org56488d3">High-level Languages and Compilers</a></li>
+</ul>
+</li>
+<li><a href="#org65e6d36">Abstractions for Embedded State</a></li>
+</ul>
+</li>
+<li><a href="#org898d689">Architecture</a>
+<ul>
+<li><a href="#orge447d6b">Software Switch Architectures</a>
+<ul>
+<li><a href="#orgf0559fb">Viability of Software Switching</a></li>
+<li><a href="#org3ba356b">The Dataflow Graph Abstraction</a></li>
+<li><a href="#org53e869f">The Match-action Abstraction</a></li>
+</ul>
+</li>
+<li><a href="#org5cf36d9">Hardware Switch Architectures</a></li>
+</ul>
+</li>
+<li><a href="#org5555ad1">Algorithms &amp; HW Realizations</a></li>
+<li><a href="#org3a0a0c4">Applications</a>
+<ul>
+<li><a href="#orgad6e53e">In-network Computation</a></li>
+<li><a href="#org79d8cc7">Monitoring, Telemetry, and Measurement</a></li>
+<li><a href="#org8240f80">Load balancing</a></li>
+<li><a href="#orgf471651">Control plane acceleration</a></li>
+</ul>
+</li>
+<li><a href="#org606d80e">Miscellaneous Topics</a>
+<ul>
+<li><a href="#orga94f6a2">History</a></li>
+<li><a href="#org5ed8ef8">Deployments</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+<i>See the <a href="https://rg0now.github.io/prog_dataplane_reading_list/README.html">HTML version</a> for a nicely formatted version.</i>
+</p>
+
+<p>
+This is a reading list for students, practitioners, and researchers
+interested in the general area of programmable data plane devices. Topics
+include SmartNICs, programmable middleboxes and software/hardware switches,
+that is, everything that may underlie a software-defined network, with only
+a marginal attention to the major application areas like Network Function
+Virtualization, service chaining, or 5G.
+</p>
+
+<p>
+The reading list completes the survey paper:
+</p>
+
+<p>
+Roberto Bifulco and Gábor Rétvári:
+<a href="https://rg0now.github.io/prog_dataplane_reading_list/2018_HPSR.pdf">A Survey on the Programmable Data Plane: Abstractions, Architectures, and Open Problems</a>,
+in <i>IEEE HPSR</i>, 2018.
+</p>
+
+<p>
+The reading list is organized into a rough hierarchy based on the major
+topics of <i>Abstractions</i>, <i>Architecture</i>, <i>Applications</i>, and
+<i>Miscellanea</i>; note that this hierarchy is more or less arbitrary and the
+purpose is just to have <i>some</i> organization at all. The individual papers
+are tagged as "mustread", "important", and "interesting" (available only in
+the HTML version), with the approximate meaning "read at least these papers
+to get a good understanding of the area", "papers for getting more familiar
+with some sub-areas", and "interesting contributions to the field",
+respectively. Just like the hierarchy, the tags are also pretty much
+arbitrary and follow the subjective view of the authors; as always, your
+mileage may vary.
+</p>
+
+<p>
+<i>Note:</i> Some of the linked papers are behind paywalls. We double-checked
+that all listed papers can be accessed freely by a moderate amount of
+googling; we still provide the paywall links as user-provided PDFs often do
+not prove overly stable over time.
+</p>
+
+<div id="outline-container-orga6c6e11" class="outline-2">
+<h2 id="orga6c6e11">Abstractions</h2>
+<div class="outline-text-2" id="text-orga6c6e11">
+</div>
+<div id="outline-container-orge31e9ef" class="outline-3">
+<h3 id="orge31e9ef">Languages and Compilers</h3>
+<div class="outline-text-3" id="text-orge31e9ef">
+</div>
+<div id="outline-container-orgeec1fc1" class="outline-4">
+<h4 id="orgeec1fc1">Low-level APIs</h4>
+<div class="outline-text-4" id="text-orgeec1fc1">
+</div>
+<ul class="org-ul">
+<li><a id="orgef0bdd6"></a>McKeown et al.: <b><a href="http://doi.acm.org/10.1145/1355734.1355746">OpenFlow: Enabling Innovation in Campus Networks</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2008.<br /></li>
+
+<li><a id="org4e17d58"></a>Bosshart et al.: <b><a href="http://www.sigcomm.org/sites/default/files/ccr/papers/2014/July/0000000-0000004.pdf">P4: Programming protocol-independent packet processors</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2014.<br /></li>
+
+<li><a id="org81426cb"></a>Bifulco et al.: <b><a href="http://doi.acm.org/10.1145/2890955.2890962">Improving SDN with InSPired Switches</a></b>, <i>ACM SOSR</i>, 2016.<br /></li>
+</ul>
+</div>
+
+<div id="outline-container-org56488d3" class="outline-4">
+<h4 id="org56488d3">High-level Languages and Compilers</h4>
+<div class="outline-text-4" id="text-org56488d3">
+</div>
+<ul class="org-ul">
+<li><a id="org8b37588"></a>Curtis et al.: <b><a href="https://conferences.sigcomm.org/sigcomm/2011/papers/sigcomm/p254.pdf">DevoFlow: scaling flow management for high-performance networks</a></b>, <i>SIGCOMM CCR</i>, 2011.<br /></li>
+
+<li><a id="org2ea3256"></a>Christopher Monsanto et al.: <b><a href="https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final232.pdf">Composing Software Defined Networks</a></b>, <i>USENIX NSDI</i>, 2013.<br /></li>
+
+<li><a id="org8d856e0"></a>Foster et al.: <b><a href="http://frenetic-lang.org/publications/overview-ieeecoms13.pdf">Languages for software-defined networks</a></b>, <i>IEEE Communications Magazine</i>, 2013.<br /></li>
+
+<li><a id="org5b823bd"></a>Anderson et al.: <b><a href="http://hdl.handle.net/1813/34445">NetKAT: Semantic Foundations for Networks</a></b>, <i>ACM POPL</i>, 2014.<br /></li>
+
+<li><a id="org85c0ae8"></a>Lavanya Jose et al.: <b><a href="https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/jose">Compiling Packet Programs to Reconfigurable Switches</a></b>, <i>USENIX NSDI</i>, 2015.<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org65e6d36" class="outline-3">
+<h3 id="org65e6d36">Abstractions for Embedded State</h3>
+<div class="outline-text-3" id="text-org65e6d36">
+</div>
+<ul class="org-ul">
+<li><a id="org1bdb2b2"></a>Bianchi et al.: <b><a href="http://doi.acm.org/10.1145/2602204.2602211">OpenState: Programming Platform-independent Stateful Openflow Applications Inside the Switch</a></b>, <i>ACM SIGCOMM Comput. Commun. Rev.</i>, 2014.<br /></li>
+
+<li><a id="orgfb3ae40"></a>Murad Kablan et al.: <b><a href="https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/kablan">Stateless Network Functions: Breaking the Tight Coupling of State and Processing</a></b>, <i>USENIX NSDI</i>, 2017.<br /></li>
+
+<li><a id="org4d940ba"></a>Shinae Woo et al.: <b><a href="https://www.usenix.org/conference/nsdi18/presentation/woo">Elastic Scaling of Stateful Network Functions</a></b>, <i>USENIX NSDI</i>, 2018.<br /></li>
+
+<li><a id="orgd51d1d0"></a>Salvatore Pontarelli et al.: <b><a href="https://www.usenix.org/conference/nsdi19/presentation/pontarelli">FlowBlaze: Stateful Packet Processing in Hardware</a></b>, <i>USENIX NSDI</i>, 2019.<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org898d689" class="outline-2">
+<h2 id="org898d689">Architecture</h2>
+<div class="outline-text-2" id="text-org898d689">
+</div>
+<div id="outline-container-orge447d6b" class="outline-3">
+<h3 id="orge447d6b">Software Switch Architectures</h3>
+<div class="outline-text-3" id="text-orge447d6b">
+</div>
+<div id="outline-container-orgf0559fb" class="outline-4">
+<h4 id="orgf0559fb">Viability of Software Switching</h4>
+<div class="outline-text-4" id="text-orgf0559fb">
+</div>
+<ul class="org-ul">
+<li><a id="org990900b"></a>Greenhalgh et al.: <b><a href="http://www.sigcomm.org/sites/default/files/ccr/papers/2009/April/1517480-1517484.pdf">Flow Processing and the Rise of Commodity Network Hardware</a></b>, <i>SIGCOMM Comput. Commun. Rev.</i>, 2009.<br /></li>
+</ul>
+</div>
+
+<div id="outline-container-org3ba356b" class="outline-4">
+<h4 id="org3ba356b">The Dataflow Graph Abstraction</h4>
+<div class="outline-text-4" id="text-org3ba356b">
+</div>
+<ul class="org-ul">
+<li><a id="org260eaac"></a>Morris et al.: <b><a href="https://pdos.csail.mit.edu/papers/click:tocs00/paper.pdf">The Click modular router</a></b>, <i>ACM Trans. on Computer Systems</i>, 2000.<br /></li>
+
+<li><a id="orgea4f61d"></a>Martins et al.: <b><a href="https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-martins.pdf">ClickOS and the Art of Network Function Virtualization</a></b>, <i>USENIX NSDI</i>, 2014.<br /></li>
+</ul>
+</div>
+
+<div id="outline-container-org53e869f" class="outline-4">
+<h4 id="org53e869f">The Match-action Abstraction</h4>
+<div class="outline-text-4" id="text-org53e869f">
+</div>
+<ul class="org-ul">
+<li><a id="org6369f72"></a>Ben Pfaff et al.: <b><a href="https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/pfaff">The Design and Implementation of Open vSwitch</a></b>, <i>USENIX NSDI</i>, 2015.<br /></li>
+
+<li><a id="org19bc617"></a>Molnár et al.: <b><a href="http://doi.acm.org/10.1145/2934872.2934887">Dataplane Specialization for High-performance OpenFlow Software Switching</a></b>, <i>ACM SIGCOMM</i>, 2016.<br /></li>
+
+<li><a id="org385d3c4"></a>Michael Dalton et al.: <b><a href="https://www.usenix.org/conference/nsdi18/presentation/dalton">Andromeda: Performance, Isolation, and Velocity at Scale in Cloud Network Virtualization</a></b>, <i>USENIX NSDI</i>, 2018.<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5cf36d9" class="outline-3">
+<h3 id="org5cf36d9">Hardware Switch Architectures</h3>
+<div class="outline-text-3" id="text-org5cf36d9">
+</div>
+<ul class="org-ul">
+<li><a id="org4110b93"></a>De Carli et al.: <b><a href="http://doi.acm.org/10.1145/1592568.1592593">PLUG: Flexible Lookup Modules for Rapid Deployment of New Protocols in High-speed Routers</a></b>, <i>ACM SIGCOMM</i>, 2009.<br /></li>
+
+<li><a id="orgc4850f4"></a>Bosshart et al.: <b><a href="http://doi.acm.org/10.1145/2486001.2486011">Forwarding Metamorphosis: Fast Programmable Match-action Processing in Hardware for SDN</a></b>, <i>ACM SIGCOMM</i>, 2013.<br /></li>
+
+<li><a id="org93d7c09"></a>Kuzniar et al.: <b><a href="https://infoscience.epfl.ch/record/199497/files/switches-tr-oct14_1.pdf">What You Need to Know About SDN Control and Data Planes</a></b>, <i>EPFL Technical Report 199497</i>, 2014.<br /></li>
+
+<li><a id="orgf937a89"></a>Daniel Firestone et al.: <b><a href="https://www.usenix.org/conference/nsdi18/presentation/firestone">Azure Accelerated Networking: SmartNICs in the Public Cloud</a></b>, <i>USENIX NSDI</i>, 2018.<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5555ad1" class="outline-2">
+<h2 id="org5555ad1">Algorithms &amp; HW Realizations</h2>
+<div class="outline-text-2" id="text-org5555ad1">
+</div>
+<ul class="org-ul">
+<li><a id="org9558db1"></a>Srinivasan et al.: <b><a href="http://doi.acm.org/10.1145/316188.316216">Packet Classification Using Tuple Space Search</a></b>, <i>ACM SIGCOMM</i>, 1999.<br /></li>
+
+<li><a id="orgd046215"></a>Fu et al.: <b><a href="http://doi.acm.org/10.1145/1544012.1544033">Efficient IP-address Lookup with a Shared Forwarding Table for Multiple Virtual Routers</a></b>, <i>ACM CoNEXT</i>, 2008.<br /></li>
+
+<li><a id="orgf005745"></a>Rétvári et al.: <b><a href="http://doi.acm.org/10.1145/2486001.2486009">Compressing IP Forwarding Tables: Towards Entropy Bounds and Beyond</a></b>, <i>ACM SIGCOMM</i>, 2013.<br /></li>
+</ul>
+</div>
+
+<div id="outline-container-org3a0a0c4" class="outline-2">
+<h2 id="org3a0a0c4">Applications</h2>
+<div class="outline-text-2" id="text-org3a0a0c4">
+</div>
+<div id="outline-container-orgad6e53e" class="outline-3">
+<h3 id="orgad6e53e">In-network Computation</h3>
+<div class="outline-text-3" id="text-orgad6e53e">
+</div>
+<ul class="org-ul">
+<li><a id="org8345438"></a>Mai et al.: <b><a href="https://dl.acm.org/citation.cfm?id=2674996">Netagg: Using middleboxes for application-specific on-path aggregation in data centres</a></b>, <i>ACM CoNEXT</i>, 2014.<br /></li>
+
+<li><a id="orgd948f2c"></a>Sanvito et al.: <b><a href="https://dl.acm.org/citation.cfm?id=3229594">Can the Network Be the AI Accelerator</a></b>, <i>SIGCOMM NetCompute</i>, 2018.<br /></li>
+</ul>
+</div>
+
+<div id="outline-container-org79d8cc7" class="outline-3">
+<h3 id="org79d8cc7">Monitoring, Telemetry, and Measurement</h3>
+<div class="outline-text-3" id="text-org79d8cc7">
+</div>
+<ul class="org-ul">
+<li><a id="org207f1bb"></a>Kim et al.: <b><a href="https://p4.org/assets/INT-current-spec.pdf">In-band Network Telemetry (INT)</a></b>, <i>P4 Consortium</i>, 2015.<br /></li>
+</ul>
+</div>
+
+<div id="outline-container-org8240f80" class="outline-3">
+<h3 id="org8240f80">Load balancing</h3>
+<div class="outline-text-3" id="text-org8240f80">
+</div>
+<ul class="org-ul">
+<li><a id="org06de9be"></a>Katta et al.: <b><a href="https://conferences.sigcomm.org/sosr/2016/papers/sosr_paper67.pdf">Hula: Scalable load balancing using programmable data planes</a></b>, <i>ACM SOSR</i>, 2016.<br /></li>
+</ul>
+</div>
+
+<div id="outline-container-orgf471651" class="outline-3">
+<h3 id="orgf471651">Control plane acceleration</h3>
+<div class="outline-text-3" id="text-orgf471651">
+</div>
+<ul class="org-ul">
+<li><a id="org3c6f3f7"></a>Molero et al.: <b><a href="http://doi.acm.org/10.1145/3286062.3286080">Hardware-Accelerated Network Control Planes</a></b>, <i>ACM HotNets</i>, 2018.<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org606d80e" class="outline-2">
+<h2 id="org606d80e">Miscellaneous Topics</h2>
+<div class="outline-text-2" id="text-org606d80e">
+</div>
+<div id="outline-container-orga94f6a2" class="outline-3">
+<h3 id="orga94f6a2">History</h3>
+<div class="outline-text-3" id="text-orga94f6a2">
+</div>
+<ul class="org-ul">
+<li><a id="orge988035"></a>Feamster et al.: <b><a href="http://doi.acm.org/10.1145/2559899.2560327">The Road to SDN</a></b>, <i>ACM Queue</i>, 2013.<br /></li>
+
+<li><a id="orgd4b7088"></a>Nick McKeown et al.: <b><a href="https://conferences.sigcomm.org/sigcomm/2017/files/program-netpl/01-mckeown.pptx">Programmable Forwarding Planes are Here to Stay</a></b>, <i>ACM SIGCOMM NetPL</i>, 2017.<br /></li>
+</ul>
+</div>
+
+<div id="outline-container-org5ed8ef8" class="outline-3">
+<h3 id="org5ed8ef8">Deployments</h3>
+<div class="outline-text-3" id="text-org5ed8ef8">
+</div>
+<ul class="org-ul">
+<li><a id="orge054c16"></a>Casado et al.: <b><a href="http://doi.acm.org/10.1145/1282380.1282382">Ethane: Taking Control of the Enterprise</a></b>, <i>ACM SIGCOMM</i>, 2007.<br /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Roberto Bifulco, Stefan Schmid, Gábor Rétvári</p>
+<p class="date">Created: 2019-08-09 Fri 21:14</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
