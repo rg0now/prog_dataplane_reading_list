@@ -646,17 +646,6 @@ features that support batched packet processing, memory structures
 optimized for offloading to coprocessors, and asynchronous scheduling with
 in-order completion.
 
-**** Sangjin Han et al.: *[[http://www.eecs.berkeley.edu/Pubs/TechRpts/2015/EECS-2015-155.pdf][SoftNIC: A Software NIC to Augment Hardware]]*, /unpublished manuscript/, 2015.
-     :PROPERTIES:
-     :RELEVANCE: important
-     :END:
-SoftNIC is a hybrid software-hardware architecture to bridge the gap
-between limited hardware capabilities and ever changing user
-demands. SoftNIC provides a programmable platform that allows applications
-to leverage NIC features implemented in software and hardware, without
-sacrificing performance. This paper serves the foundation for the BESS
-software switch.
-
 **** Martins et al.: *[[https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-martins.pdf][ClickOS and the Art of Network Function Virtualization]]*, /USENIX NSDI/, 2014.
      :PROPERTIES:
      :RELEVANCE: mustread
@@ -1022,19 +1011,6 @@ rules with overlapping patterns. Rather long dependency chains must be
 broken to cache smaller groups of rules while preserving the semantics of
 the policy.
 
-**** Kaufmann et al.: *[[http://doi.acm.org/10.1145/2954679.2872367][High Performance Packet Processing with FlexNIC]]*, /ACM SIGPLAN Not./, 2016.
-     :PROPERTIES:
-     :RELEVANCE: interesting
-     :END:
-The authors argue that the primary reason for high memory and processing
-overheads inherent to packer processing applications is the inefficient use
-of the memory and I/O resources by commodity network interface cards
-(NICs). They propose FlexNIC, a flexible network DMA interface that can be
-used to reduce packet processing overheads; FlexNIC allows services to
-install packet processing rules into the NIC, which then executes simple
-operations on packets while exchanging them with host memory. This moves
-some of the packet processing traditionally done in software to the NIC,
-where it can be done flexibly and at high speed.
 
 **** Younghwan Go et al.: *[[https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/go][APUNet: Revitalizing GPU as Packet Processing Accelerator]]*, /USENIX NSDI/, 2017.
      :PROPERTIES:
@@ -1053,6 +1029,108 @@ capacity of GPU while CPU-based optimizations fail to help, and (b) the
 relative performance advantage of CPU over GPU in most applications is due
 to data transfer bottleneck in PCIe communication of discrete GPU rather
 than lack of capacity of GPU itself.
+
+** Programmable NICs
+
+**** Pravin Shinde et al.: *[[https://www.usenix.org/conference/hotos13/we-need-talk-about-nics][We Need to Talk About NICs]]*, /USENIX HotOS/, 2013.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+The paper's aim is to reinvigorate the discussion on the design of
+network interface cards (NICs) in the network and OS community. The
+authors argue that currently operating systems fail to efficiently
+exploit and manage the considerable hardware resources provided by
+modern network interface controllers. They then describe Dragonet, a
+network stack that represents both the physical capabilities of the
+network hardware and the current protocol state of the machine as
+dataﬂow graphs.
+
+**** Zilberman et al.: *[[https://ieeexplore.ieee.org/document/6866035][NetFPGA SUME: Toward 100 Gbps as Research Commodity]]*, /IEEE Micro/, 2014.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+The paper presents a reference design and implementation for a
+programmable NIC that is in wide-scale use today as an accessible
+development environment that both reuses existing codebases and
+enables new designs. NetFPGA SUME is an FPGA-based PCI Express board
+with I/O capabilities for 100 Gbps operation as a network interface
+card, multiport switch, firewall, or test and measurement environment.
+
+**** Sangjin Han et al.: *[[http://www.eecs.berkeley.edu/Pubs/TechRpts/2015/EECS-2015-155.pdf][SoftNIC: A Software NIC to Augment Hardware]]*, /unpublished manuscript/, 2015.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+SoftNIC is a hybrid software-hardware architecture to bridge the gap
+between limited hardware capabilities and ever changing user
+demands. SoftNIC provides a programmable platform that allows applications
+to leverage NIC features implemented in software and hardware, without
+sacrificing performance. This paper serves the foundation for the BESS
+software switch.
+
+**** Kaufmann et al.: *[[http://doi.acm.org/10.1145/2954679.2872367][High Performance Packet Processing with FlexNIC]]*, /ACM SIGPLAN Not./, 2016.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The authors argue that the primary reason for high memory and
+processing overheads inherent to packet processing applications is the
+inefficient use of the memory and I/O resources by commodity
+NICs. They propose FlexNIC, a flexible network DMA interface that can
+be used to reduce packet processing overheads; FlexNIC allows services
+to install packet processing rules into the NIC, which then executes
+simple operations on packets while exchanging them with host
+memory. This moves some of the packet processing traditionally done in
+software to the NIC, where it can be done flexibly and at high speed.
+
+**** Phitchaya Mangpo Phothilimthana et al.: *[[https://www.usenix.org/conference/osdi18/presentation/phothilimthana][Floem: A Programming System for NIC-Accelerated Network Applications]]*, /USENIX OSDI/, 2018.
+     :PROPERTIES:
+     :RELEVANCE: interesting
+     :END:
+The paper presents Floem, a set of programming abstractions for
+NIC-accelerated applications to ease developing server applications
+that offload computation and data to a NIC accelerator. Floem
+simplifies typical offloading issues, like data placement and caching,
+partitioning of code and its parallelism, and communication strategies
+between program components across devices, by providing language-level
+abstractions for logical and physical queues, global per-packet state,
+remote caching; and interfacing with external application code. The
+paper also presents evaluations to demonstrate how these abstractions
+help explore a space of NIC-offloading designs for real-world
+applications, including a key-value store and a distributed real-time
+data analytics system.
+
+**** Liu et al.: *[[http://doi.acm.org/10.1145/3341302.3342079][Offloading Distributed Applications Onto SmartNICs Using iPipe]]*, /ACM SIGCOMM/, 2019.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The paper presents iPipe, a generic actor-based offloading framework
+to run distributed applications on commodity SmartNICs. The paper
+details the iPipe design, built around a hybrid scheduler that
+combines first-come-first-served with deficit round-robin policies to
+schedule offloading tasks at microsecond-scale precision on SmartNICs,
+and presents 3 custom-built use cases, a real-time data analytics
+engine, a distributed transaction system, and a replicated key-value
+store, to show that SmartNIC offloading brings about significant
+performance benefits in terms of traffic control, computing
+capability, onboard memory, and host communication.
+
+**** Kumar et al.: *[[http://doi.acm.org/10.1145/3341302.3342093][PicNIC: Predictable Virtualized NIC]]*, /ACM SIGCOMM/, 2019.
+     :PROPERTIES:
+     :RELEVANCE: important
+     :END:
+The paper addresses the noisy neighbor problem in the context of
+NICs. Using data from a major public cloud provider, the paper
+systematically characterizes how performance isolation can break in
+virtualization stacks and finds a fundamental tradeoff between
+isolation and efficiency.  The paper then proposes PicNIC, the
+Predictable Virtualized NIC, a new NIC design that shares resources
+efficiently in the common case while rapidly reacting to ensure
+isolation in order to provide predictable performance for isolated
+workloads. PicNIC builds on three constructs to quickly detect
+isolation breakdown and to enforce it when necessary: CPU-fair
+weighted fair queues at receivers, receiver-driven congestion control
+for backpressure, and sender-side admission control with
+shaping. Evaluations show that this combination ensures isolation for
+VMs at sub-millisecond timescales with negligible overhead.
 
 * Algorithms & HW Realizations
 
