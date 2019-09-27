@@ -571,6 +571,31 @@ where each active flow transmits a single bit of data in every round, which
 allows to transmit packets from multiple queues in approximately sorted
 order.
 
+**** Vishal Shrivastav: *[[https://dl.acm.org/citation.cfm?id=3342090]
+[Fast, Scalable, and Programmable Packet Scheduler in Hardware]]*, /ACM SIGCOMM/, 2019.
+     :PROPERTIES:
+     :RELEVANCE: mustread
+     :END:
+The trend toward  increasing link speeds and slowdown in the scaling of CPU
+speeds, leads to a situation where packet scheduling in software 
+results in lower precision
+and higher CPU utilization.
+While by offloading packet scheduling
+to the hardware (e.g., the NIC), this drawback
+can be overcome, one still would like to 
+retain the flexibility benefits of software packet
+schedulers: packet scheduling in hardware should hence be programmable.
+Shrivastav proposes a generalization of the 
+Push-In-First-Out (PIFO) primitive used by
+state-of-the-art hardware packet schedulers:
+Push-In-Extract-Out (PIEO) maintains an ordered
+list of elements, but allows dequeue from arbitrary positions
+in the list by supporting a programmable predicate-based filtering
+at dequeue.
+PIEO supports most scheduling (work-conserving and
+non-work conserving) algorithms 
+and can be implemented scalably in hardware.
+
 * Architecture
 
 We divide the discussion of switch architectures into software and hardware
