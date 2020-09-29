@@ -15,7 +15,7 @@
 # \bibliography{./prog_data_plane.bib}
 # \bibliographystyle{plain}
 
-/See the [[https://rg0now.github.io/prog_dataplane_reading_list/README.html][HTML version]] for a nicely formatted version and the [[https://rg0now.github.io/prog_dataplane_reading_list/README_mustread.html][shortened list]] for the most relevant papers./
+/The Programmable Data Plane Reading list has been permanently moved to its new home [[https://programmabledataplane.review][programmabledataplane.review]]. This repo is no longer maintained, please direct your pull requests to the new [[https://github.com/programmabledataplanereview/programmabledataplanereview.github.io][github repo]]./
 
 This is a reading list for students, practitioners, and researchers
 interested in the general area of programmable data plane devices. Topics
